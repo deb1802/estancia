@@ -1,0 +1,74 @@
+/* Estilos del Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid #ddd;
+    background-color: #f8f9fa;
+}
+
+body {
+    padding-top: 80px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 40px;
+    height: auto;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+h1 .u { color: #E63946; }
+h1 .p { color: #5f055f; }
+h1 .e { color: #F1A208; }
+h1 .m, h1 .o { color: #4CAF50; }
+h1 .v { color: #2D6A4F; }
+
+.text-muted {
+    font-size: 14px;
+    color: rgb(10, 10, 10);
+    margin-left: 8px;
+}
+
+/* Estilos del menú de navegación */
+.nav-link {
+    color: #333;
+    font-weight: 500;
+    margin-right: 20px;
+    display: flex;
+    align-items: center; /* Centra verticalmente el icono y el texto */
+}
+
+.nav-link:hover {
+    color: #4CAF50;
+}
+
+/* Estilos para el círculo de íconos */
+.icon-circle {
+    width: 40px; 
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.icon-circle img {
+    width: 100%; /* Ajusta el tamaño del icono dentro del círculo */
+    height: auto;
+}

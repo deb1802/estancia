@@ -1,0 +1,90 @@
+/* Estructura del contenedor principal */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Se asegura que la altura ocupe toda la pantalla */
+    background-color: #f2f2f2;
+}
+
+.contenedor_login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200px; /* Espacio para que el contenido no se cubra por el header */
+    height: calc(100vh - 100px); /* Ajusta la altura total para que el contenido esté centrado */
+}
+
+.login-box {
+    background: linear-gradient(90deg, #d9e6de, #507ea8);
+    border-radius: 10px;
+    padding: 40px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Título y subtítulo */
+h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+p {
+    color: white;
+    margin-bottom: 30px;
+}
+
+/* Estilos de los campos de entrada */
+.input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.icono {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilos del botón de envío */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #6bd084;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0e8027;
+}
+
+.alert {
+    font-size: 12px;
+    font-family: Arial, Helvetica;
+    line-height: 1.2;
+    padding: 5px;
+    margin: 5px 0;
+    color: #d9534f;
+    display: none; 
+}

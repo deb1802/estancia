@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #f2f2f2;
+    overflow-y: auto; /* Allow vertical scrolling if needed */
+}
+
+.contenedor_login {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the start to accommodate for larger forms */
+    margin-top: 50px; /* Adjust margin to give space from the top */
+    flex-direction: column; /* Allow the login box to stack vertically */
+}
+
+.login-box {
+    background: linear-gradient(90deg, #4CAF50, #509ea8);
+    border-radius: 10px;
+    padding: 40px;
+    width: 450px; /* Control the width of the form */
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+p {
+    color: white;
+    margin-bottom: 30px;
+}
+
+/* Styles for input fields */
+.input {
+    margin-bottom: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Button styles */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #6bd084;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0e8027;
+}
+
+/* Styles for the "User Type" field */
+.input select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.input select:focus {
+    border-color: #b2f6b7;
+    outline: none;
+}
+
+/* Alert styles */
+.alert {
+    font-size: 12px; 
+    font-family: Arial, Helvetica;
+    line-height: 1.0; 
+    padding: 5px;
+    margin: 5px 0;
+    color: #d9534f; /* Color for alerts */
+}
+
+/* Table container */
+.table-container {
+    flex: 1;
+    width: 60%; /* Width adjustment */
+    max-height: 70vh; 
+    overflow-y: auto; 
+}
+
+/* Centered table */
+.centered-table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.centered-table th {
+    background: linear-gradient(90deg, #8ceeb2, #507ea8);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.centered-table td, .centered-table th {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+}
+
+.delete-btn {
+    background-color: #f44336;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+    text-decoration: none;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+    text-decoration: none;
+}
+
+.icon {
+    vertical-align: middle;
+    margin-right: 5px;
+}

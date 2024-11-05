@@ -1,0 +1,100 @@
+/* Estructura del contenedor principal */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+.contenedor_login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    background: linear-gradient(90deg, #64cc8a, #507ea8);
+    border-radius: 10px;
+    padding: 40px;
+    width: 480px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Título y subtítulo */
+h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+p {
+    color: white;
+    margin-bottom: 30px;
+}
+
+/* Estilos de los campos de entrada */
+.input{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.icono {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilos del botón de envío */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #6bd084;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #40e764;
+}
+
+.alert {
+    font-size: 12px; 
+    font-family: Arial, Helvetica;
+    line-height: 1.0; 
+    padding: 5px;
+    margin: 5px 0;
+}
+
+/*Para lo de mostrar contra*/
+.btn_mostrarContra {
+    background-color: transparent; 
+    border: none; 
+    cursor: pointer; 
+    padding: 0; 
+    margin-left: 5px;
+}
+
+.btn_mostrarContra:hover {
+    text-decoration: underline; 
+}

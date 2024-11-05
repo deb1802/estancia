@@ -1,0 +1,51 @@
+/* Centrar la tabla y estilizarla */
+body {
+    padding-top: 90px; /* Ajusta este valor según la altura de tu header */
+}
+.centered-table {
+    margin: 0 auto;
+    text-align: center;
+    border-collapse: collapse;
+    width: 80%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight:lighter;
+}
+
+/* Estilo para el encabezado de la tabla (con degradado) */
+.centered-table {
+    margin: 0 auto;
+    padding-top: 70px; /* Ajusta según la altura del header */
+    text-align: center;
+    border-collapse: collapse;
+    width: 80%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: lighter;
+}
+
+.table-container {
+    margin-top: 90px; /* Ajusta según la altura del header */
+}
+
+
+/* Estilo para las filas de la tabla (en blanco) */
+.centered-table td, .centered-table th {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Estilo para mantener las filas de los datos en blanco */
+.centered-table tbody tr {
+    background-color: white;
+}
+
+.table-primary centered-table{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+/* Opcional: Alternar colores de las filas (puedes descomentarlo si lo necesitas) */
+/*
+.centered-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+*/

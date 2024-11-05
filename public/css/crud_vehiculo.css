@@ -1,0 +1,140 @@
+/* Estructura del contenedor principal */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.main-container {
+    display: flex;
+    width: 90%;
+    gap: 20px;
+    padding-top: 50px;
+}
+
+/* Contenedor del formulario*/
+.form-container {
+    background: linear-gradient(90deg, #8ceeb2, #507ea8);
+    border-radius: 10px;
+    padding: 40px;
+    width: 40%; /*para hacerlo más ancho o menos */
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+p {
+    color: white;
+    margin-bottom: 30px;
+}
+
+/* Campos de entrada */
+.input {
+    margin-bottom: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    font-size: 16px;
+    color: #333;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #6bd084;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0e8027;
+}
+
+.alert {
+    font-size: 12px;
+    color: #d9534f;
+    display: none;
+}
+
+/* Contenedor de la tabla */
+.table-container {
+    flex: 1;
+    width: 30%; /* Ajuste de ancho */
+}
+
+/* Tabla centrada */
+.centered-table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.centered-table th {
+    background: linear-gradient(to right, #8cb6ee, #507ea8);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.centered-table td, .centered-table th {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Botones de acción */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+}
+
+.delete-btn {
+    background-color: #f44336;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+    text-decoration: none;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+    text-decoration: none;
+}
+
+.icon {
+    vertical-align: middle;
+    margin-right: 5px;
+}

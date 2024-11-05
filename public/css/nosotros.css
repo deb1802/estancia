@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 130px 20px 20px;
+    background-color: #ffffff;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.about-image {
+    max-width: 600px; /* Ajusta el tamaño de la imagen */
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+}
+
+.text-content {
+    max-width: 600px; /* Ajusta el ancho del texto */
+}
+
+.title {
+    color: green;
+    font-size: 36px; /* Tamaño grande para el título */
+    margin-bottom: 10px;
+}
+
+.footer-text {
+    font-size: 24px; /* Tamaño del texto de pie de página */
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.highlight-yellow {
+    color: rgb(255, 200, 0);
+}
+
+.highlight-purple {
+    color: purple;
+}
+
+.highlight-red {
+    color: red;
+}
+
+.highlight-green {
+    color: green;
+}
