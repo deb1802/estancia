@@ -1,7 +1,7 @@
 <?php
     $conn = mysqli_connect('localhost','root','','sustentable');
     if(isset($conn)){
-        // echo " hola deba";
+        // echo "Conectado a la base de datos";
     }
 ?>
 
