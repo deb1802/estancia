@@ -1,0 +1,154 @@
+/* Estilos Generales */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+    padding-top: 50px;
+}
+
+.card {
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    background-color: #fff;
+    padding: 25px;
+    border: none;
+}
+
+/* Encabezado de la tarjeta */
+.card-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-header h2 {
+    margin: 0;
+}
+
+/* Estilos para la valoración */
+.star-rating {
+    font-size: 1.5rem;
+    color: #ffc107;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffdd57;
+}
+
+/* Foto de Perfil */
+#fotoPerfil {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    margin-bottom: 15px;
+    border: 4px solid #007bff;
+}
+
+#fotoPerfil:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para el botón de selección de foto */
+.custom-file {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.custom-file input[type="file"] {
+    font-size: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.upload-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Campos de entrada */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+textarea.form-control {
+    resize: vertical;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+/* Botón de Guardar */
+#guardar {
+    width: 100%;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.1rem;
+    border: none;
+}
+
+#guardar:hover {
+    background-color: #218838;
+}
+
+/* Estilos de la tarjeta en móviles */
+@media (max-width: 576px) {
+    .card {
+        padding: 20px;
+    }
+
+    #fotoPerfil {
+        width: 120px;
+        height: 120px;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    #guardar {
+        padding: 10px;
+        font-size: 1rem;
+    }
+}
