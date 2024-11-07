@@ -88,7 +88,7 @@ button:hover {
 
 /*Para lo de mostrar contra*/
 .btn_mostrarContra {
-    background-color: transparent; 
+    background-color:#f2f2f2; 
     border: none; 
     cursor: pointer; 
     padding: 0; 
@@ -96,5 +96,6 @@ button:hover {
 }
 
 .btn_mostrarContra:hover {
-    text-decoration: underline; 
+    text-decoration: none; 
+    background-color: rgb(170, 206, 240);
 }
