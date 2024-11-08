@@ -23,11 +23,11 @@
                 <span class="text-muted ml-1">rutas verdes</span>
             </div>
             <nav class="nav d-flex align-items-center">
-                <a href="index.php" class="nav-link d-flex align-items-center">
+                <a href="../../estancia/index.php" class="nav-link d-flex align-items-center">
                     <div class="icon-circle"><img src="../../estancia/public/img/home1.png" alt="Home"></div>
                     Home
                 </a>
-                <a href="nosotros.php" class="nav-link d-flex align-items-center">
+                <a href="../../estancia/view/nosotros.php" class="nav-link d-flex align-items-center">
                     <div class="icon-circle"><img src="../../estancia/public/img/info.png" alt="Acerca de Nosotros"></div>
                     Acerca de Nosotros
                 </a>
@@ -39,7 +39,7 @@
                     <div class="icon-circle"><img src="../../estancia/public/img/condu.png" alt="Conduce"></div>
                     Conduce
                 </a>
-                <a href="login.php" class="nav-link d-flex align-items-center">
+                <a href="../../estancia/view/login.php" class="nav-link d-flex align-items-center">
                     <div class="icon-circle"><img src="../../estancia/public/img/log.png" alt="Iniciar Sesión"></div>
                     Login
                 </a>

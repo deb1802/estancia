@@ -43,19 +43,27 @@ async function buscarSugerencias(query, tipo) {
         const suggestionsElement = document.getElementById(`${tipo}-suggestions`);
         suggestionsElement.innerHTML = '';
         
-        data.features.forEach(feature => {
-            const listItem = document.createElement('li');
-            listItem.textContent = feature.place_name;
-            listItem.classList.add('list-group-item');
-            
-            listItem.addEventListener('click', () => {
-                colocarMarcador(feature.geometry.coordinates, tipo);
-                suggestionsElement.innerHTML = '';
-                document.getElementById(tipo).value = feature.place_name;
+        if (data.features.length === 0) {
+            const noResultsItem = document.createElement('li');
+            noResultsItem.textContent = "No se encontraron resultados";
+            noResultsItem.classList.add('list-group-item');
+            suggestionsElement.appendChild(noResultsItem);
+        } else {
+            data.features.forEach(feature => {
+                const listItem = document.createElement('li');
+                listItem.textContent = feature.place_name;
+                listItem.classList.add('list-group-item');
+                
+                listItem.addEventListener('click', () => {
+                    colocarMarcador(feature.geometry.coordinates, tipo);
+                    suggestionsElement.innerHTML = '';
+                    document.getElementById(tipo).value = feature.place_name;
+                    document.getElementById(`${tipo}_seleccionado`).value = feature.place_name; // Actualizar campo oculto
+                });
+                
+                suggestionsElement.appendChild(listItem);
             });
-            
-            suggestionsElement.appendChild(listItem);
-        });
+        }
     } catch (error) {
         console.error("Error al obtener sugerencias:", error);
     }
@@ -82,9 +90,15 @@ function colocarMarcador(coordenadas, tipo) {
 
 // Event listeners para campos de entrada
 document.getElementById('origen').addEventListener('input', (event) => {
+    if (event.target.value.trim() === "") {
+        document.getElementById('origen-suggestions').innerHTML = '';
+    }
     buscarSugerencias(event.target.value, 'origen');
 });
 
 document.getElementById('destino').addEventListener('input', (event) => {
+    if (event.target.value.trim() === "") {
+        document.getElementById('destino-suggestions').innerHTML = '';
+    }
     buscarSugerencias(event.target.value, 'destino');
 });

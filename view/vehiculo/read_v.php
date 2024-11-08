@@ -4,22 +4,17 @@ include "../conductor/header_conductor.php";
 include "../../model/db.php";
 include "../vehiculo/confirmacion_delete.php";
 
-$link_rel = "../../public/css/read_v.css";
 $id = $_SESSION['id_conductor']; 
-
-// Vincular el archivo CSS para estilo
-echo '<link rel="stylesheet" href="' . $link_rel . '">';
-echo '<link rel="stylesheet" href="../../public/css/updel.css">';
 ?>
 
+<link rel="stylesheet" href="../../public/css/read_v.css">
+<!--<link rel="stylesheet" href="../../public/css/updel.css"> -->
 <script src="../../public/js/modalControl.js"></script>
 
 <!-- Tabla de vehículos -->
 <table class="table-primary centered-table">
     <thead>
         <tr>
-            <th>Id vehículo</th>
-            <th>Id del conductor</th>
             <th>Marca</th> 
             <th>Modelo</th>
             <th>Año</th>
@@ -43,8 +38,6 @@ echo '<link rel="stylesheet" href="../../public/css/updel.css">';
             while ($rows = mysqli_fetch_assoc($exec)) {
                 ?>    
                 <tr>
-                    <td><?php echo $rows['id']; ?></td>
-                    <td><?php echo $rows['idConductor']; ?></td>
                     <td><?php echo $rows['marca']; ?></td>
                     <td><?php echo $rows['modelo']; ?></td>
                     <td><?php echo $rows['anio']; ?></td>

@@ -1,0 +1,55 @@
+.map-container {
+    height: 300px; /* Reducir altura del mapa */
+    width: 100%;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.list-group {
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+/* Personalización del formulario */
+.container {
+    background-color: #e9f7f5; /* Fondo verde claro */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 2px solid #b8e0da;
+}
+
+h2 {
+    color: #11698e; /* Azul intenso */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.form-label {
+    color: #11698e;
+    font-weight: bold;
+}
+
+.form-control {
+    border: 2px solid #b8e0da;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: #6c9f1a;
+    border-color: #1a759f;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #134e6f;
+    border-color: #134e6f;
+}

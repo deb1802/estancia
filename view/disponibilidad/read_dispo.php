@@ -9,7 +9,7 @@ $id = $_SESSION['id_conductor'];
 
 // Vincular el archivo CSS para estilo
 echo '<link rel="stylesheet" href="' . $link_rel . '">';
-echo '<link rel="stylesheet" href="../../public/css/updel.css">';
+//echo '<link rel="stylesheet" href="../../public/css/updel.css">';
 ?>
 <script src="../../public/js/modalControl.js"></script>
 <div class="table-container">

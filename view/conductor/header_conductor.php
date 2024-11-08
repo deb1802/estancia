@@ -27,22 +27,6 @@
                     <div class="icon-circle"><img src="../../public/img/home1.png" alt="Home"></div>
                     Home
                 </a>
-                <a href="../vehiculo/create_vehiculos.php" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/cari.png" alt="Home"></div>
-                    Vehículo
-                </a>
-                <a href="../../view/vehiculo/read_v.php" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
-                    Mis vehículos
-                </a>
-                <a href="../../view/disponibilidad/create_disponibilidad.php" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
-                    Disponibilidad
-                </a>
-                <a href="../../view/disponibilidad/read_dispo.php" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
-                    Disponibilidades
-                </a>
                 <a href="../../controller/logout.php" class="nav-link d-flex align-items-center">
                     <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
                     Cerrar sesión
