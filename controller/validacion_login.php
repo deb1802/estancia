@@ -22,6 +22,7 @@ if (isset($_POST["usuario"]) && isset($_POST["contrasena"])) {
         $_SESSION["usuario"] = $row["usuario"];
         $_SESSION["tipo"] = $row["tipo"];
         $_SESSION["id_conductor"] = $row["id"];
+        $_SESSION["nombre"] = $row["nombre"];
         
         // Redirigir según el tipo de usuario
         switch ($row["tipo"]) {

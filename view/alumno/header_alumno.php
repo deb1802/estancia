@@ -28,20 +28,16 @@
                     Home
                 </a>
                 <a href="#" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/cari.png" alt="Home"></div>
-                    Viajar
-                </a>
-                <a href="#" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
-                    Mis viajes
-                </a>
-                <a href="#" class="nav-link d-flex align-items-center">
                     <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
                     Perfil
                 </a>
+                <a href="../avisos/mostrar_avisos.php" class="nav-link d-flex align-items-center">
+                    <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
+                    Notificaciones
+                </a>
                 <a href="../../controller/logout.php" class="nav-link d-flex align-items-center">
                     <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
-                    Cerrar sesión
+                    Salir
                 </a>
             </nav>
         </div>

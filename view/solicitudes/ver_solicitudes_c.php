@@ -48,7 +48,10 @@
     </div>
 
     <script>
-        function cambiarEstadoSolicitud(idSolicitud, nuevoEstado) {
+      function cambiarEstadoSolicitud(idSolicitud, nuevoEstado) {
+            console.log('ID de solicitud:', idSolicitud);
+            console.log('Nuevo estado:', nuevoEstado);
+
             const data = new URLSearchParams();
             data.append('idSolicitud', idSolicitud);
             data.append('nuevoEstado', nuevoEstado);
@@ -62,8 +65,9 @@
             })
             .then(response => response.json())
             .then(data => {
+                console.log('Respuesta del servidor:', data);
                 if (data.success) {
-                    alert('Estado de la solicitud actualizado correctamente.');
+                    alert(`Estado de la solicitud ${nuevoEstado === 'aceptada' ? 'aceptado' : 'rechazado'} correctamente.`);
                     location.reload(); // Recargar la página para mostrar el cambio
                 } else {
                     alert('Error al actualizar el estado de la solicitud.');
@@ -71,6 +75,8 @@
             })
             .catch(error => console.error('Error:', error));
         }
+
     </script>
+
 </body>
 </html>

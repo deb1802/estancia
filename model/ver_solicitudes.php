@@ -47,33 +47,4 @@ $stmt->execute();
 // Obtener los resultados
 $result = $stmt->get_result();
 $solicitudes = $result->fetch_all(MYSQLI_ASSOC);
-
-// Mostrar los resultados (código comentado para mostrar tarjetas o mensajes)
-/*if ($result->num_rows > 0) {
-    foreach ($solicitudes as $solicitud) {
-        echo "<div class='trayectoria-card'>";
-        echo "<div class='trayectoria-details'>";
-        echo "<h5><strong>Trayectoria:</strong></h5>";
-        echo "<p><strong>Origen:</strong> " . htmlspecialchars($solicitud['origen']) . "</p>";
-        echo "<p><strong>Destino:</strong> " . htmlspecialchars($solicitud['destino']) . "</p>";
-        echo "<h5><strong>Conductor:</strong></h5>";
-        echo "<p><strong>Nombre:</strong> " . htmlspecialchars($solicitud['nombre_conductor']) . "</p>";
-        echo "<p><strong>Vehículo:</strong> " . htmlspecialchars($solicitud['marca']) . " " . htmlspecialchars($solicitud['modelo']) . " (" . htmlspecialchars($solicitud['anio']) . ")</p>";
-        echo "<h5><strong>Alumno Solicitante:</strong></h5>";
-        echo "<p><strong>Nombre:</strong> " . htmlspecialchars($solicitud['nombre_alumno']) . "</p>";
-        echo "<p><strong>Email:</strong> " . htmlspecialchars($solicitud['email_alumno']) . "</p>";
-        echo "<h5><strong>Detalles de la Solicitud:</strong></h5>";
-        echo "<p><strong>Fecha de Solicitud:</strong> " . htmlspecialchars($solicitud['fechaSolicitud']) . "</p>";
-        echo "<p><strong>Estado:</strong> " . ucfirst(htmlspecialchars($solicitud['estado'])) . "</p>";
-        
-        // Botones para cambiar el estado
-        echo "<button class='btn btn-success' onclick='cambiarEstadoSolicitud(" . $solicitud['id'] . ", \"aceptada\")'>Aceptar</button>";
-        echo "<button class='btn btn-danger' onclick='cambiarEstadoSolicitud(" . $solicitud['id'] . ", \"rechazada\")'>Rechazar</button>";
-        echo "</div></div>";
-    }
-} else {
-    echo "<p>No hay solicitudes para mostrar.</p>";
-}
-
-$stmt->close();*/
 ?>
