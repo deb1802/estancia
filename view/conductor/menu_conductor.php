@@ -45,6 +45,14 @@
                     <img src="../../public/img/route-x.svg" alt="Mis Disponibilidades">
                     <span>Trayectorias</span>
                 </div>
+                <div class="dashboard-option" onclick="navigateTo('mis-trayectorias')">
+                    <img src="../../public/img/route-x.svg" alt="Mis Disponibilidades">
+                    <span>Mis Trayectorias</span>
+                </div>
+                <div class="dashboard-option" onclick="navigateTo('mis-solicitudes')">
+                    <img src="../../public/img/route-x.svg" alt="Mis Disponibilidades">
+                    <span>Mis solis</span>
+                </div>
             </main>
         </div>
     <?php

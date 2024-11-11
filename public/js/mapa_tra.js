@@ -29,7 +29,7 @@ const destinoIcon = L.icon({
 let markerOrigen = null;
 let markerDestino = null;
 
-const mapboxToken = 'pk.eyJ1IjoiZGViYTE4MDIiLCJhIjoiY20zN21xcDZsMGljaTJqcHM4bzQ5OGp3aSJ9.eUtcIoaeQZBBruJJs6sV0w';
+const mapboxToken = 'pk.eyJ1IjoiZGViYTE4MDIiLCJhIjoiY20zYWNnc3E2MTJpazJrbjl5ZXdqb2ViYyJ9.L3p5j8qxLFUDUCIewaZrog';
 
 // Función para buscar y mostrar sugerencias
 async function buscarSugerencias(query, tipo) {
@@ -101,4 +101,16 @@ document.getElementById('destino').addEventListener('input', (event) => {
         document.getElementById('destino-suggestions').innerHTML = '';
     }
     buscarSugerencias(event.target.value, 'destino');
+});
+
+// Validar antes de enviar el formulario
+document.querySelector('form').addEventListener('submit', function(event) {
+    // Verificar que los campos de origen y destino no estén vacíos
+    const origenSeleccionado = document.getElementById('origen_seleccionado').value;
+    const destinoSeleccionado = document.getElementById('destino_seleccionado').value;
+    
+    if (!origenSeleccionado || !destinoSeleccionado) {
+        event.preventDefault();  // Evitar que el formulario se envíe
+        alert('Por favor, selecciona ambos el origen y destino en el mapa.');
+    }
 });

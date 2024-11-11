@@ -13,9 +13,16 @@ function navigateTo(page) {
             window.location.href = '../../view/disponibilidad/read_dispo.php';
             break;
         case 'trayectoria':
-                window.location.href = '../../view/trayectoria/create_traye.php';
-                break;
+            window.location.href = '../../view/trayectoria/create_traye_prueba.php';
+             break;
+        case 'mis-trayectorias':
+            window.location.href = '../../view/trayectoria/ver_trayectoria.php';
+            break;
+        case 'mis-solicitudes':
+            window.location.href = '../../view/solicitudes/ver_solicitudes_c.php';
+        break;
         default:
+        
             console.error("Página desconocida");
     }
 }

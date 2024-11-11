@@ -27,6 +27,7 @@ if (isset($_POST["usuario"]) && isset($_POST["contrasena"])) {
         switch ($row["tipo"]) {
             case 'alumno':
                 header("Location: ../view/alumno/menu_alumno.php");
+                $_SESSION["idAlumno"] = $row["id"];
                 exit();
             case 'conductor':
                 header("Location: ../view/conductor/menu_conductor.php");

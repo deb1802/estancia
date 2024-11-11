@@ -31,7 +31,7 @@
                     <div class="icon-circle"><img src="../../estancia/public/img/info.png" alt="Acerca de Nosotros"></div>
                     Acerca de Nosotros
                 </a>
-                <a href="#" class="nav-link d-flex align-items-center">
+                <a href="../../estancia/view/trayectoria/ver_trayectorias_index.php" class="nav-link d-flex align-items-center">
                     <div class="icon-circle"><img src="../../estancia/public/img/cari.png" alt="Viaja"></div>
                     Viaja
                 </a>
