@@ -25,11 +25,7 @@
             <nav class="nav d-flex align-items-center">
                 <a href="../../estancia/index.php" class="nav-link d-flex align-items-center">
                     <div class="icon-circle"><img src="../../estancia/public/img/home1.png" alt="Home"></div>
-                    Home
-                </a>
-                <a href="../../estancia/view/nosotros.php" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../estancia/public/img/info.png" alt="Acerca de Nosotros"></div>
-                    Acerca de Nosotros
+                    Inicio
                 </a>
                 <a href="../../estancia/view/trayectoria/ver_trayectorias_index.php" class="nav-link d-flex align-items-center">
                     <div class="icon-circle"><img src="../../estancia/public/img/cari.png" alt="Viaja"></div>
@@ -39,9 +35,13 @@
                     <div class="icon-circle"><img src="../../estancia/public/img/condu.png" alt="Conduce"></div>
                     Conduce
                 </a>
+                <a href="../../estancia/view/nosotros.php" class="nav-link d-flex align-items-center">
+                    <div class="icon-circle"><img src="../../estancia/public/img/info.png" alt="Acerca de Nosotros"></div>
+                    Nosotros
+                </a>
                 <a href="../../estancia/view/login.php" class="nav-link d-flex align-items-center">
                     <div class="icon-circle"><img src="../../estancia/public/img/log.png" alt="Iniciar Sesión"></div>
-                    Login
+                    Iniciar Sesión
                 </a>
             </nav>
         </div>

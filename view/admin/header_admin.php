@@ -24,23 +24,9 @@
             </div>
             <nav class="nav d-flex align-items-center">
             <a href="../admin/menuadmin.php" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/home1.png" alt="Home"></div>
-                    Home
-                </a>
-                <a href="../usuarios/crud_usuarios.php" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/cari.png" alt="Home"></div>
-                    Usuarios
-                </a>
-                <a href="../vehiculo/crud_vehiculo.php" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
-                    Vehiculos
-                </a>
-                <a href="../../view/vehiculo/read_v.php" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
-                    Perfil
-                </a>
+                    <div class="icon-circle"><img src="../../public/img/return.png" alt="Regresar"></div>
                 <a href="../../controller/logout.php" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
+                    <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Cerrar sesion"></div>
                     Cerrar sesión
                 </a>
             </nav>

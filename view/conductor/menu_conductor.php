@@ -30,7 +30,7 @@
                     <span>Vehículo</span>
                 </div>
                 <div class="dashboard-option" onclick="navigateTo('mis-vehiculos')">
-                    <img src="my-cars-icon.png" alt="Mis Vehículos">
+                    <img src="../../public/img/cars.png" alt="Mis Vehículos">
                     <span>Mis Vehículos</span>
                 </div>
                 <div class="dashboard-option" onclick="navigateTo('disponibilidad')">
@@ -38,20 +38,20 @@
                     <span>Disponibilidad</span>
                 </div>
                 <div class="dashboard-option" onclick="navigateTo('mis-disponibilidades')">
-                    <img src="my-availability-icon.png" alt="Mis Disponibilidades">
+                    <img src="../../public/img/clock.png" alt="Mis Disponibilidades">
                     <span>Mis Disponibilidades</span>
                 </div>
                 <div class="dashboard-option" onclick="navigateTo('trayectoria')">
-                    <img src="../../public/img/route-x.svg" alt="Mis Disponibilidades">
+                    <img src="../../public/img/route-x.svg" alt="Trayectorias">
                     <span>Trayectorias</span>
                 </div>
                 <div class="dashboard-option" onclick="navigateTo('mis-trayectorias')">
-                    <img src="../../public/img/route-x.svg" alt="Mis Disponibilidades">
+                    <img src="../../public/img/map.png" alt="Mis Trayectorias">
                     <span>Mis Trayectorias</span>
                 </div>
                 <div class="dashboard-option" onclick="navigateTo('mis-solicitudes')">
-                    <img src="../../public/img/route-x.svg" alt="Mis Disponibilidades">
-                    <span>Mis solis</span>
+                    <img src="../../public/img/request.png" alt="Mis Solicitudes">
+                    <span>Ver mis solicitudes</span>
                 </div>
             </main>
         </div>
