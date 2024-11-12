@@ -34,7 +34,7 @@ $sql = "
     JOIN trayectorias t ON s.idTrayectoria = t.id
     JOIN usuarios u2 ON t.idConductor = u2.id
     JOIN vehiculos v ON t.idVehiculo = v.id
-    WHERE s.idAlumno = ?;  -- Filtra las solicitudes por idAlumno
+    WHERE s.idAlumno = ?;
 ";
 
 // Preparar la consulta
