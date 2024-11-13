@@ -26,7 +26,6 @@ include "../conductor/header_conductor.php";
                         <option value="Jueves">Jueves</option>
                         <option value="Viernes">Viernes</option>
                         <option value="Sábado">Sábado</option>
-                        <option value="Domingo">Domingo</option>
                     </select>
                 </div>
                 <p class="alert alert-danger" id="errorDia" style="display: none;">
