@@ -9,25 +9,27 @@ body {
     background-color: #f2f2f2;
 }
 
-.main-container {
+.contenedor_login {
     display: flex;
-    width: 90%;
-    gap: 20px;
-    padding-top: 50px;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 200px);
+    margin-top: 150px; /* Ajuste de margen superior */
 }
 
-/* Contenedor del formulario */
-.form-container {
-    background: linear-gradient(90deg, #8ceeb2, #507ea8);
+/* Estilo del formulario */
+.login-box {
+    background: linear-gradient(90deg, #4CAF50, #509ea8);
     border-radius: 10px;
     padding: 40px;
-    width: 35%; /* Controla el ancho del formulario */
+    width: 450px;
     text-align: center;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    position: sticky;
-    top: 50px;
-    align-self: flex-start;
-    margin-left: 20px; /* Ajuste de margen izquierdo */
+}
+
+.login-box a {
+    text-decoration: none;
+    color: white;
 }
 
 h2 {
@@ -40,12 +42,20 @@ p {
     margin-bottom: 30px;
 }
 
-/* Campos de entrada */
+/* Estilos de los campos de entrada */
 .input {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
     background-color: #f2f2f2;
     border-radius: 5px;
     padding: 10px;
+}
+
+.icono {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
 }
 
 input {
@@ -58,33 +68,56 @@ input {
     color: #333;
 }
 
+/* Estilos para listas desplegables */
+.input select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.input select:focus {
+    border-color: #b2f6b7;
+    outline: none;
+}
+
+/* Estilos del botón de envío */
 button {
     width: 100%;
     padding: 15px;
-    background-color: #6bd084;
+    background-color: #6bd084; /* Color de fondo del botón */
     border: none;
     border-radius: 5px;
     color: white;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0e8027;
+    background-color: #45a456; /* Color de fondo en hover */
 }
 
+/* Mensajes de alerta */
 .alert {
     font-size: 12px;
-    color: #d9534f;
-    display: none;
+    font-family: Arial, Helvetica;
+    line-height: 1.0;
+    padding: 5px;
+    margin: 5px 0;
+    color: red;
 }
 
 /* Contenedor de la tabla */
 .table-container {
     flex: 1;
-    width: 60%; /* Ajuste de ancho */
-    max-height: 70vh; /* Limita la altura máxima de la tabla */
-    overflow-y: auto; /* Habilita el desplazamiento vertical */
+    width: 40%; /* Hacemos la tabla más pequeña */
+    margin-top: 50px; /* Alinea verticalmente con el formulario */
+    max-width: 500px; /* Limita el tamaño máximo */
 }
 
 /* Tabla centrada */
@@ -129,7 +162,7 @@ button:hover {
     background-color: #e1f5e1; /* Ligero tono verde claro */
 }
 
-/* Botones de acción */
+/* Estilo para los botones de acción */
 .action-buttons {
     display: flex;
     justify-content: center;
@@ -146,20 +179,20 @@ button:hover {
 }
 
 .edit-btn {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Botón verde */
 }
 
 .delete-btn {
-    background-color: #f44336;
+    background-color: #f44336; /* Botón rojo */
 }
 
 .edit-btn:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Hover verde más oscuro */
     text-decoration: none;
 }
 
 .delete-btn:hover {
-    background-color: #d32f2f;
+    background-color: #d32f2f; /* Hover rojo más oscuro */
     text-decoration: none;
 }
 

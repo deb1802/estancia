@@ -32,6 +32,7 @@ let markerDestino = null;
 const mapboxToken = 'pk.eyJ1IjoiZGViYTE4MDIiLCJhIjoiY20zYWNnc3E2MTJpazJrbjl5ZXdqb2ViYyJ9.L3p5j8qxLFUDUCIewaZrog';
 
 // Función para buscar y mostrar sugerencias
+// Función para buscar y mostrar sugerencias
 async function buscarSugerencias(query, tipo) {
     try {
         const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(query)}.json?access_token=${mapboxToken}`);
@@ -70,6 +71,7 @@ async function buscarSugerencias(query, tipo) {
 }
 
 // Función para colocar marcador en el mapa
+// Función para colocar marcador en el mapa
 function colocarMarcador(coordenadas, tipo) {
     const [lon, lat] = coordenadas;
     const marker = L.marker([lat, lon], { icon: tipo === 'origen' ? origenIcon : destinoIcon })
@@ -80,13 +82,30 @@ function colocarMarcador(coordenadas, tipo) {
     if (tipo === 'origen') {
         if (markerOrigen) map.removeLayer(markerOrigen);
         markerOrigen = marker;
+        // Guardar las coordenadas de origen en los campos ocultos
+        document.getElementById('origen_seleccionado').value = `${lat},${lon}`;
     } else if (tipo === 'destino') {
         if (markerDestino) map.removeLayer(markerDestino);
         markerDestino = marker;
+        // Guardar las coordenadas de destino en los campos ocultos
+        document.getElementById('destino_seleccionado').value = `${lat},${lon}`;
     }
     
     map.setView([lat, lon], 13);
 }
+
+// Validar antes de enviar el formulario
+document.querySelector('form').addEventListener('submit', function(event) {
+    // Verificar que los campos de origen y destino no estén vacíos
+    const origenSeleccionado = document.getElementById('origen_seleccionado').value;
+    const destinoSeleccionado = document.getElementById('destino_seleccionado').value;
+    
+    if (!origenSeleccionado || !destinoSeleccionado) {
+        event.preventDefault();  // Evitar que el formulario se envíe
+        alert('Por favor, selecciona ambos el origen y destino en el mapa.');
+    }
+});
+
 
 // Event listeners para campos de entrada
 document.getElementById('origen').addEventListener('input', (event) => {
@@ -103,14 +122,23 @@ document.getElementById('destino').addEventListener('input', (event) => {
     buscarSugerencias(event.target.value, 'destino');
 });
 
-// Validar antes de enviar el formulario
+
 document.querySelector('form').addEventListener('submit', function(event) {
-    // Verificar que los campos de origen y destino no estén vacíos
+    // Obtener las coordenadas de origen y destino
     const origenSeleccionado = document.getElementById('origen_seleccionado').value;
     const destinoSeleccionado = document.getElementById('destino_seleccionado').value;
     
+    // Verificar que ambos campos contienen coordenadas
     if (!origenSeleccionado || !destinoSeleccionado) {
         event.preventDefault();  // Evitar que el formulario se envíe
         alert('Por favor, selecciona ambos el origen y destino en el mapa.');
+    } else {
+        // Mostrar las coordenadas en la consola para depuración
+        console.log('Coordenadas de Origen:', origenSeleccionado);
+        console.log('Coordenadas de Destino:', destinoSeleccionado);
     }
 });
+
+
+
+

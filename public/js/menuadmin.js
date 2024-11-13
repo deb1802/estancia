@@ -4,7 +4,7 @@ function navigateTo(page) {
             window.location.href = '../../view/usuarios/crud_usuarios.php';
             break;
         case 'disponibilidades':
-            window.location.href = '../../view/disponibilidad/create_disponibilidad.php';
+            window.location.href = '../../view/disponibilidad/crud_disponibilidad.php';
             break;
         case 'trayectorias':
             window.location.href = '../../view/trayectoria/create_traye.php';
@@ -16,7 +16,7 @@ function navigateTo(page) {
             window.location.href = '';
             break;
         case 'vehiculos':
-            window.location.href = '';
+            window.location.href = '../../view/vehiculo/crud_vehiculo.php';
             break;
         case 'reportes':
             window.location.href = '';

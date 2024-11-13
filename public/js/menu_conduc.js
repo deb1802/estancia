@@ -13,7 +13,7 @@ function navigateTo(page) {
             window.location.href = '../../view/disponibilidad/read_dispo.php';
             break;
         case 'trayectoria':
-            window.location.href = '../../view/trayectoria/create_traye_prueba.php';
+            window.location.href = '../../view/trayectoria/create_traye_3.php';
              break;
         case 'mis-trayectorias':
             window.location.href = '../../view/trayectoria/ver_trayectoria.php';

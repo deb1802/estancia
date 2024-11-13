@@ -37,10 +37,13 @@ include "../conductor/header_conductor.php";
                     <select name="horaInicio">
                         <option value="">Seleccione la hora de inicio</option>
                         <?php
-                        for ($hour = 0; $hour < 24; $hour++) {
+                        for ($hour = 6; $hour <= 21; $hour++) {
                             for ($minute = 0; $minute < 60; $minute += 30) {
-                                $time = sprintf('%02d:%02d', $hour, $minute);
-                                echo "<option value='$time'>$time</option>";
+                                $time24 = sprintf('%02d:%02d', $hour, $minute);
+                                $ampm = $hour < 12 ? 'a.m.' : 'p.m.';
+                                $displayHour = $hour % 12 == 0 ? 12 : $hour % 12;
+                                $time12 = sprintf('%02d:%02d %s', $displayHour, $minute, $ampm);
+                                echo "<option value='$time24'>$time12</option>";
                             }
                         }
                         ?>
@@ -55,10 +58,13 @@ include "../conductor/header_conductor.php";
                     <select name="horaFin">
                         <option value="">Seleccione la hora de fin</option>
                         <?php
-                        for ($hour = 0; $hour < 24; $hour++) {
+                        for ($hour = 6; $hour <= 21; $hour++) {
                             for ($minute = 0; $minute < 60; $minute += 30) {
-                                $time = sprintf('%02d:%02d', $hour, $minute);
-                                echo "<option value='$time'>$time</option>";
+                                $time24 = sprintf('%02d:%02d', $hour, $minute);
+                                $ampm = $hour < 12 ? 'a.m.' : 'p.m.';
+                                $displayHour = $hour % 12 == 0 ? 12 : $hour % 12;
+                                $time12 = sprintf('%02d:%02d %s', $displayHour, $minute, $ampm);
+                                echo "<option value='$time24'>$time12</option>";
                             }
                         }
                         ?>

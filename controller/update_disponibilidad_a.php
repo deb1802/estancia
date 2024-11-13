@@ -1,9 +1,7 @@
 <?php 
 //include "../conductor/header_conductor.php"; 
 include "../model/db.php"; // Incluir conexión a la base de datos
-include "../model/update_disponibilidad.php"; // Incluir la función de actualización
-
-// Verificar si se ha establecido un ID en la cadena de consulta
+include "../model/update_disponibilidad.php";
 if (isset($_GET['id'])) {
     $ID = $_GET['id'];
     $SQL = "SELECT * FROM disponibilidad WHERE id = $ID;";
@@ -27,7 +25,7 @@ if (isset($_POST['actualizar'])) {
 
     // Función para actualizar la disponibilidad
     if (actualizarDisponibilidad($conn, $id, $dia, $horaInicio, $horaFin)) {
-        header("Location: ../view/disponibilidad/read_dispo.php");
+        header("Location: ../view/disponibilidad/crud_disponibilidad.php");
         exit();
     } else {
         echo "Error actualizando registro: " . mysqli_error($conn);
@@ -42,13 +40,13 @@ if (isset($_POST['actualizar'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Disponibilidad</title>
     <link rel="stylesheet" href="../public/css/create_dispo.css">
-    <script src="../public/js/validacion_dispo.js" defer></script>
+    <script src="../public/js/valida_dispo.js" defer></script>
 </head>
 <body>
     <div class="contenedor_login">
         <div class="login-box">
             <h2>Actualizar Disponibilidad</h2>
-            <form name="frmDisponibilidad" action="update_disponibilidad.php?id=<?php echo $_GET['id']; ?>" method="POST" onsubmit="return validacionDisponibilidad();">
+            <form name="frmDisponibilidad" action="update_disponibilidad_a.php?id=<?php echo $_GET['id']; ?>" method="POST" onsubmit="return validacionDisponibilidad();">
                 
                 <div class="input">
                     <select name="dia">
@@ -71,17 +69,20 @@ if (isset($_POST['actualizar'])) {
                     <select name="horaInicio">
                         <option value="">Seleccione la hora de inicio</option>
                         <?php
-                        // Definir el rango de horas entre las 6 AM y las 9 PM
-                        for ($hour = 6; $hour <= 21; $hour++) {
+                        for ($hour = 6; $hour <= 21; $hour++) { // Rango de horas de 6 AM a 9 PM
                             for ($minute = 0; $minute < 60; $minute += 30) {
-                                // Convertir hora de 24 horas a 12 horas
-                                $period = ($hour < 12) ? 'AM' : 'PM';
-                                $hour12 = ($hour > 12) ? $hour - 12 : $hour;
-                                $time = sprintf('%02d:%02d %s', $hour12, $minute, $period);
+                                $time = sprintf('%02d:%02d', $hour, $minute);
 
-                                // Seleccionar la hora actual si es la hora de inicio
-                                $selected = ($time == $horaInicio) ? 'selected' : '';
-                                echo "<option value='$time' $selected>$time</option>";
+                                // Convertir la hora al formato AM/PM
+                                $period = $hour < 12 ? 'AM' : 'PM';
+                                $displayHour = $hour % 12;
+                                if ($displayHour == 0) {
+                                    $displayHour = 12; // 12 AM o 12 PM
+                                }
+                                $formattedTime = sprintf('%02d:%02d %s', $displayHour, $minute, $period);
+
+                                $selected = ($formattedTime == $horaInicio) ? 'selected' : '';
+                                echo "<option value='$formattedTime' $selected>$formattedTime</option>";
                             }
                         }
                         ?>
@@ -96,17 +97,20 @@ if (isset($_POST['actualizar'])) {
                     <select name="horaFin">
                         <option value="">Seleccione la hora de fin</option>
                         <?php
-                        // Similar para hora de fin, solo con el rango de 6 AM a 9 PM
-                        for ($hour = 6; $hour <= 21; $hour++) {
+                        for ($hour = 6; $hour <= 21; $hour++) { // Rango de horas de 6 AM a 9 PM
                             for ($minute = 0; $minute < 60; $minute += 30) {
-                                // Convertir hora de 24 horas a 12 horas
-                                $period = ($hour < 12) ? 'AM' : 'PM';
-                                $hour12 = ($hour > 12) ? $hour - 12 : $hour;
-                                $time = sprintf('%02d:%02d %s', $hour12, $minute, $period);
+                                $time = sprintf('%02d:%02d', $hour, $minute);
 
-                                // Seleccionar la hora actual si es la hora de fin
-                                $selected = ($time == $horaFin) ? 'selected' : '';
-                                echo "<option value='$time' $selected>$time</option>";
+                                // Convertir la hora al formato AM/PM
+                                $period = $hour < 12 ? 'AM' : 'PM';
+                                $displayHour = $hour % 12;
+                                if ($displayHour == 0) {
+                                    $displayHour = 12; // 12 AM o 12 PM
+                                }
+                                $formattedTime = sprintf('%02d:%02d %s', $displayHour, $minute, $period);
+
+                                $selected = ($formattedTime == $horaFin) ? 'selected' : '';
+                                echo "<option value='$formattedTime' $selected>$formattedTime</option>";
                             }
                         }
                         ?>
@@ -115,9 +119,6 @@ if (isset($_POST['actualizar'])) {
                 <p class="alert alert-danger" id="errorHoraFin" style="display: none;">
                     Por favor seleccione una hora de fin válida.
                 </p>
-
-              
-            
 
                 <button type="submit" name="actualizar" class="form_btn">Actualizar Disponibilidad</button>
                 <p class="alert alert-primary" id="btn" name="btn" style="display: none;">

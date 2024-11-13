@@ -1,5 +1,6 @@
 <?php include "../admin/header_admin.php"; ?>
-<?php include "../../model/db.php" ?>
+<?php include "../../model/db.php"; ?>
+<?php include "../../model/consultar_conductores.php"; ?>
 <?php include '../vehiculo/confirmacion_delete.php'; ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,7 @@
         <!-- Contenedor del formulario -->
         <div class="form-container">
             <h2>Registrar Vehículo</h2>
-            <p>Empieza a compartir tus viajes con los demás</p>
+            <p>Registra un vehículo para algún conductor</p>
             <form name="frm" action="../../controller/alta_v_admin.php" method="post" onsubmit="return validacion();">
                 <div class="input">
                     <input type="text" placeholder="Ingresa id del conductor" name="idconductor">
@@ -53,8 +54,38 @@
             </form>
         </div>
 
-        <!-- Contenedor de la tabla -->
+        <!-- Contenedor de la tabla de conductores disponibles -->
         <div class="table-container">
+            <h3>Conductores</h3>
+            <table class="centered-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    $execConductores = obtenerConductoresDisponibles($conn);
+
+                    while ($rowConductor = mysqli_fetch_array($execConductores)) {
+                    ?>
+                        <tr>
+                            <td><?php echo $rowConductor['id']; ?></td>
+                            <td><?php echo $rowConductor['nombre']; ?></td>
+                            <td><?php echo $rowConductor['apellido']; ?></td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Contenedor de la tabla de vehículos registrados -->
+        <div class="table-container">
+            <h3>Vehículos Registrados</h3>
             <table class="centered-table">
                 <thead>
                     <tr>
@@ -70,10 +101,11 @@
                 </thead>
                 <tbody>
                     <?php
-                    $sql = "SELECT * FROM vehiculos;";
-                    $exec = mysqli_query($conn, $sql);
+                    // Consulta para obtener vehículos registrados
+                    $sqlVehiculos = "SELECT * FROM vehiculos;";
+                    $execVehiculos = mysqli_query($conn, $sqlVehiculos);
 
-                    while ($rows = mysqli_fetch_array($exec)) {
+                    while ($rows = mysqli_fetch_array($execVehiculos)) {
                     ?>
                         <tr>
                             <td><?php echo $rows['id']; ?></td>
