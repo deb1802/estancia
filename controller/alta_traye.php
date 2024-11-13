@@ -8,9 +8,8 @@ if (!isset($_SESSION['id_conductor'])) {
     exit();
 }
 
-
 // Obtener los datos del formulario
-$idConductor = $_SESSION['id_conductor'];  // Obtener el id del conductor desde la sesión
+$idConductor = $_SESSION['id_conductor'];
 $idVehiculo = $_POST['idVehiculo'];
 $capacidad = $_POST['capacidad'];
 $origen = $_POST['origen_seleccionado'];
@@ -24,27 +23,36 @@ if (empty($idVehiculo) || empty($capacidad) || empty($origen) || empty($destino)
     exit();
 }
 
+// Obtener las coordenadas de origen y destino desde el formulario (en formato latitud, longitud)
+$origen_coords = isset($_POST['lat_origen']) && isset($_POST['lon_origen']) ? "POINT(" . $_POST['lat_origen'] . ", " . $_POST['lon_origen'] . ")" : null;
+$destino_coords = isset($_POST['lat_destino']) && isset($_POST['lon_destino']) ? "POINT(" . $_POST['lat_destino'] . ", " . $_POST['lon_destino'] . ")" : null;
+
+// Validar si las coordenadas están presentes
+if (empty($origen_coords) || empty($destino_coords)) {
+    echo "Las coordenadas de origen y destino son necesarias.";
+    exit();
+}
+
 // Verificar conexión a la base de datos
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Preparar la consulta SQL para insertar la trayectoria
-$sql = "INSERT INTO trayectorias1 (idConductor, idVehiculo, capacidad, origen, destino, referencias, pago) 
-        VALUES (?, ?, ?, ?, ?, ?, ?)";
+// Preparar la consulta SQL para insertar la trayectoria con coordenadas
+$sql = "INSERT INTO trayectorias2 (idConductor, idVehiculo, capacidad, origen, destino, referencias, pago, origen_coords, destino_coords) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ST_GeomFromText(?), ST_GeomFromText(?))";
 $stmt = $conn->prepare($sql);
 
 if ($stmt === false) {
     die("Error en la preparación de la consulta: " . $conn->error);
 }
 
-$stmt->bind_param("iiissss", $idConductor, $idVehiculo, $capacidad, $origen, $destino, $referencias, $pago);
+$stmt->bind_param("iiissssss", $idConductor, $idVehiculo, $capacidad, $origen, $destino, $referencias, $pago, $origen_coords, $destino_coords);
 
-// Ejecutar la consulta y verificar si se insertó correctamente
 if ($stmt->execute()) {
     echo "Trayectoria registrada exitosamente.";
     header("Location: ../view/conductor/menu_conductor.php");
-    exit();  // Termina el script después de la redirección
+    exit();
 } else {
     echo "Error al registrar la trayectoria: " . $stmt->error;
 }

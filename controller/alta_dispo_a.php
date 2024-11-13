@@ -1,30 +1,25 @@
-<?php 
+<?php
 session_start();
-//var_dump($_SESSION);
 
 include "../model/db.php"; 
 include "../model/insert_disponibilidad.php"; 
 
-if (!isset($_SESSION['id_conductor'])) {
-    echo "No has iniciado sesión. Por favor, inicia sesión primero.";
-    exit();
-}
-
-$idconductor = $_SESSION['id_conductor']; 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $idconductor = $_POST['idConductor'];
     $dia = $_POST['dia'];
     $horaInicio = $_POST['horaInicio'];
     $horaFin = $_POST['horaFin'];
-
-    // Verificar que los campos no estén vacíos
+    if (empty($idconductor)) {
+        echo "Por favor ingrese el ID del conductor.";
+        exit();
+    }
     if (!empty($dia) && !empty($horaInicio) && !empty($horaFin)) {
         // Llamar a la función para insertar la disponibilidad
         $execute = insertarDisponibilidad($conn, $idconductor, $dia, $horaInicio, $horaFin);
 
         if ($execute) {
             echo "Disponibilidad registrada exitosamente.";
-            header("Location:../view/conductor/menu_conductor.php"); 
+            header("Location:../../../view/disponibilidad/crud_disponibilidad.php"); 
             exit(); 
         } else {
             echo "Error al registrar la disponibilidad.";

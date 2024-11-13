@@ -12,8 +12,8 @@ if (!isset($_SESSION['id_conductor'])) {
 // Obtener el ID del conductor desde la sesión
 $idConductor = $_SESSION['id_conductor'];
 
-// Verificar si se recibieron las coordenadas del cliente
-if (isset($_POST['lat_origen'], $_POST['lon_origen'], $_POST['lat_destino'], $_POST['lon_destino'], $_POST['origen_seleccionado'], $_POST['destino_seleccionado'])) {
+// Verificar si se recibieron las coordenadas y demás datos del cliente
+if (isset($_POST['lat_origen'], $_POST['lon_origen'], $_POST['lat_destino'], $_POST['lon_destino'], $_POST['origen_seleccionado'], $_POST['destino_seleccionado'], $_POST['referencias'], $_POST['idVehiculo'], $_POST['capacidad'], $_POST['pago'])) {
     $lat_origen = $_POST['lat_origen'];
     $lon_origen = $_POST['lon_origen'];
     $lat_destino = $_POST['lat_destino'];
@@ -26,7 +26,7 @@ if (isset($_POST['lat_origen'], $_POST['lon_origen'], $_POST['lat_destino'], $_P
     $pago = $_POST['pago'];
 
     // Validar coordenadas de origen y destino
-    if (!is_numeric($lat_origen) || !is_numeric($lon_oigen) || !is_numeric($lat_destino) || !is_numeric($lon_destino)) {
+    if (!is_numeric($lat_origen) || !is_numeric($lon_origen) || !is_numeric($lat_destino) || !is_numeric($lon_destino)) {
         echo json_encode(["success" => false, "message" => "Error: Las coordenadas deben ser valores numéricos."]);
         exit();
     }
@@ -37,10 +37,16 @@ if (isset($_POST['lat_origen'], $_POST['lon_origen'], $_POST['lat_destino'], $_P
         exit();
     }
 
+    // Validar capacidad y pago
+    if (!is_numeric($capacidad) || !is_numeric($pago)) {
+        echo json_encode(["success" => false, "message" => "Error: Capacidad y pago deben ser valores numéricos."]);
+        exit();
+    }
+
     // Usar sentencias preparadas para insertar los datos de forma segura
     $stmt = $conn->prepare("INSERT INTO trayectorias (origen, destino, lat_origen, lon_origen, lat_destino, lon_destino, referencias, idVehiculo, capacidad, pago, idConductor) 
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssssssss", $origen, $destino, $lat_origen, $lon_origen, $lat_destino, $lon_destino, $referencias, $idVehiculo, $capacidad, $pago, $idConductor);
+    $stmt->bind_param("ssffffsiisi", $origen, $destino, $lat_origen, $lon_origen, $lat_destino, $lon_destino, $referencias, $idVehiculo, $capacidad, $pago, $idConductor);
 
     // Ejecutar la sentencia
     if ($stmt->execute()) {

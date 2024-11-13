@@ -44,6 +44,19 @@ CREATE TABLE disponibilidad (
     FOREIGN KEY (idConductor) REFERENCES usuarios(id)
 );
 
+drop table if exists trayectorias;
+CREATE TABLE trayectorias1 (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idConductor INT NOT NULL,
+    idVehiculo INT NOT NULL,
+	capacidad INT NOT NULL,
+    origen TEXT NOT NULL,
+    destino TEXT NOT NULL,
+    referencias TEXT,
+	pago ENUM('Efectivo', 'Transferencia') NOT NULL,
+    FOREIGN KEY (idVehiculo) REFERENCES vehiculos(id)
+);
+
 CREATE TABLE trayectorias (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idConductor INT NOT NULL,
@@ -53,12 +66,13 @@ CREATE TABLE trayectorias (
     destino TEXT NOT NULL,
     referencias TEXT,
     pago ENUM('Efectivo', 'Transferencia') NOT NULL,
-    lat_origen DECIMAL(9, 6) NOT NULL,
-    lon_origen DECIMAL(9, 6) NOT NULL,
-    lat_destino DECIMAL(9, 6) NOT NULL,
-    lon_destino DECIMAL(9, 6) NOT NULL,
-    FOREIGN KEY (idVehiculo) REFERENCES vehiculos(id)
+    origen_coords POINT NOT NULL,   -- Coordenadas de origen como POINT
+    destino_coords POINT NOT NULL,  -- Coordenadas de destino como POINT
+    FOREIGN KEY (idVehiculo) REFERENCES vehiculos(id),
+    SPATIAL INDEX (origen_coords),  -- Índices espaciales para mejorar la búsqueda
+    SPATIAL INDEX (destino_coords)
 );
+
 
 
 CREATE TABLE detalleTrayectoria (
@@ -207,7 +221,7 @@ select * from trayectorias;
 
 drop trigger if exists after_update_solicitud;
 DROP TRIGGER IF EXISTS after_update_solicitud;
-DELIMITER //
+DELIMITER //2
 
 CREATE TRIGGER after_update_solicitud
 AFTER UPDATE ON solicitudes
@@ -282,6 +296,9 @@ SELECT * FROM trayectorias;
     WHERE t.capacidad > 0;
     
     select * from trayectorias;
+    select * from
+    select * from detalletrayectoria;
+    
 
 
 
