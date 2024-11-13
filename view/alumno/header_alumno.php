@@ -28,11 +28,11 @@
                     Home
                 </a>
                 <a href="#" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
+                    <div class="icon-circle"><img src="../../public/img/user.png" alt="Home"></div>
                     Perfil
                 </a>
                 <a href="../avisos/mostrar_avisos.php" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
+                    <div class="icon-circle"><img src="../../public/img/bell.svg" alt="Home"></div>
                     Notificaciones
                 </a>
                 <a href="../../controller/logout.php" class="nav-link d-flex align-items-center">

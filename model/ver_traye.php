@@ -3,7 +3,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/estancia/model/db.php';
 
 // Consulta las trayectorias desde la base de datos
 $query = "
-    SELECT 
+        SELECT 
         t.id, 
         t.origen, 
         t.destino, 
@@ -16,7 +16,8 @@ $query = "
         v.placas
     FROM trayectorias t
     JOIN usuarios u ON t.idConductor = u.id
-    JOIN vehiculos v ON t.idVehiculo = v.id";
+    JOIN vehiculos v ON t.idVehiculo = v.id
+    WHERE t.capacidad > 0";
 $result = $conn->query($query);
 
 $trayectorias = [];
