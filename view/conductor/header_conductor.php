@@ -23,10 +23,8 @@
                 <span class="text-muted ml-1">rutas verdes</span>
             </div>
             <nav class="nav d-flex align-items-center">
-            <a href="../conductor/menu_conductor.php" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/home1.png" alt="Home"></div>
-                    Home
-                </a>
+            <a href="../admin/menuadmin.php" class="nav-link d-flex align-items-center">
+                    <div class="icon-circle"><img src="../../public/img/return.png" alt="Regresar"></div>
                 <a href="../../controller/logout.php" class="nav-link d-flex align-items-center">
                     <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
                     Cerrar sesión

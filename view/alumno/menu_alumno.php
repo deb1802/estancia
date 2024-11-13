@@ -16,15 +16,15 @@ if (isset($_SESSION['usuario'])) {
     <?php include "header_alumno.php"; ?>
     <?php
     if (isset($_SESSION['usuario'])) {
-        $user = $_SESSION['usuario'];
+        $nombre = $_SESSION['nombre'];
     ?>
         <div class="dashboard">
             <header class="dashboard-header">
                 <div class="profile-section">
-                    <img src="../../public/img/conductor.png" alt="Imagen de perfil" class="profile-img">
+                    <img src="../../public/img/alumno.png" alt="Imagen de perfil" class="profile-img">
                     <div>
-                        <h2>Hola, <?php echo htmlspecialchars($user); ?>!</h2>
-                        <h3>Bienvenido a tu panel de alumno</h3>
+                        <h2>Hola, <?php echo htmlspecialchars($nombre); ?></h2>
+                        <h3>Bienvenido(a) a tu panel de alumno</h3>
                     </div>
                 </div>
             </header>
