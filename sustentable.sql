@@ -57,7 +57,8 @@ CREATE TABLE trayectorias1 (
     FOREIGN KEY (idVehiculo) REFERENCES vehiculos(id)
 );
 
-CREATE TABLE trayectorias (
+drop table if exists trayectorias2;
+CREATE TABLE trayectorias2 (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idConductor INT NOT NULL,
     idVehiculo INT NOT NULL,
@@ -66,12 +67,11 @@ CREATE TABLE trayectorias (
     destino TEXT NOT NULL,
     referencias TEXT,
     pago ENUM('Efectivo', 'Transferencia') NOT NULL,
-    origen_coords POINT NOT NULL,   -- Coordenadas de origen como POINT
-    destino_coords POINT NOT NULL,  -- Coordenadas de destino como POINT
-    FOREIGN KEY (idVehiculo) REFERENCES vehiculos(id),
-    SPATIAL INDEX (origen_coords),  -- Índices espaciales para mejorar la búsqueda
-    SPATIAL INDEX (destino_coords)
+    estado_viaje ENUM('ninguno', 'iniciado', 'finalizado') DEFAULT 'ninguno',
+    FOREIGN KEY (idVehiculo) REFERENCES vehiculos(id)
 );
+
+
 
 
 
@@ -241,12 +241,6 @@ BEGIN
         VALUES 
             (NEW.idAlumno, 'Información', CONCAT('El conductor ha aceptado tu solicitud el ', fecha_aceptacion));
 
-        INSERT INTO avisos (idAlumno, titulo, mensaje)
-        VALUES 
-            (NEW.idAlumno, 'Seguridad', 'Usa el cinturón, aunque sea un viaje corto'),
-            (NEW.idAlumno, 'Seguridad', 'Presta atención a los señalamientos'),
-            (NEW.idAlumno, 'Seguridad', 'No olvides tus pertenencias en el vehículo');
-
         -- Consulta del metodoPago solo si idTrayectoria existe en trayectorias
         SELECT pago INTO metodo_pago
         FROM trayectorias
@@ -276,7 +270,7 @@ select * from solicitudes;
 select * from detalletrayectoria;
 
 select * from avisos;
-SELECT * FROM trayectorias;
+SELECT * FROM trayectorias1;
 
 
     SELECT 
@@ -296,17 +290,34 @@ SELECT * FROM trayectorias;
     WHERE t.capacidad > 0;
     
     select * from trayectorias;
-    select * from
-    select * from detalletrayectoria;
     
 
+select * from trayectorias2;
+select * from avisos;
 
 
 
 
-
-
-
+SELECT 
+        s.id,  -- Mantener la columna idSolicitud para las acciones, pero no mostrarla
+        s.fechaSolicitud,
+        s.estado,
+        u1.nombre AS nombre_alumno,
+        u1.correo AS email_alumno,
+        u2.nombre AS nombre_conductor,
+        t.origen,
+        t.destino,
+        v.marca,
+        v.modelo,
+        v.anio,
+        t.capacidad,
+        t.referencias
+    FROM solicitudes s
+    JOIN usuarios u1 ON s.idAlumno = u1.id
+    JOIN trayectorias t ON s.idTrayectoria = t.id
+    JOIN usuarios u2 ON t.idConductor = u2.id
+    JOIN vehiculos v ON t.idVehiculo = v.id
+    ORDER BY s.fechaSolicitud DESC;
 
 
 

@@ -8,47 +8,47 @@ if (!isset($_SESSION['id_conductor'])) {
     exit();
 }
 
+// Obtener el id del conductor desde la sesión
+$idConductor = $_SESSION['id_conductor'];
 
 // Obtener los datos del formulario
-$idConductor = $_SESSION['id_conductor'];  // Obtener el id del conductor desde la sesión
 $idVehiculo = $_POST['idVehiculo'];
 $capacidad = $_POST['capacidad'];
-$origen = $_POST['origen_seleccionado'];
-$destino = $_POST['destino_seleccionado'];
-$referencias = isset($_POST['referencias']) ? $_POST['referencias'] : null;
+$origen = $_POST['origen'];
+$destino = $_POST['destino'];
+$referencias = $_POST['referencias'];
 $pago = $_POST['pago'];
 
-// Validar campos requeridos
+// Verificar si los datos obligatorios están presentes
 if (empty($idVehiculo) || empty($capacidad) || empty($origen) || empty($destino) || empty($pago)) {
-    echo "Todos los campos son obligatorios.";
+    echo "Por favor, completa todos los campos obligatorios.";
     exit();
 }
 
-// Verificar conexión a la base de datos
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-
-// Preparar la consulta SQL para insertar la trayectoria
-$sql = "INSERT INTO trayectorias1 (idConductor, idVehiculo, capacidad, origen, destino, referencias, pago) 
+// Preparar la consulta SQL para insertar los datos en la tabla trayectorias2
+$sql = "INSERT INTO trayectorias2 (idConductor, idVehiculo, capacidad, origen, destino, referencias, pago) 
         VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+// Preparar la sentencia
 $stmt = $conn->prepare($sql);
 
+// Verificar si la sentencia fue preparada correctamente
 if ($stmt === false) {
-    die("Error en la preparación de la consulta: " . $conn->error);
+    echo "Error al preparar la consulta: " . $conn->error;
+    exit();
 }
 
+// Vincular los parámetros a la sentencia
 $stmt->bind_param("iiissss", $idConductor, $idVehiculo, $capacidad, $origen, $destino, $referencias, $pago);
 
-// Ejecutar la consulta y verificar si se insertó correctamente
+// Ejecutar la consulta
 if ($stmt->execute()) {
-    echo "Trayectoria registrada exitosamente.";
-    header("Location: ../view/conductor/menu_conductor.php");
-    exit();  // Termina el script después de la redirección
+    echo "La trayectoria ha sido registrada correctamente.";
 } else {
     echo "Error al registrar la trayectoria: " . $stmt->error;
 }
 
+// Cerrar la sentencia y la conexión
 $stmt->close();
 $conn->close();
 ?>

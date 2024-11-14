@@ -33,10 +33,11 @@ $sql = "
         t.referencias
     FROM solicitudes s
     JOIN usuarios u1 ON s.idAlumno = u1.id
-    JOIN trayectorias t ON s.idTrayectoria = t.id
+    JOIN trayectorias2 t ON s.idTrayectoria = t.id
     JOIN usuarios u2 ON t.idConductor = u2.id
     JOIN vehiculos v ON t.idVehiculo = v.id
-    WHERE t.idConductor = ?;  -- Filtra las solicitudes por idConductor
+    WHERE t.idConductor = ?  -- Filtra las solicitudes por idConductor
+    ORDER BY s.fechaSolicitud DESC 
 ";
 
 // Preparar la consulta

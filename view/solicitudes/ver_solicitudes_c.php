@@ -42,6 +42,7 @@
                         <div id="acciones-<?= $solicitud['id'] ?>">
                             <button class="btn btn-success" onclick="cambiarEstadoSolicitud(<?= $solicitud['id'] ?>, 'aceptada')">Aceptar</button>
                             <button class="btn btn-danger" onclick="cambiarEstadoSolicitud(<?= $solicitud['id'] ?>, 'rechazada')">Rechazar</button>
+                            
                         </div>
                     </div>
                 </div>
