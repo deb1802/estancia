@@ -1,11 +1,11 @@
-/* Estructura del contenedor principal */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Se asegura que la altura ocupe toda la pantalla */
+    min-height: 100vh; 
     background-color: #f2f2f2;
 }
 
@@ -13,8 +13,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 200px; /* Espacio para que el contenido no se cubra por el header */
-    height: calc(100vh - 100px); /* Ajusta la altura total para que el contenido esté centrado */
+    padding-top: 200px; 
+    height: calc(100vh - 100px);
 }
 
 .login-box {

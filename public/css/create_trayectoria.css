@@ -1,6 +1,6 @@
-/* Diseño principal */
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial';
     background-color: #f4f7fc;
     margin: 0;
     padding: 0;
@@ -23,26 +23,22 @@ body {
     margin: 0 auto;
 }
 
-/* Formulario (izquierda) */
 form {
-    width: 35%; /* Hacemos el formulario más pequeño */
+    width: 35%;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-right: 20px;
-    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+    box-sizing: border-box;
 }
-
-/* Título */
 h1 {
     color: #2a3d66;
     text-align: left;
-    font-family: 'Verdana', sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
 }
 
-/* Estilo para los campos de formulario */
 .mb-3 {
     margin-bottom: 12px;
 }
@@ -60,14 +56,14 @@ input[type="text"],
 input[type="number"],
 select,
 button {
-    width: 100%; /* Asegura que los campos ocupen el 100% del contenedor */
+    width: 100%; 
     padding: 10px;
     margin: 6px 0;
     border: 2px solid #ccd1e0;
     border-radius: 6px;
     font-size: 14px;
     background-color: #f0f4f8;
-    box-sizing: border-box; /* Evita el desbordamiento del padding */
+    box-sizing: border-box;
 }
 
 /* Estilo de los botones */
@@ -83,33 +79,28 @@ button[type="submit"] {
     margin-top: 10px;
     transition: background-color 0.3s ease;
 }
-
-/* Hover para los botones */
 button[type="button"]:hover,
 button[type="submit"]:hover {
     background-color: #4a87c7;
 }
 
-/* Mapa (derecha) */
 #mapFrame {
-    width: 60%; /* El mapa ocupa el 60% del ancho */
+    width: 60%; 
     height: 450px;
     border: 1px solid #d6d6d6;
     border-radius: 8px;
 }
-
-/* Ajustes responsivos */
 @media screen and (max-width: 768px) {
     .container {
-        flex-direction: column; /* En pantallas pequeñas, los elementos se apilan */
+        flex-direction: column;
     }
 
     form {
-        width: 100%; /* El formulario ocupa todo el ancho en pantallas pequeñas */
+        width: 100%;
         margin-right: 0;
     }
 
     #mapFrame {
-        width: 100%; /* El mapa también ocupa todo el ancho */
+        width: 100%;
     }
 }

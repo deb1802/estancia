@@ -10,11 +10,8 @@
 <body>
     <!-- Contenedor principal -->
     <div class="container">
-        <!-- Formulario para ingresar la trayectoria -->
         <form id="trayectoriaForm" action="../../controller/alta_trayectoria.php" method="POST">
             <h1>Registrar una nueva trayectoria</h1>
-
-            <!-- Campo de selección de vehículo en lugar de input -->
             <div class="mb-3">
                 <label for="idVehiculo" class="form-label mt-3">Selecciona el Vehículo</label>
                 <select name="idVehiculo" id="idVehiculo" class="form-control" required>
@@ -49,7 +46,6 @@
             <button type="button" onclick="mostrarEnMapa()">Mostrar en el Mapa</button>
             <button type="submit">Guardar Trayectoria</button>
         </form>
-
         <!-- Mapa -->
         <iframe
             id="mapFrame"
@@ -63,37 +59,6 @@
         </iframe>
     </div>
 
-    <script>
-        // Mostrar el mapa de inmediato al cargar
-        document.getElementById('mapFrame').style.display = "block";
-
-        function mostrarEnMapa() {
-            // Obtiene los valores de origen y destino
-            const origen = document.getElementById('origen').value;
-            const destino = document.getElementById('destino').value;
-
-            // Verifica si el origen es "upemor" o "Universidad Politécnica del Estado de Morelos"
-            let location = origen.toLowerCase() === "upemor" || origen.toLowerCase() === "universidad politécnica del estado de morelos" ? destino : origen;
-            
-            // Valida que origen y destino no sean iguales
-            if (origen.trim() === "" || destino.trim() === "") {
-                alert("Por favor, ingresa tanto un origen como un destino.");
-                return;
-            }
-            
-            if (origen.toLowerCase() === destino.toLowerCase()) {
-                alert("El origen y el destino no pueden ser el mismo.");
-                return;
-            }
-
-            // Genera la URL para mostrar en el mapa
-            const apiKey = "AIzaSyBr1kk7jLRVoLpjy-uvr1-JhvP304A5Q5I"; // Reemplaza con tu clave de API
-            const mapUrl = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(location)}`;
-            
-            // Actualiza el iframe del mapa
-            const mapFrame = document.getElementById('mapFrame');
-            mapFrame.src = mapUrl;
-        }
-    </script>
+    <script src="../../public/js/mostrar_mapa.js"> </script>
 </body>
 </html>
