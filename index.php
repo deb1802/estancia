@@ -13,11 +13,11 @@
         <img src="../estancia/public/img/sostenible1.jpg" alt="Movilidad Sostenible">
         <div class="image-text">Movilidad Sostenible</div>
     </div>
-    <div class="icon-text-wrapper">
+    <div class="icon-text-wrapper flex-column flex-lg-row">
         <div class="icon-left">
             <img src="../estancia/public/img/world.png" alt="Icono">
         </div>
-        <div class="description">
+        <div class="description text-center text-lg-start">
             <span>Comparte tu trayecto, cuida el planeta.</span><br>
             <span>Conecta con compañeros, reduce costos y viaja cómodo.</span><br>
             <span>Juntos en el camino hacia la universidad.</span>
