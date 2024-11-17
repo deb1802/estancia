@@ -1,8 +1,6 @@
 <?php
 session_start();
 include $_SERVER['DOCUMENT_ROOT'] . '/estancia/model/db.php';
-
-// Verificar si el conductor está logueado
 if (!isset($_SESSION['id_conductor'])) {
     echo "No has iniciado sesión. Por favor, inicia sesión primero.";
     exit();

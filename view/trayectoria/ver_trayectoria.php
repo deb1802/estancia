@@ -1,3 +1,4 @@
+<?php include '../conductor/header_conductor.php' ;?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,76 +10,75 @@
 </head>
 <body>
     <div class="container mt-4">
-        <h2 class="text-center">Trayectorias Disponibles</h2>
-        
-        <?php include '../../model/ver_traye.php'; ?>
+        <h2 class="text-center">Trayectorias de este conductor</h2>
+        <?php include '../../model/ver _traye_c.php'; ?>
         
         <div class="row">
-            <?php foreach ($trayectorias as $trayectoria): ?>
-                <div class="col-md-12">
-                    <div class="trayectoria-card">
-                        <!-- Detalles de la trayectoria -->
-                        <div class="trayectoria-details">
-                            <h5><strong>Origen:</strong> <?= $trayectoria['origen'] ?></h5>
-                            <h5><strong>Destino:</strong> <?= $trayectoria['destino'] ?></h5>
-                            <p><strong>Conductor:</strong> <?= $trayectoria['conductor'] ?></p>
-                            <p><strong>Vehículo:</strong> <?= $trayectoria['marca'] ?> <?= $trayectoria['modelo'] ?> (<?= $trayectoria['anio'] ?>)</p>
-                            <p><strong>Placas:</strong> <?= $trayectoria['placas'] ?></p>
-                            <p><strong>Color:</strong> <?= $trayectoria['color'] ?></p>
-                            <p><strong>Capacidad:</strong> <?= $trayectoria['capacidad'] ?> personas</p>
-                            <p><strong>Referencias:</strong> <?= $trayectoria['referencias'] ?></p>
-                            <p><strong>Forma de pago:</strong> <?= $trayectoria['pago'] ?></p>
-                            <div class="d-flex gap-2">
-                                <button class="btn btn-primary" onclick="editarTrayectoria(<?= $trayectoria['id'] ?>)">Editar</button>
-                                <button class="btn btn-danger" onclick="eliminarTrayectoria(<?= $trayectoria['id'] ?>)">Eliminar</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Mapa para cada trayectoria -->
-                        <div id="map-<?= htmlspecialchars($trayectoria['id'], ENT_QUOTES, 'UTF-8') ?>" class="map-container"></div>
+    <?php foreach ($trayectorias as $trayectoria): ?>
+        <!-- Agregar un id único al contenedor principal -->
+        <div class="col-md-12" id="trayectoria-<?= htmlspecialchars($trayectoria['id'], ENT_QUOTES, 'UTF-8') ?>">
+            <div class="trayectoria-card">
+                <!-- Detalles de la trayectoria -->
+                <div class="trayectoria-details">
+                    <h5><strong>Origen:</strong> <?= $trayectoria['origen'] ?></h5>
+                    <h5><strong>Destino:</strong> <?= $trayectoria['destino'] ?></h5>
+                    <p><strong>Conductor:</strong> <?= $trayectoria['conductor'] ?></p>
+                    <p><strong>Vehículo:</strong> <?= $trayectoria['marca'] ?> <?= $trayectoria['modelo'] ?> (<?= $trayectoria['anio'] ?>)</p>
+                    <p><strong>Placas:</strong> <?= $trayectoria['placas'] ?></p>
+                    <p><strong>Color:</strong> <?= $trayectoria['color'] ?></p>
+                    <p><strong>Capacidad:</strong> <?= $trayectoria['capacidad'] ?> personas</p>
+                    <p><strong>Referencias:</strong> <?= $trayectoria['referencias'] ?></p>
+                    <p><strong>Forma de pago:</strong> <?= $trayectoria['pago'] ?></p>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary" onclick="editarTrayectoria(<?= $trayectoria['id'] ?>)">Editar</button>
+                        <button class="btn btn-danger" onclick="eliminarTrayectoria(<?= $trayectoria['id'] ?>)">Eliminar</button>
                     </div>
                 </div>
 
-                <script>
-                    function mostrarMapa(idTrayectoria, origen, destino) {
-                        // Verifica si el origen o destino es "upemor"
-                        let location = (origen.toLowerCase() !== 'upemor' && origen.trim() !== '') ? origen : destino;
-                        const apiKey = "AIzaSyBr1kk7jLRVoLpjy-uvr1-JhvP304A5Q5I";
-                
-                        const mapUrl = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(location)}`;
-
-                        document.getElementById('map-' + idTrayectoria).innerHTML = `<iframe width="100%" height="100%" style="border:0;" loading="lazy" allowfullscreen src="${mapUrl}"></iframe>`;
-                    }
-                    mostrarMapa(<?= htmlspecialchars($trayectoria['id'], ENT_QUOTES, 'UTF-8') ?>, "<?= htmlspecialchars($trayectoria['origen'], ENT_QUOTES, 'UTF-8') ?>", "<?= htmlspecialchars($trayectoria['destino'], ENT_QUOTES, 'UTF-8') ?>");
-                </script>
-            <?php endforeach; ?>
+                <!-- Mapa para cada trayectoria -->
+                <div id="map-<?= htmlspecialchars($trayectoria['id'], ENT_QUOTES, 'UTF-8') ?>" class="map-container"></div>
+            </div>
         </div>
-    </div>
 
-    <script>
-        function editarTrayectoria(id) {
-            window.location.href = `editar_traye.php?id=${id}`;
-        }
-
-        function eliminarTrayectoria(id) {
-            if (confirm("¿Estás seguro de que deseas eliminar esta trayectoria?")) {
-                fetch(`../../model/eliminar_traye.php`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: `id=${id}`
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        document.getElementById(`trayectoria-${id}`).remove();
-                        alert('Trayectoria eliminada correctamente.');
-                    } else {
-                        alert('Error al eliminar la trayectoria.');
-                    }
-                })
-                .catch(error => console.error('Error:', error));
+        <script>
+            function mostrarMapa(idTrayectoria, origen, destino) {
+                let location = (origen.toLowerCase() !== 'upemor' && origen.trim() !== '') ? origen : destino;
+                const apiKey = "AIzaSyBr1kk7jLRVoLpjy-uvr1-JhvP304A5Q5I";
+        
+                const mapUrl = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(location)}`;
+                document.getElementById('map-' + idTrayectoria).innerHTML = `<iframe width="100%" height="100%" style="border:0;" loading="lazy" allowfullscreen src="${mapUrl}"></iframe>`;
             }
+            mostrarMapa(<?= htmlspecialchars($trayectoria['id'], ENT_QUOTES, 'UTF-8') ?>, "<?= htmlspecialchars($trayectoria['origen'], ENT_QUOTES, 'UTF-8') ?>", "<?= htmlspecialchars($trayectoria['destino'], ENT_QUOTES, 'UTF-8') ?>");
+        </script>
+    <?php endforeach; ?>
+</div>
+
+<script>
+    function editarTrayectoria(id) {
+        window.location.href = `../../model/update_trayectoria.php?id=${id}`;
+    }
+
+    function eliminarTrayectoria(id) {
+        if (confirm("¿Estás seguro de que deseas eliminar esta trayectoria?")) {
+            fetch(`../../controller/eliminar_traye.php`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `id=${id}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Elimina el contenedor del DOM
+                    document.getElementById(`trayectoria-${id}`).remove();
+                    alert('Trayectoria eliminada correctamente.');
+                } else {
+                    alert(data.message || 'Error al eliminar la trayectoria.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
         }
-    </script>
+    }
+</script>
+
 </body>
 </html>

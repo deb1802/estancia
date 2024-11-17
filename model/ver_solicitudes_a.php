@@ -16,9 +16,10 @@ $idAlumno = $_SESSION['idAlumno'];
 // Consulta SQL para obtener las solicitudes del alumno específico
 $sql = "
     SELECT 
-        s.id,  -- Mantener la columna idSolicitud para las acciones, pero no mostrarla
+        s.id,
         s.fechaSolicitud,
         s.estado,
+        s.idTrayectoria,
         u1.nombre AS nombre_alumno,
         u1.correo AS email_alumno,
         u2.nombre AS nombre_conductor,

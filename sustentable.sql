@@ -76,11 +76,13 @@ CREATE TABLE trayectorias2 (
 
 
 CREATE TABLE detalleTrayectoria (
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idTrayectoria INT NOT NULL,
     idAlumno INT NOT NULL,
+    estado_viaje ENUM('ninguno', 'iniciado', 'finalizado') DEFAULT 'ninguno',
     FOREIGN KEY (idTrayectoria) REFERENCES trayectorias(id)
 );
+
 
 drop table if exists avisos;
 CREATE TABLE avisos (
@@ -135,23 +137,6 @@ INSERT INTO disponibilidad (id, idConductor, dia, horaInicio, horaFin) VALUES
 ('3', '8', 'Miércoles', '08:00:00', '12:00:00'),
 ('4', '3', 'Jueves', '15:00:00', '19:00:00'),
 ('5', '7', 'Viernes', '11:00:00', '15:00:00');
-
-INSERT INTO trayectorias (id, idConductor, idVehiculo, capacidad, origen, destino, referencias, pago) VALUES
-('1', '3', '1', '4', 'Grand Outlet Cuernavaca', 'UPEMOR', 'Frente a Farmacias Guadalajara', 'Efectivo'),
-('2', '7', '2', '2', 'UPEMOR', 'Zona Arqueológica de Teopanzolco', 'En la caseta de entrada', 'Transferencia'),
-('3', '8', '3', '3', 'Zócalo De Emiliano Zapata', 'UPEMOR', 'A una cuadra del zócalo', 'Efectivo'),
-('4', '3', '1', '4', 'UPEMOR', 'Bodega Aurrera Yautepec', 'En el auditorio de LS2', 'Transferencia'),
-('5', '7', '2', '2', 'Estadio Centenario', 'UPEMOR', 'En la curva rumbo a Avenida Universidad', 'Efectivo');
-
-INSERT INTO detalleTrayectoria (id, idTrayectoria, idAlumno) VALUES
-('1', '1', '4'),
-('2', '1', '5'),
-('3', '1', '6'),
-('4', '2', '9'),
-('5', '3', '10'),
-('6', '4', '5'),
-('7', '4', '6');
-
 INSERT INTO avisos (id, titulo, mensaje) VALUES
 ('1', 'Seguridad', 'Usa el cinturón, aunque sea un viaje corto'),
 ('2', 'Seguridad', 'Presta atención a los señalamientos'),
@@ -164,11 +149,6 @@ INSERT INTO avisos (id, titulo, mensaje) VALUES
 ('9', 'Calificación', 'Si tuviste una buena experiencia, no olvides dejar una calificación'),
 ('10', 'Asistencia', 'Si necesitas ayuda, por favor contacta a nuestro soporte');
 
-INSERT INTO solicitudes (id, idAlumno, idTrayectoria, estado) VALUES
-('1', '4', '1', 'aceptada'),
-('2', '5', '2', 'pendiente'),
-('3', '6', '3', 'rechazada');
-
 select * from usuarios;
 select * from perfiles;
 select * from vehiculos;
@@ -180,48 +160,8 @@ select * from usuarios;
 
 select * from detalleTrayectoria;
 select * from avisos;
-select * from solicitudes;
-
-SELECT 
-        t.id, 
-        t.origen, 
-        t.destino, 
-        t.referencias, 
-        t.capacidad, 
-        u.nombre AS conductor, 
-        v.marca, 
-        v.modelo, 
-        v.anio, 
-        v.placas
-    FROM trayectorias t
-    JOIN usuarios u ON t.idConductor = u.id
-    JOIN vehiculos v ON t.idVehiculo = v.id;
-    
-    
-    SELECT 
-    s.fechaSolicitud,
-    s.estado,
-    u1.nombre AS nombre_alumno,
-    u1.correo AS email_alumno,
-    u2.nombre AS nombre_conductor,
-    t.origen,
-    t.destino,
-    v.marca,
-    v.modelo,
-    v.anio,
-    t.capacidad,
-    t.referencias
-FROM solicitudes s
-JOIN usuarios u1 ON s.idAlumno = u1.id
-JOIN trayectorias t ON s.idTrayectoria = t.id
-JOIN usuarios u2 ON t.idConductor = u2.id
-JOIN vehiculos v ON t.idVehiculo = v.id;
-
-select * from trayectorias;
-
-drop trigger if exists after_update_solicitud;
 DROP TRIGGER IF EXISTS after_update_solicitud;
-DELIMITER //2
+DELIMITER //
 
 CREATE TRIGGER after_update_solicitud
 AFTER UPDATE ON solicitudes
@@ -253,7 +193,7 @@ BEGIN
         END IF;
 
         -- Disminuir la capacidad de la trayectoria
-        UPDATE trayectorias
+        UPDATE trayectorias2
         SET capacidad = capacidad - 1
         WHERE id = NEW.idTrayectoria AND capacidad > 0;
     END IF;
@@ -262,65 +202,4 @@ END //
 DELIMITER ;
 
 
-
-
-select * from solicitudes;
-
-
-select * from detalletrayectoria;
-
-select * from avisos;
-SELECT * FROM trayectorias1;
-
-
-    SELECT 
-        t.id, 
-        t.origen, 
-        t.destino, 
-        t.referencias, 
-        t.capacidad, 
-        u.nombre AS conductor, 
-        v.marca, 
-        v.modelo, 
-        v.anio, 
-        v.placas
-    FROM trayectorias t
-    JOIN usuarios u ON t.idConductor = u.id
-    JOIN vehiculos v ON t.idVehiculo = v.id
-    WHERE t.capacidad > 0;
-    
-    select * from trayectorias;
-    
-
-select * from trayectorias2;
-select * from avisos;
-
-
-
-
-SELECT 
-        s.id,  -- Mantener la columna idSolicitud para las acciones, pero no mostrarla
-        s.fechaSolicitud,
-        s.estado,
-        u1.nombre AS nombre_alumno,
-        u1.correo AS email_alumno,
-        u2.nombre AS nombre_conductor,
-        t.origen,
-        t.destino,
-        v.marca,
-        v.modelo,
-        v.anio,
-        t.capacidad,
-        t.referencias
-    FROM solicitudes s
-    JOIN usuarios u1 ON s.idAlumno = u1.id
-    JOIN trayectorias t ON s.idTrayectoria = t.id
-    JOIN usuarios u2 ON t.idConductor = u2.id
-    JOIN vehiculos v ON t.idVehiculo = v.id
-    ORDER BY s.fechaSolicitud DESC;
-
-
-
-
-
-
+select * from detalleTrayectoria;

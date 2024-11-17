@@ -95,12 +95,8 @@
             let location = (origen.toLowerCase() !== 'upemor' && origen.trim() !== '') ? origen : destino;
 
             // API key para Google Maps (reemplaza con la tuya)
-            const apiKey = "AIzaSyBr1kk7jLRVoLpjy-uvr1-JhvP304A5Q5I"; // Reemplaza con tu clave de API
-
-            // Genera la URL para el iframe del mapa
+            const apiKey = "AIzaSyBr1kk7jLRVoLpjy-uvr1-JhvP304A5Q5I";
             const mapUrl = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(location)}`;
-
-            // Establece el src del iframe dentro del contenedor adecuado
             document.getElementById('map-' + idTrayectoria).innerHTML = `<iframe width="100%" height="100%" style="border:0;" loading="lazy" allowfullscreen src="${mapUrl}"></iframe>`;
         }
 

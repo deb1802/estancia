@@ -1,4 +1,6 @@
-<?php include '../../controller/mostrar_vehiculo_trayectoria.php'; ?>
+<?php 
+include '../../controller/mostrar_vehiculo_trayectoria.php';
+//include '../conductor/header_conductor.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
