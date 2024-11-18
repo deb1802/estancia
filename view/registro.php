@@ -34,7 +34,7 @@
                     <input type="email" placeholder="Correo Electrónico" name="correo">
                 </div>
                 <p class="alert alert-danger" id="errorCorreo" style="display: none;">
-                    Ingresa un correo electrónico válido en formato ejemplo@dominio.com.
+                    Ingresa un correo electrónico válido con dominio "@upemor.edu.mx".
                 </p>
 
                 <div class="input">

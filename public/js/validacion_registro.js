@@ -1,7 +1,7 @@
 function validacion() {
     var expreNomyApe = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
     var expreUsuario = /^[a-zA-Z0-9_]{4,20}$/;
-    var expreEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    var expreEmail = /^[a-zA-Z0-9_.+-]+@upemor\.edu\.mx$/; // Modificado para aceptar solo correos con @upemor.edu.mx
 
     var nombre = document.frm.nombre.value.trim();
     var apellido = document.frm.apellido.value.trim();
@@ -27,7 +27,7 @@ function validacion() {
         document.getElementById("errorApellido").style.display = "none";
     }
 
-    // Validación del campo correo
+    // Validación del campo correo con dominio específico
     if (!expreEmail.test(correo)) {
         document.getElementById("errorCorreo").style.display = "block";
         isValid = false;

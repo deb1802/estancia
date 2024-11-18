@@ -1,3 +1,5 @@
+
+<?php include '../alumno/header_alumno.php';?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 include $_SERVER['DOCUMENT_ROOT'] . '/estancia/model/db.php';
+
 if (!isset($_SESSION['idAlumno'])) {
     echo json_encode(['success' => false, 'message' => 'NO HAS INICIADO SESIÓN']);
     exit;
@@ -12,13 +13,14 @@ if (!$conn) {
 }
 
 $idAlumno = $_SESSION['idAlumno'];
-
-$sql = "SELECT titulo, mensaje FROM avisos WHERE idAlumno = ?";
+$sql = "SELECT titulo, mensaje FROM avisos WHERE idAlumno = ? ORDER BY fecha DESC";
 $stmt = $conn->prepare($sql);
+
 if (!$stmt) {
     echo json_encode(['success' => false, 'message' => 'Error en la consulta']);
     exit;
 }
+
 $stmt->bind_param("i", $idAlumno);
 $stmt->execute();
 $result = $stmt->get_result();

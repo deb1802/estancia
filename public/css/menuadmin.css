@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -47,7 +47,7 @@ body {
     border-radius: 50%;
     object-fit: cover;
     margin-right: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra adicional */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Saludo y Subtítulo */

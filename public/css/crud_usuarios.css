@@ -1,4 +1,3 @@
-/* Estructura general */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -16,18 +15,17 @@ body {
     padding-top: 50px;
 }
 
-/* Contenedor del formulario */
 .form-container {
     background: linear-gradient(90deg, #8ceeb2, #507ea8);
     border-radius: 10px;
     padding: 40px;
-    width: 35%; /* Controla el ancho del formulario */
+    width: 35%;
     text-align: center;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 50px;
     align-self: flex-start;
-    margin-left: 20px; /* Ajuste de margen izquierdo */
+    margin-left: 20px;
 }
 
 h2 {
@@ -40,7 +38,6 @@ p {
     margin-bottom: 30px;
 }
 
-/* Campos de entrada */
 .input {
     margin-bottom: 20px;
     background-color: #f2f2f2;
@@ -79,57 +76,50 @@ button:hover {
     display: none;
 }
 
-/* Contenedor de la tabla */
 .table-container {
     flex: 1;
-    width: 60%; /* Ajuste de ancho */
-    max-height: 70vh; /* Limita la altura máxima de la tabla */
-    overflow-y: auto; /* Habilita el desplazamiento vertical */
+    width: 60%;
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
-/* Tabla centrada */
 .centered-table {
     margin: 0 auto;
     width: 100%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border-collapse: collapse;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para el encabezado de la tabla */
 .centered-table th {
-    background-color: #4CAF50; /* Color verde para el encabezado */
+    background-color: #4CAF50;
     color: white;
-    padding: 4px; /* Reducimos el padding */
-    font-size: 12px; /* Reducimos el tamaño de la fuente */
+    padding: 4px;
+    font-size: 12px;
     font-weight: bold;
     text-align: center;
     border: 0.5px solid white;
 }
 
-/* Estilo para las celdas de la tabla */
 .centered-table td {
-    padding: 4px; /* Reducimos el padding de las celdas */
-    font-size: 12px; /* Reducimos el tamaño de la fuente */
+    padding: 4px;
+    font-size: 12px;
     text-align: center;
     border: 1px solid #ddd;
 }
 
-/* Alternar colores de las filas */
 .centered-table tbody tr:nth-child(even) {
-    background-color: #ececec; /* Color gris claro para filas pares */
+    background-color: #ececec;
 }
 
 .centered-table tbody tr:nth-child(odd) {
-    background-color: #ffffff; /* Blanco para filas impares */
+    background-color: #ffffff;
 }
 
-/* Opcional: Añadir sombreado al pasar el cursor por las filas */
 .centered-table tbody tr:hover {
-    background-color: #e1f5e1; /* Ligero tono verde claro */
+    background-color: #e1f5e1;
 }
 
-/* Botones de acción */
 .action-buttons {
     display: flex;
     justify-content: center;

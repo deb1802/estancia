@@ -49,7 +49,7 @@ h1 .v { color: #2D6A4F; }
     font-weight: 500;
     margin-right: 20px;
     display: flex;
-    align-items: center; /* Centra verticalmente el icono y el texto */
+    align-items: center; 
 }
 
 .nav-link:hover {
@@ -69,6 +69,6 @@ h1 .v { color: #2D6A4F; }
 }
 
 .icon-circle img {
-    width: 100%; /* Ajusta el tamaño del icono dentro del círculo */
+    width: 100%; 
     height: auto;
 }

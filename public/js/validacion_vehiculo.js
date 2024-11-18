@@ -1,10 +1,9 @@
 function validacion() {
     // Expresiones regulares para validación
     var expreMarcaModelo = /^[a-zA-Z0-9À-ÿ\s]{1,40}$/; // Marca y modelo
-    var exprePlacas = /^[A-Z0-9]{1,10}$/; // Placas
+    var exprePlacas = /^[A-Z0-9\-]{1,10}$/; // Placas
     var expreColor = /^[a-zA-ZÀ-ÿ\s]{1,30}$/; // Color
-    
-    // Obtener valores de los campos
+
     var marca = document.frm.marca.value.trim();
     var modelo = document.frm.modelo.value.trim();
     var anio = document.frm.anio.value.trim();

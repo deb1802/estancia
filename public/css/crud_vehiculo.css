@@ -14,7 +14,7 @@ body {
     width: 90%;
     gap: 20px;
     padding-top: 50px;
-    align-items: flex-start; /* Alinea la tabla y formulario al tope */
+    align-items: flex-start;
 }
 
 /* Contenedor del formulario */
@@ -79,8 +79,8 @@ button:hover {
 /* Contenedor de la tabla */
 .table-container {
     flex: 1;
-    width: 60%; /* Ajuste de ancho para que la tabla ocupe el espacio restante */
-    margin-top: 50px; /* Alinea verticalmente con el formulario */
+    width: 60%; 
+    margin-top: 50px; 
 }
 
 /* Tabla centrada */
@@ -90,12 +90,12 @@ button:hover {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: lighter;
     border-collapse: collapse;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 /* Estilo para el encabezado de la tabla */
 .centered-table th {
-    background-color: #4CAF50; /* Color verde para el encabezado */
+    background-color: #4CAF50; 
     color: white;
     padding: 8px;
     font-size: 14px;
@@ -114,16 +114,16 @@ button:hover {
 
 /* Alternar colores de las filas */
 .centered-table tbody tr:nth-child(even) {
-    background-color: #ececec; /* Color gris claro para filas pares */
+    background-color: #ececec; 
 }
 
 .centered-table tbody tr:nth-child(odd) {
-    background-color: #ffffff; /* Blanco para filas impares */
+    background-color: #ffffff; 
 }
 
-/* Opcional: Añadir sombreado al pasar el cursor por las filas */
+
 .centered-table tbody tr:hover {
-    background-color: #e1f5e1; /* Ligero tono verde claro */
+    background-color: #e1f5e1; 
 }
 
 /* Estilo para los botones de acción */
@@ -143,20 +143,20 @@ button:hover {
 }
 
 .edit-btn {
-    background-color: #4CAF50; /* Botón verde */
+    background-color: #4CAF50; 
 }
 
 .delete-btn {
-    background-color: #f44336; /* Botón rojo */
+    background-color: #f44336;
 }
 
 .edit-btn:hover {
-    background-color: #45a049; /* Hover verde más oscuro */
+    background-color: #45a049;
     text-decoration: none;
 }
 
 .delete-btn:hover {
-    background-color: #d32f2f; /* Hover rojo más oscuro */
+    background-color: #d32f2f; 
     text-decoration: none;
 }
 

@@ -1,69 +1,41 @@
+.trayectoria-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+}
 
-        .trayectoria-card {
-            border: 1px solid #ced4da;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .trayectoria-details {
-            width: 60%;
-        }
-        .map-container {
-            height: 200px;
-            width: 35%;
-            border: 1px solid #ced4da;
-            border-radius: 8px;
-        }
-        .btn-solicitar {
-            margin-top: 15px;
-        }
+/* Detalles de la trayectoria */
+.trayectoria-details {
+    margin-right: 20px;
+    flex: 1; 
+}
+
+
+.map-container {
+    width: 50%;
+    height: 300px;
+    border-radius: 3px;
+    border: 2px solid #4CAF50; 
+    box-shadow: 0 6px 12px rgba(0, 128, 0, 0.2); 
+    padding: 5px;
+}
+
+@media (max-width: 767px) {
     .trayectoria-card {
-        border: 1px solid #ced4da;
-        border-radius: 8px;
-        padding: 15px;
-        margin-bottom: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column; 
     }
-    .trayectoria-details {
-        width: 60%;
-    }
+
     .map-container {
-        width: 100%;
-        height: 300px; /* Ajusta el tamaño según sea necesario */
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }    
-    .btn-solicitar {
+        height: 250px;
         margin-top: 15px;
     }
 
-    #mensaje-solicitud {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
-        padding: 15px;
-        font-size: 16px;
-        border-radius: 5px;
-        transition: opacity 0.5s ease;
+    .trayectoria-details {
+        margin-right: 0;
     }
-    
-    #mensaje-solicitud.success {
-        background-color: #d4edda;
-        color: #155724;
-        border: 1px solid #c3e6cb;
-    }
-    
-    #mensaje-solicitud.error {
-        background-color: #f8d7da;
-        color: #721c24;
-        border: 1px solid #f5c6cb;
-    }
-    
+}
