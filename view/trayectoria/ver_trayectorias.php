@@ -14,9 +14,9 @@
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
             display: flex;
-            flex-direction: row; /* Disposición horizontal */
+            flex-direction: row;
             justify-content: space-between;
         }
 
@@ -73,6 +73,15 @@
                             <p><strong>Color:</strong> <?= $trayectoria['color'] ?></p>
                             <p><strong>Capacidad:</strong> <?= $trayectoria['capacidad'] ?> personas</p>
                             <p><strong>Referencias:</strong> <?= $trayectoria['referencias'] ?></p>
+
+                            <!-- Disponibilidad -->
+                            <p><strong>Esta trayectoria está disponible en los siguientes días y horarios:</strong></p>
+                            <ul>
+                                <?php foreach ($trayectoria['disponibilidad'] as $dispo): ?>
+                                    <li><strong><?= $dispo['dia'] ?>:</strong> <?= $dispo['horaInicio'] ?> - <?= $dispo['horaFin'] ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+
                             <!-- Botón de solicitud con el idTrayectoria como atributo -->
                             <button class="btn btn-primary btn-solicitar" onclick="solicitarTrayectoria(<?= $trayectoria['id'] ?>)">Solicitar</button>
                         </div>
@@ -80,6 +89,7 @@
                         <div id="map-<?php echo htmlspecialchars($trayectoria['id'], ENT_QUOTES, 'UTF-8'); ?>" class="map-container"></div>
                     </div>
                 </div>
+
                 <!-- Mensaje de éxito al enviar solicitud -->
                 <div id="mensaje-solicitud" class="alert alert-success" role="alert" style="display: none;">
                  Solicitud enviada correctamente.

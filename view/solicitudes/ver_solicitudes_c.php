@@ -67,9 +67,9 @@
         <button class="btn btn-info" id="btn-iniciar-viaje" onclick="cambiarEstadoTrayectoria(<?= $solicitud['idTrayectoria'] ?>, 'iniciado')">
             Iniciar Viaje
         </button>
-        <button class="btn btn-info" id="btn-finalizar-viaje" onclick="cambiarEstadoTrayectoria(<?= $solicitud['idTrayectoria'] ?>, 'finalizado')">
+        <!--<button class="btn btn-info" id="btn-finalizar-viaje" onclick="cambiarEstadoTrayectoria(<?= $solicitud['idTrayectoria'] ?>, 'finalizado')">
             Finalizar Viaje
-        </button>
+        </button> -->
     </div>
 </div>
 

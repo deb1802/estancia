@@ -72,17 +72,13 @@ CREATE TABLE trayectorias2 (
 );
 
 
-
-
-
 CREATE TABLE detalleTrayectoria (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idTrayectoria INT NOT NULL,
     idAlumno INT NOT NULL,
     estado_viaje ENUM('ninguno', 'iniciado', 'finalizado') DEFAULT 'ninguno',
-    FOREIGN KEY (idTrayectoria) REFERENCES trayectorias(id)
+    FOREIGN KEY (idTrayectoria) REFERENCES trayectorias2(id)
 );
-
 
 drop table if exists avisos;
 CREATE TABLE avisos (
@@ -137,17 +133,6 @@ INSERT INTO disponibilidad (id, idConductor, dia, horaInicio, horaFin) VALUES
 ('3', '8', 'Miércoles', '08:00:00', '12:00:00'),
 ('4', '3', 'Jueves', '15:00:00', '19:00:00'),
 ('5', '7', 'Viernes', '11:00:00', '15:00:00');
-INSERT INTO avisos (id, titulo, mensaje) VALUES
-('1', 'Seguridad', 'Usa el cinturón, aunque sea un viaje corto'),
-('2', 'Seguridad', 'Presta atención a los señalamientos'),
-('3', 'Seguridad', 'Asegúrate de compartir tu viaje con alguien de confianza'),
-('4', 'Seguridad', 'No olvides tus pertenencias en el vehículo'),
-('5', 'Información', 'Recuerda pagarle al conductor. Puede ser en efectivo o por transferencia'),
-('6', 'Información', 'El conductor ha aceptado tu solicitud'),
-('7', 'Información', 'El conductor ha rechazado tu solicitud'),
-('8', 'Información', 'Tienes una nueva solicitud'),
-('9', 'Calificación', 'Si tuviste una buena experiencia, no olvides dejar una calificación'),
-('10', 'Asistencia', 'Si necesitas ayuda, por favor contacta a nuestro soporte');
 
 select * from usuarios;
 select * from perfiles;
@@ -156,13 +141,11 @@ select * from disponibilidad;
 select * from trayectorias;
 describe trayectorias;
 select * from usuarios;
-
-
 select * from detalleTrayectoria;
 select * from avisos;
+
 DROP TRIGGER IF EXISTS after_update_solicitud;
 DELIMITER //
-
 CREATE TRIGGER after_update_solicitud
 AFTER UPDATE ON solicitudes
 FOR EACH ROW
@@ -198,8 +181,6 @@ BEGIN
         WHERE id = NEW.idTrayectoria AND capacidad > 0;
     END IF;
 END //
-
 DELIMITER ;
-
 
 select * from detalleTrayectoria;
