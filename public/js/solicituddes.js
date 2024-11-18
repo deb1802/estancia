@@ -33,7 +33,7 @@ function cambiarEstadoSolicitud(idSolicitud, nuevoEstado) {
                     accionesDiv.innerHTML = '';
                 }
             } else {
-                alert('Error al actualizar el estado.');
+                console.log('Error al actualizar el estado.');
             }
         })
         .catch((error) => {
@@ -96,6 +96,7 @@ function cambiarEstadoTrayectoria(idTrayectoria, nuevoEstado) {
     })
         .then((response) => response.json())
         .then((data) => {
+            console.log(data)
             if (data.success) {
                 // Actualizar la clase del estado en la interfaz
                 const card = document.getElementById(`trayectoria-${idTrayectoria}`);
@@ -123,7 +124,7 @@ function cambiarEstadoTrayectoria(idTrayectoria, nuevoEstado) {
                     accionesDiv.innerHTML = '';
                 }
             } else {
-                alert('Error al actualizar el estado.');
+                console.log('Error al actualizar el estado.');
             }
         })
         .catch((error) => {
