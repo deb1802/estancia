@@ -72,8 +72,14 @@ button:hover {
 
 .alert {
     font-size: 12px;
+    font-family: Arial, Helvetica;
+    line-height: 1.2;
+    padding: 5px;
+    margin: 5px 0;
     color: #d9534f;
-    display: none;
+    display: none; 
+    background-color: #f8d7da;
+    text-align: center;
 }
 
 /* Contenedor de la tabla */

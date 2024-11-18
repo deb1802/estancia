@@ -7,7 +7,7 @@ function navigateTo(page) {
             window.location.href = '../../view/disponibilidad/crud_disponibilidad.php';
             break;
         case 'trayectorias':
-            window.location.href = '../../view/trayectoria/create_traye.php';
+            window.location.href = '../../view/trayectoria/crud_trayectoria.php';
             break;
         case 'avisos':
             window.location.href = '';

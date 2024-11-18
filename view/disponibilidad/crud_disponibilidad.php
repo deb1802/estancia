@@ -20,7 +20,7 @@ include "../../model/consultar_disponibilidades_a.php";
             <form name="frmDisponibilidad" action="../../controller/alta_dispo_a.php" method="post" onsubmit="return validacionDisponibilidad();">
                 <div class="input">
                     <label for="idConductor">ID del Conductor:</label>
-                    <input type="text" name="idConductor" id="idConductor" placeholder="Ingrese el ID del conductor" required>
+                    <input type="text" name="idConductor" id="idConductor" placeholder="Ingrese el ID del conductor">
                 </div>
                 <p class="alert alert-danger" id="errorIdConductor" style="display: none;">
                     Por favor ingrese un ID de conductor válido.
