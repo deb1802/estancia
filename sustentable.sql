@@ -113,7 +113,7 @@ INSERT INTO usuarios (id, nombre, apellido, correo, usuario, contrasena, tipo) V
 ('10', 'Fernando', 'Ortiz', 'fer@upemor.edu.mx', 'ferso', '1234', 'alumno');
 
 INSERT INTO perfiles (id, idAlumno, telefono, matricula, valoracion, viajes, comentarios) VALUES 
-('1', '3', '7772670694', 'MBWO220238', '5', '0', 'Maneja muy bien'),
+('1', '11', '7772670694', 'MBWO220238', '5', '0', 'Maneja muy bien'),
 ('2', '4', '7774931305', 'SHYO221058', '4', '0', 'Es educada'),
 ('3', '5', '7775368702', 'VMDO220377', '3', '0', 'Impuntual'),
 ('4', '6', '7774428209', 'AMJO220898', '2', '0', 'Habla mucho'),
@@ -144,6 +144,7 @@ select * from usuarios;
 select * from detalleTrayectoria;
 select * from avisos;
 
+
 DROP TRIGGER IF EXISTS after_update_solicitud;
 DELIMITER //
 CREATE TRIGGER after_update_solicitud
@@ -169,12 +170,6 @@ BEGIN
         FROM trayectorias
         WHERE id = NEW.idTrayectoria;
 
-        -- Insertar el aviso con el metodo_pago solo si no es NULL
-        IF metodo_pago IS NOT NULL THEN
-            INSERT INTO avisos (idAlumno, titulo, mensaje)
-            VALUES (NEW.idAlumno, 'Información', CONCAT('Recuerda pagarle al conductor. Este viaje se paga por ', metodo_pago));
-        END IF;
-
         -- Disminuir la capacidad de la trayectoria
         UPDATE trayectorias2
         SET capacidad = capacidad - 1
@@ -183,4 +178,69 @@ BEGIN
 END //
 DELIMITER ;
 
+
 select * from detalleTrayectoria;
+
+
+
+drop trigger if exists actualizarViajesYCrearAvisos;
+DELIMITER //
+CREATE TRIGGER actualizarViajesYCrearAvisos
+AFTER UPDATE ON detalleTrayectoria
+FOR EACH ROW
+BEGIN
+    -- Verificar que el estado cambió a 'finalizado'
+    IF NEW.estado_viaje = 'finalizado' THEN
+        -- Incrementar viajes del conductor asociado a la trayectoria
+        UPDATE perfiles
+        SET viajes = COALESCE(viajes, 0) + 1
+        WHERE idAlumno = (
+            SELECT idConductor
+            FROM trayectorias
+            WHERE id = NEW.idTrayectoria
+        );
+
+        -- Incrementar viajes de los alumnos asociados a la trayectoria
+        UPDATE perfiles
+        SET viajes = COALESCE(viajes, 0) + 1
+        WHERE idAlumno IN (
+            SELECT idAlumno
+            FROM detalleTrayectoria
+            WHERE idTrayectoria = NEW.idTrayectoria
+        );
+
+        -- Crear aviso para el método de pago (si no es NULL)
+        IF (
+            SELECT pago
+            FROM trayectorias2
+            WHERE id = NEW.idTrayectoria
+        ) IS NOT NULL THEN
+            INSERT INTO avisos (idAlumno, titulo, mensaje)
+            SELECT 
+                idAlumno,
+                'Información',
+                CONCAT('Recuerda pagarle al conductor. Este viaje se paga por ', 
+                       (SELECT pago FROM trayectorias2 WHERE id = NEW.idTrayectoria))
+            FROM detalleTrayectoria
+            WHERE idTrayectoria = NEW.idTrayectoria;
+        END IF;
+
+        -- Crear aviso para informar que el viaje finalizó
+        INSERT INTO avisos (idAlumno, titulo, mensaje)
+        SELECT 
+            idAlumno,
+            'Viaje Finalizado',
+            CONCAT('Tu viaje finalizó el día ', DATE(NOW()), ' a las ', TIME(NOW()))
+        FROM detalleTrayectoria
+        WHERE idTrayectoria = NEW.idTrayectoria;
+    END IF;
+END;
+//
+DELIMITER ;
+
+
+
+select * from perfiles;
+select * from detalleTrayectoria;
+
+

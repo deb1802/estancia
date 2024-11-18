@@ -81,6 +81,7 @@ function mostrarDetallesTrayectoria(idTrayectoria) {
             console.error('Error al obtener los detalles:', error);
             alert('Hubo un problema al cargar los detalles de la trayectoria.');
         });
+        
 }
 
 // Función para cambiar el estado de la trayectoria
@@ -99,7 +100,8 @@ function cambiarEstadoTrayectoria(idTrayectoria, nuevoEstado) {
             console.log(data)
             if (data.success) {
                 // Actualizar la clase del estado en la interfaz
-                const card = document.getElementById(`trayectoria-${idTrayectoria}`);
+                // checar aquí----------------------------------------->
+                //const card = document.getElementById(`trayectoria-${idTrayectoria}`);
                 card.classList.remove('ninguno', 'iniciado', 'finalizado');
                 card.classList.add(nuevoEstado);
 

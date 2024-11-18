@@ -79,11 +79,13 @@ button:hover {
 }
 
 .alert {
-    font-size: 12px; 
+    font-size: 12px;
     font-family: Arial, Helvetica;
-    line-height: 1.0; 
+    line-height: 1.2;
     padding: 5px;
     margin: 5px 0;
+    color: #d9534f;
+    display: none; 
 }
 
 /*Para lo de mostrar contra*/
