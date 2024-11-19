@@ -82,7 +82,12 @@
             </form>
         </div>
 
-        <!-- Barra de búsqueda y filtro (colócala aquí arriba de la tabla) -->
+        
+        
+
+        <!-- Contenedor de la tabla -->
+        <div class="table-container">
+        <!-- Barra de búsqueda y filtro -->
         <div class="search-bar">
             <input type="text" id="busqueda" placeholder="Buscar..." onkeyup="filtrarTabla()">
             <select id="filtro" onchange="filtrarTabla()">
@@ -91,13 +96,9 @@
                 <option value="2">Apellido</option>
                 <option value="3">Correo</option>
                 <option value="4">Usuario</option>
-                <option value="5">Contraseña</option>
-                <option value="6">Tipo de Usuario</option>
+                <option value="5">Tipo de Usuario</option>
             </select>
         </div>
-
-        <!-- Contenedor de la tabla -->
-        <div class="table-container">
             <table class="centered-table" id="tablaUsuarios">
                 <thead>
                     <tr>

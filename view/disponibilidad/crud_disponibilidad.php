@@ -36,7 +36,6 @@ include "../../model/consultar_disponibilidades_a.php";
                         <option value="Jueves">Jueves</option>
                         <option value="Viernes">Viernes</option>
                         <option value="Sábado">Sábado</option>
-                        <option value="Domingo">Domingo</option>
                     </select>
                 </div>
                 <p class="alert alert-danger" id="errorDia" style="display: none;">
@@ -95,33 +94,6 @@ include "../../model/consultar_disponibilidades_a.php";
         </div>
     </div>
 
-    <div class="table-container">
-        <h3>Conductores</h3>
-        <table class="centered-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
-                $execConductores = obtenerConductoresDisponibles($conn);
-
-                while ($rowConductor = mysqli_fetch_array($execConductores)) {
-            ?>
-                <tr>
-                    <td><?php echo $rowConductor['id']; ?></td>
-                    <td><?php echo $rowConductor['nombre']; ?></td>
-                    <td><?php echo $rowConductor['apellido']; ?></td>
-                </tr>
-            <?php
-                }
-            ?>
-            </tbody>
-        </table>
-    </div>
     <?php
         include "../disponibilidad/confirmacion_delete.php";
     ?>
@@ -129,43 +101,49 @@ include "../../model/consultar_disponibilidades_a.php";
     <div class="table-container">
         <h3>Disponibilidades</h3>
         <table class="table-primary centered-table">
-            <thead>
-                <tr>
-                    <th>Id conductor</th>
-                    <th>Día</th>
-                    <th>Hora de Inicio</th>
-                    <th>Hora de Fin</th>
-                    <th>Acción</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $execDisponibilidades = obtenerDisponibilidades($conn); // Llamamos a la función para obtener las disponibilidades
+        <thead>
+    <tr>
+        <th>Id Conductor</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Día</th>
+        <th>Hora de Inicio</th>
+        <th>Hora de Fin</th>
+        <th>Acción</th>
+    </tr>
+</thead>
 
-                if (mysqli_num_rows($execDisponibilidades) == 0) {
-                    echo "<tr><td colspan='5'>No se encontraron disponibilidades.</td></tr>";
-                } else {
-                    while ($rows = mysqli_fetch_assoc($execDisponibilidades)) {
-                    ?>    
-                        <tr>
-                            <td><?php echo $rows['idConductor']; ?></td>
-                            <td><?php echo $rows['dia']; ?></td>
-                            <td><?php echo $rows['horaInicio']; ?></td>
-                            <td><?php echo $rows['horaFin']; ?></td>
-                            <td class="action-buttons">
-                                <a href="../../controller/update_disponibilidad_a.php?id=<?php echo $rows['id']; ?>" class="edit-btn">
-                                    <img src="../../public/img/refresh.svg" alt="Editar" class="icon"> Editar
-                                </a>
-                                <a href="javascript:void(0);" onclick="openModal('../../controller/delete_dispo_a.php?id=<?php echo $rows['id']; ?>')" class="delete-btn">
-                                    <img src="../../public/img/trash.svg" alt="Eliminar" class="icon"> Eliminar
-                                </a>
-                            </td>
-                        </tr>
-                    <?php    
-                    }
-                }        
-                ?>
-            </tbody>
+            <tbody>
+    <?php
+    $execDisponibilidades = obtenerDisponibilidades($conn); // Llamamos a la función modificada
+
+    if (mysqli_num_rows($execDisponibilidades) == 0) {
+        echo "<tr><td colspan='6'>No se encontraron disponibilidades.</td></tr>";
+    } else {
+        while ($rows = mysqli_fetch_assoc($execDisponibilidades)) {
+        ?>    
+            <tr>
+                <td><?php echo $rows['idConductor']; ?></td>
+                <td><?php echo $rows['nombre']; ?></td>
+                <td><?php echo $rows['apellido']; ?></td>
+                <td><?php echo $rows['dia']; ?></td>
+                <td><?php echo $rows['horaInicio']; ?></td>
+                <td><?php echo $rows['horaFin']; ?></td>
+                <td class="action-buttons">
+                    <a href="../../controller/update_disponibilidad_a.php?id=<?php echo $rows['idConductor']; ?>" class="edit-btn">
+                        <img src="../../public/img/refresh.svg" alt="Editar" class="icon"> Editar
+                    </a>
+                    <a href="javascript:void(0);" onclick="openModal('../../controller/delete_dispo_a.php?id=<?php echo $rows['idConductor']; ?>')" class="delete-btn">
+                        <img src="../../public/img/trash.svg" alt="Eliminar" class="icon"> Eliminar
+                    </a>
+                </td>
+            </tr>
+        <?php    
+        }
+    }        
+    ?>
+</tbody>
+
         </table>
     </div>
 </body>
