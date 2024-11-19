@@ -11,6 +11,30 @@
     <link rel="stylesheet" href="../../public/css/crud_usuarios.css">
     <script src="../../public/js/validacion_registro.js" defer></script>
     <script src="../../public/js/modalControl_u.js" defer></script>
+    <script>
+        // Función de filtrado en tiempo real
+        function filtrarTabla() {
+            var input = document.getElementById("busqueda");
+            var filtro = input.value.toLowerCase();
+            var select = document.getElementById("filtro");
+            var columna = select.value;
+            var tabla = document.getElementById("tablaUsuarios");
+            var filas = tabla.getElementsByTagName("tr");
+
+            // Recorremos todas las filas de la tabla
+            for (var i = 1; i < filas.length; i++) { // Empezamos desde 1 para saltar el encabezado
+                var celda = filas[i].getElementsByTagName("td")[columna];
+                if (celda) {
+                    var textoCelda = celda.textContent || celda.innerText;
+                    if (textoCelda.toLowerCase().indexOf(filtro) > -1) {
+                        filas[i].style.display = "";
+                    } else {
+                        filas[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="main-container">
@@ -58,9 +82,23 @@
             </form>
         </div>
 
+        <!-- Barra de búsqueda y filtro (colócala aquí arriba de la tabla) -->
+        <div class="search-bar">
+            <input type="text" id="busqueda" placeholder="Buscar..." onkeyup="filtrarTabla()">
+            <select id="filtro" onchange="filtrarTabla()">
+                <option value="0">Id Usuario</option>
+                <option value="1">Nombre</option>
+                <option value="2">Apellido</option>
+                <option value="3">Correo</option>
+                <option value="4">Usuario</option>
+                <option value="5">Contraseña</option>
+                <option value="6">Tipo de Usuario</option>
+            </select>
+        </div>
+
         <!-- Contenedor de la tabla -->
         <div class="table-container">
-            <table class="centered-table">
+            <table class="centered-table" id="tablaUsuarios">
                 <thead>
                     <tr>
                         <th>Id Usuario</th>
@@ -110,14 +148,12 @@
                                 <a href="javascript:void(0);" onclick="openModalu('../../controller/delete_usuarios_admin.php?id=<?php echo $rows['id']; ?>')" class="delete-btn">
                                     <img src="../../public/img/trash.svg" alt="Eliminar" class="icon"> Eliminar
                                 </a>
-
                             </td>
                         </tr>
                     <?php
                     }
                     ?>
                 </tbody>
-
             </table>
         </div>
     </div>
