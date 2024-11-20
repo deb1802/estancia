@@ -90,7 +90,7 @@ CREATE TABLE solicitudes (
     fechaSolicitud TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     estado ENUM('pendiente', 'aceptada', 'rechazada') NOT NULL DEFAULT 'pendiente',
     FOREIGN KEY (idAlumno) REFERENCES usuarios(id),
-    FOREIGN KEY (idTrayectoria) REFERENCES trayectorias(id)
+    FOREIGN KEY (idTrayectoria) REFERENCES trayectorias2(id)
 );
 
 INSERT INTO usuarios (id, nombre, apellido, correo, usuario, contrasena, tipo) VALUES 
