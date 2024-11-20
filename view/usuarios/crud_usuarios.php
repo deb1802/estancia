@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administración de Usuarios</title>
-    <link rel="stylesheet" href="../../public/css/crud_usuarios.css">
+    <link rel="stylesheet" href="../../public/css/crud_us.css">
     <script src="../../public/js/validacion_registro.js" defer></script>
     <script src="../../public/js/modalControl_u.js" defer></script>
     <script>

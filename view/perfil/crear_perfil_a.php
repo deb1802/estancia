@@ -85,9 +85,9 @@ include '../../../estancia/controller/mostrar_usuarios.php';
     <!-- Apartado fuera del contenedor para ver otros perfiles -->
     <div class="container mt-5">
         <div class="other-profiles-container">
-            <h3><i class="fas fa-users"></i> ¡Conoce más usuarios!</h3>
-            <p>Ven a descubrir quién más forma parte de Upemov.</p>
-            <a href="perfiles.php" class="btn btn-info">
+            <h3><i class="fas fa-users"></i> ¡Visita todos los perfiles!</h3>
+            <p>Gestiona quien hace parte de Upemov.</p>
+            <a href="perfiles_a.php" class="btn btn-info">
                 Ver perfiles
             </a>
         </div>
