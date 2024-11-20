@@ -1,154 +1,207 @@
 /* Estilos Generales */
 body {
-    background-color: #f8f9fa;
-    font-family: 'Arial', sans-serif;
+    background-color: #f1f2f6;
+    font-family: 'Poppins', sans-serif;
     padding-top: 50px;
 }
 
 .card {
-    max-width: 600px;
+    max-width: 650px;
     margin: auto;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    background-color: #fff;
-    padding: 25px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    background-color: #ffffff;
+    padding: 30px;
     border: none;
 }
 
 /* Encabezado de la tarjeta */
 .card-header {
-    background-color: #007bff;
+    background-color: #72b8bd;
     color: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 15px 15px 0 0;
+    font-weight: 600;
 }
 
 .card-header h2 {
     margin: 0;
-}
-
-/* Estilos para la valoración */
-.star-rating {
-    font-size: 1.5rem;
-    color: #ffc107;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-
-.star-rating input {
-    display: none;
-}
-
-.star-rating label {
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.star-rating input:checked ~ label,
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-    color: #ffdd57;
+    font-size: 28px;
 }
 
 /* Foto de Perfil */
 #fotoPerfil {
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
     transition: transform 0.3s ease;
-    margin-bottom: 15px;
-    border: 4px solid #007bff;
+    margin-bottom: 20px;
+    border: 6px solid #72b8bd;
 }
 
 #fotoPerfil:hover {
     transform: scale(1.1);
 }
 
-/* Estilos para el botón de selección de foto */
-.custom-file {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    margin-top: 15px;
-}
-
-.custom-file input[type="file"] {
-    font-size: 100px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.upload-btn {
-    background-color: #007bff;
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-}
-
-.upload-btn:hover {
-    background-color: #0056b3;
-}
-
-/* Campos de entrada */
+/* Estilos para los campos de perfil */
 .form-group {
     margin-bottom: 1.5rem;
 }
 
-.form-control {
-    border-radius: 5px;
+.profile-info {
+    font-size: 16px;
     padding: 10px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    font-weight: normal;
+    color: #34495e;
 }
 
-textarea.form-control {
-    resize: vertical;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-}
-
-/* Botón de Guardar */
-#guardar {
-    width: 100%;
-    background-color: #28a745;
-    color: #fff;
-    border-radius: 5px;
+/* Estilos para los campos de texto editables */
+.form-control {
+    font-size: 16px;
     padding: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1.1rem;
-    border: none;
+    border: 2px solid #72b8bd;
+    border-radius: 10px;
+    background-color: #ecf6f7;
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
 
-#guardar:hover {
-    background-color: #218838;
+.form-control:focus {
+    border-color: #3498db;
+    outline: none;
 }
 
-/* Estilos de la tarjeta en móviles */
+/* Botones para editar y eliminar */
+.icon-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 25px;
+}
+
+.icon-buttons a {
+    color: white;
+    padding: 12px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.icon-buttons .edit {
+    background-color: #3498db;
+}
+
+.icon-buttons .delete {
+    background-color: #e74c3c;
+}
+
+/* Estilos para la interfaz responsiva */
+@media (max-width: 768px) {
+    .card {
+        padding: 25px;
+    }
+
+    #fotoPerfil {
+        width: 150px;
+        height: 150px;
+    }
+
+    .card-header h2 {
+        font-size: 24px;
+    }
+
+    .icon-buttons a {
+        padding: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+}
+
 @media (max-width: 576px) {
     .card {
         padding: 20px;
     }
 
     #fotoPerfil {
-        width: 120px;
-        height: 120px;
+        width: 130px;
+        height: 130px;
     }
 
-    .form-group {
-        margin-bottom: 1rem;
+    .icon-buttons a {
+        padding: 8px;
     }
+}
 
-    #guardar {
-        padding: 10px;
-        font-size: 1rem;
-    }
+/* Estilos para el icono de coche */
+.cart-icon {
+    font-size: 24px;
+    color: #808080; /* Gris */
+    margin-right: 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.cart-icon:hover {
+    transform: translateX(10px); 
+    color: #2c3e50; 
+}
+
+/* Estilos para la sección del número de viajes */
+#viajesUsuario {
+    font-size: 16px;
+    font-weight: normal;
+    color: #34495e;
+    display: flex;
+    align-items: center;
+}
+
+#viajesUsuario span {
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.other-profiles-container {
+    background-color: #f0f8ff;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px; /* Ajusta el ancho máximo */
+    margin: 0 auto;  /* Centra el contenedor */
+}
+.other-profiles-container h3 {
+    font-size: 24px;
+    color: #007bff;
+}
+.other-profiles-container p {
+    font-size: 18px;
+    color: #333;
+}
+.other-profiles-container .btn-info {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.other-profiles-container .btn-info:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.alert {
+    font-size: 12px;
+    font-family: Arial, Helvetica;
+    line-height: 1.2;
+    padding: 5px;
+    margin: 5px 0;
+    color: #d9534f;
+    display: none; 
+    background-color: #f8d7da;
+    text-align: center;
 }

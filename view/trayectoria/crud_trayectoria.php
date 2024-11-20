@@ -77,6 +77,7 @@ include '../../controller/mostrar_vehiculos_a.php';
 
             <button type="button" onclick="mostrarEnMapa()">Mostrar en el Mapa</button>
             <button type="submit">Guardar Trayectoria</button>
+            <button type="button" onclick="window.location.href='../../view/trayectoria/ver_trayectoria_a.php'">Consultar Trayectorias</button>
         </form>
         <!-- Mapa -->
         <iframe
@@ -87,18 +88,10 @@ include '../../controller/mostrar_vehiculos_a.php';
             loading="lazy"
             allowfullscreen
             referrerpolicy="no-referrer-when-downgrade"
-            src="">
-
+            src=""> 
         </iframe>
+
     </div>
-    <script>
-        // Asociamos la función de validación al evento submit del formulario
-        document.getElementById("trayectoriaForm").onsubmit = function(event) {
-            if (!validacion()) {
-                event.preventDefault(); // Previene el envío si hay errores
-            }
-        };
-    </script>
 
     <script src="../../public/js/mostrar_mapa.js"> </script>
     <script src="../../public/js/validacion_trayectoria.js"> </script>

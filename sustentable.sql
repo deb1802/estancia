@@ -12,16 +12,19 @@ CREATE TABLE usuarios (
   tipo ENUM('alumno', 'conductor', 'administrador') NOT NULL
 );
 
+drop table if exists perfiles;
 CREATE TABLE perfiles (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  idAlumno INT NOT NULL,
-  telefono TEXT NOT NULL,
-  matricula TEXT NOT NULL,
-  valoracion ENUM('1', '2', '3', '4', '5') NULL,
-  viajes INT NULL,
-  comentarios TEXT NULL,
-  FOREIGN KEY (idAlumno) REFERENCES usuarios(id)
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idAlumno INT NOT NULL,
+    nombreUser TEXT NULL,
+    telefono TEXT NOT NULL,
+    valoracion ENUM('1', '2', '3', '4', '5') NULL,
+    viajes INT NULL,
+    informacion TEXT NULL,
+    imagen VARCHAR(255) NULL,  -- Campo para la ruta de la imagen
+    FOREIGN KEY (idAlumno) REFERENCES usuarios(id)
 );
+
 
 
 CREATE TABLE vehiculos (
@@ -80,6 +83,8 @@ CREATE TABLE detalleTrayectoria (
     FOREIGN KEY (idTrayectoria) REFERENCES trayectorias2(id)
 );
 
+
+
 drop table if exists avisos;
 CREATE TABLE avisos (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -89,7 +94,13 @@ CREATE TABLE avisos (
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (idAlumno) REFERENCES usuarios(id)
 );
-
+drop table if exists avisos;
+CREATE TABLE avisosGeneral (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    titulo TEXT NOT NULL,
+    mensaje TEXT NOT NULL,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 CREATE TABLE solicitudes (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idAlumno INT NOT NULL,
@@ -242,5 +253,11 @@ DELIMITER ;
 
 select * from perfiles;
 select * from detalleTrayectoria;
+select * from avisos;
+select * from usuarios;
+select * from vehiculos;
+select * from trayectorias2;
+select * from trayectorias2;
 
-
+select * from perfiles;
+select * from avisosGeneral;

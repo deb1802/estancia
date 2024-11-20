@@ -10,10 +10,10 @@ function navigateTo(page) {
             window.location.href = '../../view/trayectoria/crud_trayectoria.php';
             break;
         case 'avisos':
-            window.location.href = '';
+            window.location.href = '../../view/avisos/crud_avisos.php';
             break;
         case 'perfiles':
-            window.location.href = '';
+            window.location.href = '../../view/perfil/crear_perfil_a.php';
             break;
         case 'vehiculos':
             window.location.href = '../../view/vehiculo/crud_vehiculo.php';

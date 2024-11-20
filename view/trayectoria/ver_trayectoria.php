@@ -59,7 +59,7 @@
     }
 
     function eliminarTrayectoria(id) {
-        if (confirm("¿Estás seguro de que deseas eliminar esta trayectoria?")) {
+        if (confirm("¿Estás seguro de que deseas eliminar esta trayectoria? (Toma en cuenta que se eliminarán los detalles de Trayectoria asociados a esta trayectoria)")) {
             fetch(`../../controller/eliminar_traye.php`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
