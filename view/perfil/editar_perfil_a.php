@@ -44,7 +44,6 @@ if ($result->num_rows > 0) {
                 <h2>Editar Perfil</h2>
             </div>
             <div class="card-body">
-                <!-- Formulario para editar el perfil -->
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario(event)">
                     <!-- Campo oculto para enviar el ID del alumno -->
                     <input type="hidden" name="idAlumno" value="<?php echo htmlspecialchars($idAlumno); ?>">

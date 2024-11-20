@@ -27,7 +27,7 @@ include '../admin/header_admin.php';
         </form>
 
         <div class="row">
-            <?php
+            <?php 
             // Mostrar perfiles
             if (!empty($profiles)) {
                 foreach ($profiles as $profile) {
