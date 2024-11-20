@@ -15,7 +15,6 @@ const PASS = "";
 
 //Carpeta donde se almacenaran las copias de seguridad
 const BACKUP_PATH =  "../public/backup/upemov_";
-const BACKUP_PATH =  "../public/backup/upemov_";
 
 /*Configuración de zona horaria de tu país
 */

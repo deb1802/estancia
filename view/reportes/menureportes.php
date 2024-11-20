@@ -17,7 +17,7 @@ if (isset($_SESSION['usuario'])) {
     <div class="dashboard">
         <header class="dashboard-header">
             <div class="profile-section">
-                <img src="../../public/img/reporte.png" alt="Imagen de perfil" class="profile-img">
+                <img src="../../public/img/excel.png" alt="Imagen de perfil" class="profile-img">
                 <div>
                     <h2>Reportes</h2>
                     <h3>Selecciona una opción para generar el reporte</h3>

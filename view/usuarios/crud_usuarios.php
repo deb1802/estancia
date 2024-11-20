@@ -91,7 +91,7 @@
         <div class="search-bar">
             <input type="text" id="busqueda" placeholder="Buscar..." onkeyup="filtrarTabla()">
             <select id="filtro" onchange="filtrarTabla()">
-                <option value="0">Id Usuario</option>
+                <option value="0">ID Usuario</option>
                 <option value="1">Nombre</option>
                 <option value="2">Apellido</option>
                 <option value="3">Correo</option>
