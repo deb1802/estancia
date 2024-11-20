@@ -106,12 +106,7 @@ body {
     font-size: 1.1em;
     color: #333;
 }
-
-/* Responsive Styles */
-
-/* Pantallas de dispositivo móvil y tablet */
 @media (max-width: 768px) {
-    /* Ajustamos el contenedor principal */
     .dashboard {
         width: 100%;
         max-width: none;

@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS sustentable;
 CREATE DATABASE sustentable;
 USE sustentable;
 
+-- Tabla usuarios
 CREATE TABLE usuarios (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre TEXT NOT NULL,
@@ -12,7 +13,7 @@ CREATE TABLE usuarios (
   tipo ENUM('alumno', 'conductor', 'administrador') NOT NULL
 );
 
-drop table if exists perfiles;
+-- Tabla perfiles
 CREATE TABLE perfiles (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idAlumno INT NOT NULL,
@@ -22,9 +23,13 @@ CREATE TABLE perfiles (
     valoracion ENUM('1', '2', '3', '4', '5') NULL,
     viajes INT NULL,
     informacion TEXT NULL,
-    imagen VARCHAR(255) NULL,  -- Campo para la ruta de la imagen
-    FOREIGN KEY (idAlumno) REFERENCES usuarios(id)
+    imagen VARCHAR(255) NULL,
+    FOREIGN KEY (idAlumno) REFERENCES usuarios(id) 
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE
 );
+
+-- Tabla vehiculos
 CREATE TABLE vehiculos (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idConductor INT NOT NULL,
@@ -33,19 +38,24 @@ CREATE TABLE vehiculos (
   anio INT NOT NULL,
   placas TEXT NOT NULL,
   color TEXT NOT NULL,
-  FOREIGN KEY (idConductor) REFERENCES usuarios(id)
+  FOREIGN KEY (idConductor) REFERENCES usuarios(id) 
+  ON DELETE CASCADE 
+  ON UPDATE CASCADE
 );
 
+-- Tabla disponibilidad
 CREATE TABLE disponibilidad (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idConductor INT NOT NULL,
     dia ENUM('Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo') NOT NULL,
     horaInicio TIME NOT NULL,
     horaFin TIME NOT NULL,
-    FOREIGN KEY (idConductor) REFERENCES usuarios(id)
+    FOREIGN KEY (idConductor) REFERENCES usuarios(id) 
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE
 );
 
-drop table if exists trayectorias2;
+-- Tabla trayectorias2
 CREATE TABLE trayectorias2 (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idConductor INT NOT NULL,
@@ -56,42 +66,63 @@ CREATE TABLE trayectorias2 (
     referencias TEXT,
     pago ENUM('Efectivo', 'Transferencia') NOT NULL,
     estado_viaje ENUM('ninguno', 'iniciado', 'finalizado') DEFAULT 'ninguno',
-    FOREIGN KEY (idVehiculo) REFERENCES vehiculos(id)
+    FOREIGN KEY (idConductor) REFERENCES usuarios(id) 
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE,
+    FOREIGN KEY (idVehiculo) REFERENCES vehiculos(id) 
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE
 );
 
-
+-- Tabla detalleTrayectoria
 CREATE TABLE detalleTrayectoria (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idTrayectoria INT NOT NULL,
     idAlumno INT NOT NULL,
     estado_viaje ENUM('ninguno', 'iniciado', 'finalizado') DEFAULT 'ninguno',
-    FOREIGN KEY (idTrayectoria) REFERENCES trayectorias2(id)
+    FOREIGN KEY (idTrayectoria) REFERENCES trayectorias2(id) 
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE,
+    FOREIGN KEY (idAlumno) REFERENCES usuarios(id) 
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE
 );
-drop table if exists avisos;
+
+-- Tabla avisos
 CREATE TABLE avisos (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idAlumno INT NOT NULL,
     titulo TEXT NOT NULL,
     mensaje TEXT NOT NULL,
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (idAlumno) REFERENCES usuarios(id)
+    FOREIGN KEY (idAlumno) REFERENCES usuarios(id) 
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE
 );
-drop table if exists avisos;
+
+-- Tabla avisosGeneral (sin claves foráneas)
 CREATE TABLE avisosGeneral (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     titulo TEXT NOT NULL,
     mensaje TEXT NOT NULL,
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Tabla solicitudes
 CREATE TABLE solicitudes (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idAlumno INT NOT NULL,
     idTrayectoria INT NOT NULL,
     fechaSolicitud TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     estado ENUM('pendiente', 'aceptada', 'rechazada') NOT NULL DEFAULT 'pendiente',
-    FOREIGN KEY (idAlumno) REFERENCES usuarios(id),
-    FOREIGN KEY (idTrayectoria) REFERENCES trayectorias(id)
+    FOREIGN KEY (idAlumno) REFERENCES usuarios(id) 
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE,
+    FOREIGN KEY (idTrayectoria) REFERENCES trayectorias2(id) 
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE
 );
+
 
 INSERT INTO usuarios (id, nombre, apellido, correo, usuario, contrasena, tipo) VALUES 
 ('1', 'Debanni', 'Morales', 'admin@upemor.edu.mx', 'admin', '1234', 'administrador'),
