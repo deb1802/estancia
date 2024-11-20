@@ -1,7 +1,7 @@
 <link href="../../public/css/perfiles.css" rel="stylesheet">
 <?php
 include('../../model/buscar_perfiles.php'); 
-include '../admin/header_admin.php';
+include '../conductor/header_conductor.php';
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ include '../admin/header_admin.php';
         </form>
 
         <div class="row">
-            <?php 
+            <?php
             // Mostrar perfiles
             if (!empty($profiles)) {
                 foreach ($profiles as $profile) {
@@ -40,15 +40,12 @@ include '../admin/header_admin.php';
                                 <h4>@' . htmlspecialchars($profile['nombreUser']) . '</h4>
                             </div>
                             <div class="card-body">
-                                <img src="' . $imagePath . '" alt="Foto de perfil" class="img-fluid rounded-circle mb-3">
+                                <img src="' . $imagePath . '" alt="Foto de perfil">
                                 <p class="profile-info">Matrícula: ' . htmlspecialchars($profile['matricula']) . '</p>
                                 <p class="profile-info">Teléfono: ' . htmlspecialchars($profile['telefono']) . '</p>
                                 <p class="profile-info">Información: ' . htmlspecialchars($profile['informacion']) . '</p>
                                 <p class="viajes"><i class="fas fa-car"></i> Viajes realizados: ' . htmlspecialchars($profile['viajes']) . '</p>
-                                <div class="text-center mt-3">
-                                    <a href="editar_perfil_a.php?idAlumno=' . htmlspecialchars($profile['idAlumno']) . '" class="btn btn-primary" mr-2">Editar</a>
-                                    <a href="../../controller/delete_perfil_a.php?idAlumno=' . htmlspecialchars($profile['idAlumno']) . '" class="btn btn-danger" onclick="return confirm(\'¿Estás seguro de eliminar este perfil?\');">Eliminar</a>
-                                </div>
+                                <i class="fas fa-heart like-btn" id="like_' . $profile['id'] . '"></i>
                             </div>
                         </div>
                     </div>';
@@ -64,5 +61,14 @@ include '../admin/header_admin.php';
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Manejar el clic en el corazón (like)
+        $(document).ready(function() {
+            $('.like-btn').click(function() {
+                $(this).toggleClass('liked'); // Cambiar el color del corazón al darle like
+            });
+        });
+    </script>
 </body>
 </html>

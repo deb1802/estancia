@@ -106,3 +106,70 @@ body {
     font-size: 1.1em;
     color: #333;
 }
+
+/* Responsive Styles */
+
+/* Pantallas de dispositivo móvil y tablet */
+@media (max-width: 768px) {
+    /* Ajustamos el contenedor principal */
+    .dashboard {
+        width: 100%;
+        max-width: none;
+    }
+
+    /* Cambiamos la disposición de las opciones del dashboard */
+    .dashboard-content {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 10px;
+    }
+
+    /* Ajustes para las imágenes de perfil */
+    .profile-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Espaciado de los elementos en el header */
+    .dashboard-header {
+        padding: 15px;
+    }
+
+    /* Tamaño de fuente en el saludo */
+    .dashboard-header h2 {
+        font-size: 1.3em;
+    }
+
+    .dashboard-header h3 {
+        font-size: 1em;
+    }
+
+    /* Ajustes para los íconos de las opciones */
+    .dashboard-option img {
+        width: 40px;
+    }
+
+    /* Ajuste de los textos de las opciones */
+    .dashboard-option span {
+        font-size: 1em;
+    }
+}
+
+/* Pantallas más pequeñas (móviles) */
+@media (max-width: 480px) {
+    .dashboard-header h2 {
+        font-size: 1.1em;
+    }
+
+    .dashboard-header h3 {
+        font-size: 0.9em;
+    }
+
+    /* Ajustes adicionales para las opciones del dashboard */
+    .dashboard-option {
+        padding: 15px;
+    }
+
+    .dashboard-option span {
+        font-size: 0.95em;
+    }
+}

@@ -9,10 +9,11 @@
 </head>
 <body>
     <header class="header bg-light">
-        <div class="container d-flex justify-content-between align-items-center py-3">
-            <div class="logo d-flex align-items-center"> 
+        <nav class="navbar navbar-expand-md navbar-light container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="../../public/img/seeding.svg" class="logo-img" alt="Logo">
-                <h1 class="ml-2">
+                <h1 class="ml-2 mb-0">
                     <span class="u">U</span>
                     <span class="p">P</span>
                     <span class="e">E</span>
@@ -21,16 +22,46 @@
                     <span class="v">V</span>
                 </h1>
                 <span class="text-muted ml-1">rutas verdes</span>
+            </a>
+
+            <!-- Botón de menú para pantallas pequeñas -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menú de navegación -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <!-- Enlace con ícono de regresar -->
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center" href="../../view/conductor/menu_conductor.php">
+                            <div class="icon-circle"><img src="../../public/img/return.png" alt="Regresar"></div>
+                        </a>
+                    </li>
+
+                    <!-- Enlace con ícono de perfil -->
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center" href="../../view/perfil/verificar_perfil_c.php">
+                            <div class="icon-circle"><img src="../../public/img/user.png" alt="Perfil"></div>
+                            Perfil
+                        </a>
+                    </li>
+
+                    <!-- Enlace con ícono de cerrar sesión -->
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center" href="../../controller/logout.php">
+                            <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Cerrar sesión"></div>
+                            Cerrar sesión
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <nav class="nav d-flex align-items-center">
-            <a href="../../view/conductor/menu_conductor.php" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/return.png" alt="Regresar"></div>
-                <a href="../../controller/logout.php" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../public/img/logout.svg" alt="Home"></div>
-                    Cerrar sesión
-                </a>
-            </nav>
-        </div>
+        </nav>
     </header>
+
+    <!-- Scripts necesarios para el funcionamiento del menú -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php 
-include '../alumno/header_alumno.php'
+include '../conductor/header_conductor.php'
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ include '../alumno/header_alumno.php'
             </div>
             <div class="card-body">
                 <!-- Formulario de perfil -->
-                <form action="../../controller/alta_perfil.php" method="POST" enctype="multipart/form-data" id="perfilForm" onsubmit="validarFormulario(event)">
+                <form action="../../controller/alta_perfil_c.php" method="POST" enctype="multipart/form-data" id="perfilForm" onsubmit="validarFormulario(event)">
                     <!-- Foto de perfil -->
                     <div class="form-group text-center">
                         <img id="fotoPerfil" src="../../public/img/perfil.svg" alt="Foto de Perfil" class="img-thumbnail mb-3">

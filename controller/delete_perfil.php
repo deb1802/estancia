@@ -2,7 +2,7 @@
 include '../model/eliminar_perfil.php';
 
 if (isset($_GET['idAlumno'])) {
-    $idAlumno = intval($_GET['idAlumno']); // Sanitizar el valor recibido
+    $idAlumno = intval($_GET['idAlumno']);
 
     if (eliminarPerfil($idAlumno)) {
         header("Location: ../view/perfil/verificar_perfil.php");
