@@ -27,7 +27,7 @@
                     <div class="icon-circle"><img src="../../public/img/home1.png" alt="Home"></div>
                     Home
                 </a>
-                <a href="#" class="nav-link d-flex align-items-center">
+                <a href="../../view/perfil/verificar_perfil.php" class="nav-link d-flex align-items-center">
                     <div class="icon-circle"><img src="../../public/img/user.png" alt="Home"></div>
                     Perfil
                 </a>

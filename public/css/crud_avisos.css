@@ -1,0 +1,247 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    gap: 20px;
+    padding-top: 50px;
+}
+
+.form-container {
+    background: linear-gradient(90deg, #8ceeb2, #507ea8);
+    border-radius: 10px;
+    padding: 40px;
+    width: 35%;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 50px;
+    align-self: flex-start;
+    margin-left: 20px;
+}
+
+h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+p {
+    color: white;
+    margin-bottom: 30px;
+}
+
+.input {
+    margin-bottom: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    font-size: 16px;
+    color: #333;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #6bd084;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0e8027;
+}
+
+.alert {
+    font-size: 12px;
+    font-family: Arial, Helvetica;
+    line-height: 1.2;
+    padding: 5px;
+    margin: 5px 0;
+    color: #d9534f;
+    display: none; 
+    background-color: #f8d7da;
+    text-align: center;
+}
+
+.table-container {
+    flex: 1;
+    width: 60%;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.centered-table {
+    margin: 0 auto;
+    width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.centered-table th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    border: 0.5px solid white;
+}
+
+.centered-table td {
+    padding: 4px;
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.centered-table tbody tr:nth-child(even) {
+    background-color: #ececec;
+}
+
+.centered-table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.centered-table tbody tr:hover {
+    background-color: #e1f5e1;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+}
+
+.delete-btn {
+    background-color: #f44336;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+    text-decoration: none;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+    text-decoration: none;
+}
+
+.icon {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-container {
+        width: 90%;
+        margin: 0;
+    }
+
+    .table-container {
+        width: 100%;
+        max-height: 60vh;
+    }
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    .centered-table th,
+    .centered-table td {
+        font-size: 10px;
+        padding: 2px;
+    }
+
+    .edit-btn, .delete-btn {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 20px;
+    }
+
+    button {
+        padding: 10px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+}
+
+textarea {
+    width: 100%; 
+    height: 150px; 
+    padding: 10px;
+    font-size: 16px; 
+    border: none;
+    outline: none;
+    background-color: transparent;
+    resize: none;
+    color: #333;
+    font-family: Arial;
+}
+
+.cancelar{
+    width: 100%;
+    padding: 15px;
+    background-color: #6b93d0;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+
+}

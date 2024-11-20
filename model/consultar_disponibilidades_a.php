@@ -1,5 +1,4 @@
 <?php
-// Incluir la conexión a la base de datos
 include_once "db.php";
 
 function obtenerDisponibilidades($conn) {

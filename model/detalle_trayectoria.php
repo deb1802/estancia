@@ -1,8 +1,6 @@
 <?php
 include 'db.php'; // Incluye la conexión a la base de datos
 
-include 'db.php'; // Incluye la conexión a la base de datos
-
 // Verifica que se haya recibido el parámetro
 if (isset($_GET['idTrayectoria'])) {
     $idTrayectoria = $_GET['idTrayectoria'];

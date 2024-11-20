@@ -1,7 +1,5 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . '/estancia/model/db.php';
-
-// Obtener el id del conductor desde el formulario, no desde la sesión
 $idConductor = $_POST['idConductor'];  
 if (empty($idConductor)) {
     echo "Por favor, selecciona un conductor.";
