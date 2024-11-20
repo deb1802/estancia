@@ -22,7 +22,7 @@ function navigateTo(page) {
             window.location.href = '../../view/reportes/menureportes.php';
             break;
         case 'bd':
-            window.location.href = '../../view/bd/bdd.php';
+            window.location.href = '../../view/bd/database.php';
             break;
         default:
             console.error("Página desconocida");
