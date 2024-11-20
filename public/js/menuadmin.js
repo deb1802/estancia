@@ -19,7 +19,7 @@ function navigateTo(page) {
             window.location.href = '../../view/vehiculo/crud_vehiculo.php';
             break;
         case 'reportes':
-            window.location.href = '';
+            window.location.href = '../../view/reportes/menureportes.php';
             break;
         case 'bd':
             window.location.href = '../../view/bd/bdd.php';
