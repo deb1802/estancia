@@ -265,10 +265,10 @@ UPDATE detalleTrayectoria SET estado_viaje = 'finalizado' WHERE idTrayectoria = 
 select * from detalleTrayectoria;
 
 select * from perfiles;
-select * from perfiles;
+select * from vehiculos;
 
--- cantidad de viajes que viajes que ha hecho un alumno con estado finalizado por un rango de fechas
-SELECT u.id AS "Id de del alumno", u.nombre, u.apellido, COUNT(dt.id) AS "Total de viajes"
+-- cantidad de viajes que viajes que ha hecho un alumno con estado finalizado por un rango de fechas, mostrado de forma descendente 
+SELECT u.id AS "Id de del alumno", u.nombre as "Nombre del alumno", u.apellido, COUNT(dt.id) AS "Total de viajes"
 FROM usuarios u
 JOIN detalleTrayectoria dt ON u.id = dt.idAlumno
 JOIN solicitudes s ON s.idTrayectoria = dt.idTrayectoria
@@ -277,4 +277,71 @@ WHERE dt.estado_viaje = 'finalizado'
   AND s.fechaSolicitud BETWEEN '2024-01-01' AND '2024-12-31'  -- Fecha en la tabla solicitudes
 GROUP BY u.id
 ORDER BY "Total de viajes" DESC;
+
+
+-- Cantidad de trayectorias realizadas por cada vehículo, ordenadas de mayor a menor.
+SELECT 
+    v.id AS "ID del Vehículo", 
+    CONCAT(v.marca, ' ', v.modelo, ' (', v.placas, ')') AS "Vehículo",
+    u.nombre AS "Conductor",
+    COUNT(t.id) AS "Trayectorias Realizadas"
+FROM vehiculos v
+JOIN trayectorias2 t ON v.id = t.idVehiculo
+JOIN usuarios u ON u.id = v.idConductor
+GROUP BY v.id
+ORDER BY "Trayectorias Realizadas" DESC;
+
+
+-- Reporte de Disponibilidad de Conductores y Vehículos
+--  Lista de conductores con sus vehículos y su disponibilidad semanal.
+SELECT 
+    u.id AS "ID del Conductor",
+    CONCAT(u.nombre, ' ', u.apellido) AS "Conductor",
+    CONCAT(v.marca, ' ', v.modelo, ' (', v.placas, ')') AS "Vehículo",
+    d.dia AS "Día",
+    d.horaInicio AS "Hora Inicio",
+    d.horaFin AS "Hora Fin"
+FROM usuarios u
+JOIN vehiculos v ON u.id = v.idConductor
+JOIN disponibilidad d ON d.idConductor = u.id
+ORDER BY u.id, FIELD(d.dia, 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo');
+
+
+-- Reporte de Ocupación de Vehículos por Capacidad
+-- Vehículos utilizados en trayectorias, mostrando su capacidad inicial y ocupación actual.
+SELECT 
+    CONCAT(v.marca, ' ', v.modelo, ' (', v.placas, ')') AS "Vehículo",
+    t.origen AS "Origen",
+    t.destino AS "Destino",
+    t.capacidad AS "Capacidad Inicial",
+    COUNT(dt.id) AS "Espacios  Ocupados",
+    (t.capacidad - COUNT(dt.id)) AS "Espacios Disponibles"
+FROM trayectorias2 t
+JOIN vehiculos v ON t.idVehiculo = v.id
+LEFT JOIN detalleTrayectoria dt ON t.id = dt.idTrayectoria
+GROUP BY t.id, t.origen, t.destino, v.marca, v.modelo, v.placas, t.capacidad
+ORDER BY "Espacios Disponibles" asc;
+
+
+-- Cantidad de viajes realizados por cada día de la semana.
+SELECT 
+    d.dia AS "Día de la Semana",
+    COUNT(t.id) AS "Viajes Realizados"
+FROM disponibilidad d
+JOIN trayectorias2 t ON t.idConductor = d.idConductor
+GROUP BY d.dia
+ORDER BY FIELD(d.dia, 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo');
+
+
+-- Lista de vehículos cuyos trayectos han sido finalizados, ordenados por como desee el usuarios.
+SELECT 
+    v.id AS "ID del Vehículo",
+    CONCAT(v.marca, ' ', v.modelo, ' (', v.placas, ')') AS "Vehículo",
+    COUNT(dt.id) AS "Viajes Finalizados"
+FROM vehiculos v
+JOIN trayectorias2 t ON v.id = t.idVehiculo
+JOIN detalleTrayectoria dt ON dt.idTrayectoria = t.id
+WHERE dt.estado_viaje = 'finalizado'
+GROUP BY v.id
+ORDER BY "Viajes Finalizados" DESC;
 
