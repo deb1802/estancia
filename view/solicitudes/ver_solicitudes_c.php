@@ -1,3 +1,4 @@
+<?php include '../../model/ver_solicitudes.php'; ?>
 <?php include "../conductor/header_conductor.php"; ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -18,8 +19,6 @@
 <body>
     <div class="container mt-4">
         <h2 class="text-center">Solicitudes de Trayectorias</h2>
-        
-        <?php include '../../model/ver_solicitudes.php'; ?>
         
         <div class="row">
     <?php foreach ($solicitudes as $solicitud): ?>

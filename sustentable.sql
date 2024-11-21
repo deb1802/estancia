@@ -75,6 +75,7 @@ CREATE TABLE trayectorias2 (
 );
 
 -- Tabla detalleTrayectoria
+drop table if exists detalleTrayectoria;
 CREATE TABLE detalleTrayectoria (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idTrayectoria INT NOT NULL,
@@ -109,6 +110,7 @@ CREATE TABLE avisosGeneral (
 );
 
 -- Tabla solicitudes
+drop table if exists solicitudes;
 CREATE TABLE solicitudes (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idAlumno INT NOT NULL,
@@ -122,7 +124,7 @@ CREATE TABLE solicitudes (
     ON DELETE CASCADE 
     ON UPDATE CASCADE
 );
-
+describe solicitudes;
 
 INSERT INTO usuarios (id, nombre, apellido, correo, usuario, contrasena, tipo) VALUES 
 ('1', 'Debanni', 'Morales', 'admin@upemor.edu.mx', 'admin', '1234', 'administrador'),
@@ -170,7 +172,7 @@ BEGIN
 
         -- Consulta del metodoPago solo si idTrayectoria existe en trayectorias
         SELECT pago INTO metodo_pago
-        FROM trayectorias
+        FROM trayectorias2
         WHERE id = NEW.idTrayectoria;
 
         -- Disminuir la capacidad de la trayectoria
@@ -180,13 +182,11 @@ BEGIN
     END IF;
 END //
 DELIMITER ;
-
-
 select * from detalleTrayectoria;
 
 
 
-drop trigger if exists actualizarViajesYCrearAvisos;
+DROP TRIGGER IF EXISTS actualizarViajesYCrearAvisos;
 DELIMITER //
 CREATE TRIGGER actualizarViajesYCrearAvisos
 AFTER UPDATE ON detalleTrayectoria
@@ -195,22 +195,16 @@ BEGIN
     -- Verificar que el estado cambió a 'finalizado'
     IF NEW.estado_viaje = 'finalizado' THEN
         -- Incrementar viajes del conductor asociado a la trayectoria
-        UPDATE perfiles
-        SET viajes = COALESCE(viajes, 0) + 1
-        WHERE idAlumno = (
-            SELECT idConductor
-            FROM trayectorias
-            WHERE id = NEW.idTrayectoria
-        );
+        UPDATE perfiles p
+        JOIN trayectorias2 t ON t.id = NEW.idTrayectoria
+        SET p.viajes = COALESCE(p.viajes, 0) + 1
+        WHERE p.idAlumno = t.idConductor;
 
         -- Incrementar viajes de los alumnos asociados a la trayectoria
-        UPDATE perfiles
-        SET viajes = COALESCE(viajes, 0) + 1
-        WHERE idAlumno IN (
-            SELECT idAlumno
-            FROM detalleTrayectoria
-            WHERE idTrayectoria = NEW.idTrayectoria
-        );
+        UPDATE perfiles p
+        JOIN detalleTrayectoria dt ON dt.idTrayectoria = NEW.idTrayectoria
+        SET p.viajes = COALESCE(p.viajes, 0) + 1
+        WHERE p.idAlumno = dt.idAlumno;
 
         -- Crear aviso para el método de pago (si no es NULL)
         IF (
@@ -243,13 +237,22 @@ DELIMITER ;
 
 
 
+
+
 select * from perfiles;
 select * from detalleTrayectoria;
 select * from avisos;
 select * from usuarios;
+select * from vehiculos;
 select * from vehiculos;
 select * from trayectorias2;
 select * from trayectorias2;
 
 select * from perfiles;
 select * from avisosGeneral;
+select * from solicitudes;
+update solicitudes set estado="aceptada" where id=1;
+UPDATE detalleTrayectoria SET estado_viaje = 'finalizado' WHERE idTrayectoria = 1;
+
+
+select * from perfiles;

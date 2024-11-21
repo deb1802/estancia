@@ -23,11 +23,8 @@ if (empty($idVehiculo) || empty($capacidad) || empty($origen) || empty($destino)
     exit();
 }
 
-// Preparar la consulta SQL para insertar los datos en la tabla trayectorias2
 $sql = "INSERT INTO trayectorias2 (idConductor, idVehiculo, capacidad, origen, destino, referencias, pago) 
         VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-// Preparar la sentencia
 $stmt = $conn->prepare($sql);
 
 // Verificar si la sentencia fue preparada correctamente
@@ -42,6 +39,12 @@ $stmt->bind_param("iiissss", $idConductor, $idVehiculo, $capacidad, $origen, $de
 // Ejecutar la consulta
 if ($stmt->execute()) {
     echo "La trayectoria ha sido registrada correctamente.";
+    // Agregar redirección con JavaScript
+    echo '<script>
+            setTimeout(function() {
+                window.location.href = "../view/trayectoria/ver_trayectoria.php";
+            }, 3000); // Redirigir después de 3 segundos
+          </script>';
 } else {
     echo "Error al registrar la trayectoria: " . $stmt->error;
 }
