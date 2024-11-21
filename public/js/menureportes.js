@@ -1,7 +1,7 @@
 function navigateTo(page) {
     switch (page) {
-        case 'usuarios':
-            window.location.href = '';
+        case 'reporte1':
+            window.location.href = '../../../estancia/view/reportes/reporte1.php';
             break;
         case 'disponibilidades':
             window.location.href = '';
