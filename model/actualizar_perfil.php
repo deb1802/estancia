@@ -1,4 +1,5 @@
 <?php
+session_start();
 include $_SERVER['DOCUMENT_ROOT'] . '/estancia/model/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -54,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
         echo "<script>
             alert('Perfil actualizado con éxito.');
-            window.location.href = '../../../../estancia/view/perfil/verificar_perfil.php';
+            window.location.href = '../view/perfil/verificar_perfil.php';
         </script>";
     } else {
         echo "<script>

@@ -42,7 +42,7 @@ if (isset($_GET['idAlumno'])) {
             </div>
             <div class="card-body">
                 <!-- Formulario para editar el perfil -->
-                <form action="../../model/actualizar_perfil.php" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario(event)">
+                <form action="../../model/actualizar_perfil_c.php" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario(event)">
 
                     <!-- Campo oculto para enviar el ID del alumno -->
                     <input type="hidden" name="idAlumno" value="<?php echo htmlspecialchars($idAlumno); ?>">
