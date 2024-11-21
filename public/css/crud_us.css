@@ -143,7 +143,7 @@ button:hover {
 }
 
 .edit-btn {
-    background-color: #4CAF50;
+    background-color: #4c84af; 
 }
 
 .delete-btn {
@@ -151,12 +151,12 @@ button:hover {
 }
 
 .edit-btn:hover {
-    background-color: #45a049;
+    background-color: #00bcc9;
     text-decoration: none;
 }
 
 .delete-btn:hover {
-    background-color: #d32f2f;
+    background-color: #ff7979; 
     text-decoration: none;
 }
 

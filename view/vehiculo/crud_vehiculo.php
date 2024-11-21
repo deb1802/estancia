@@ -43,7 +43,7 @@
                 <div class="input">
                     <input type="text" placeholder="Ingresa placas" name="placas">
                 </div>
-                <p class="alert" id="errorPlacas" style="display: none;">Las placas deben contener solo letras y números y tener un máximo de 10 caracteres.</p>
+                <p class="alert" id="errorPlacas" style="display: none;">Las placas deben ir en mayúsculas, contener solo letras y números y tener un máximo de 10 caracteres.</p>
 
                 <div class="input">
                     <input type="text" placeholder="Ingresa color" name="color">

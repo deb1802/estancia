@@ -16,7 +16,7 @@ include "../admin/header_admin.php";
             <div class="profile-section">
                 <img src="../../public/img/sql.png" alt="Imagen de perfil" class="profile-img">
                 <div>
-                    <h2>Base de Datos</h2>
+                    <h2>Base de datos</h2>
                     <h3>Selecciona una opción</h3>
                 </div>
             </div>
