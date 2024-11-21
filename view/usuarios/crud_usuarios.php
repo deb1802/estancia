@@ -89,9 +89,9 @@
         <div class="table-container">
         <!-- Barra de búsqueda y filtro -->
         <div class="search-bar">
-            <input type="text" id="busqueda" placeholder="Buscar..." onkeyup="filtrarTabla()">
+            <input type="text" id="busqueda" placeholder="Buscar usuarios..." onkeyup="filtrarTabla()">
             <select id="filtro" onchange="filtrarTabla()">
-                <option value="0">ID Usuario</option>
+                <option value="0">ID</option>
                 <option value="1">Nombre</option>
                 <option value="2">Apellido</option>
                 <option value="3">Correo</option>
@@ -102,19 +102,18 @@
             <table class="centered-table" id="tablaUsuarios">
                 <thead>
                     <tr>
-                        <th>Id Usuario</th>
+                        <th>ID</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Correo</th>
                         <th>Usuario</th>
-                        <th>Contrasena</th>
                         <th>Tipo de Usuario</th>
                         <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $sql = "SELECT * FROM usuarios;";
+                    $sql = "SELECT id, nombre, apellido, correo, usuario, tipo FROM usuarios;";
                     $exec = mysqli_query($conn, $sql);
 
                     while ($rows = mysqli_fetch_array($exec)) {
@@ -140,7 +139,6 @@
                             <td><?php echo $rows['apellido']; ?></td>
                             <td><?php echo $rows['correo']; ?></td>
                             <td><?php echo $rows['usuario']; ?></td>
-                            <td><?php echo $rows['contrasena']; ?></td>
                             <td><?php echo $tipoUsuario; ?></td>
                             <td class="action-buttons">
                                 <a href="../../controller/update_usuarios_admin.php?id=<?php echo $rows['id']; ?>" class="edit-btn">
