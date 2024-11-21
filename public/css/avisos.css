@@ -1,0 +1,25 @@
+body {
+    background-color: #f8f9fa; /* Fondo claro */
+    color: #343a40; /* Texto oscuro */
+}
+.carousel-item {
+    height: 450px; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.carousel-item:nth-child(odd) {
+    background-color: #557fac;
+}
+.carousel-item:nth-child(even) {
+    background-color: #28a745;
+}
+.carousel-caption h5 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-style: italic;
+}
+.carousel-caption p {
+    font-size: 1.5rem;
+}

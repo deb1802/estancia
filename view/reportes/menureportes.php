@@ -26,9 +26,9 @@ if (isset($_SESSION['usuario'])) {
         </header>
 
         <main class="dashboard-content">
-            <div class="dashboard-option" onclick="navigateTo('usuarios')">
+            <div class="dashboard-option" onclick="navigateTo('reporte1')">
                 <img src="../../public/img/users.png" alt="Usuarios">
-                <span>Usuarios</span>
+                <span>Reporte 1</span>
             </div>
             <div class="dashboard-option" onclick="navigateTo('disponibilidades')">
                 <img src="../../public/img/calendar-month.svg" alt="Disponibilidades">

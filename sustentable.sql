@@ -150,6 +150,12 @@ INSERT INTO disponibilidad (id, idConductor, dia, horaInicio, horaFin) VALUES
 ('4', '3', 'Jueves', '15:00:00', '19:00:00'),
 ('5', '7', 'Viernes', '11:00:00', '15:00:00');
 
+INSERT INTO avisosGeneral (titulo, mensaje) 
+VALUES 
+('Aprovecha el Buen Fin en Upemov', 'Disfruta de nuestras promociones especiales durante el Buen Fin. ¡No te lo pierdas!'),
+('Recuerda el periodo vacacional', 'El periodo vacacional será del 14 de diciembre de 2024 al 5 de enero de 2025. Planea tus actividades con anticipación.');
+
+
 DROP TRIGGER IF EXISTS after_update_solicitud;
 DELIMITER //
 CREATE TRIGGER after_update_solicitud
@@ -239,6 +245,7 @@ DELIMITER ;
 
 
 
+select * from solicitudes;
 select * from perfiles;
 select * from detalleTrayectoria;
 select * from avisos;
@@ -255,4 +262,19 @@ update solicitudes set estado="aceptada" where id=1;
 UPDATE detalleTrayectoria SET estado_viaje = 'finalizado' WHERE idTrayectoria = 1;
 
 
+select * from detalleTrayectoria;
+
 select * from perfiles;
+select * from perfiles;
+
+-- cantidad de viajes que viajes que ha hecho un alumno con estado finalizado por un rango de fechas
+SELECT u.id AS "Id de del alumno", u.nombre, u.apellido, COUNT(dt.id) AS "Total de viajes"
+FROM usuarios u
+JOIN detalleTrayectoria dt ON u.id = dt.idAlumno
+JOIN solicitudes s ON s.idTrayectoria = dt.idTrayectoria
+JOIN trayectorias2 t ON t.id = s.idTrayectoria
+WHERE dt.estado_viaje = 'finalizado'
+  AND s.fechaSolicitud BETWEEN '2024-01-01' AND '2024-12-31'  -- Fecha en la tabla solicitudes
+GROUP BY u.id
+ORDER BY "Total de viajes" DESC;
+
