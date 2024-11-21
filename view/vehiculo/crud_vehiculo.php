@@ -12,6 +12,30 @@
     <link rel="stylesheet" href="../../public/css/crud_vehiculo.css">
     <script src="../../public/js/validacion_vehiculo.js" defer></script>
     <script src="../../public/js/modalControl.js" defer></script>
+    <script>
+        // Función de filtrado en tiempo real
+        function filtrarTabla() {
+            var input = document.getElementById("busqueda");
+            var filtro = input.value.toLowerCase();
+            var select = document.getElementById("filtro");
+            var columna = select.value;
+            var tabla = document.getElementById("tablaVehiculos");
+            var filas = tabla.getElementsByTagName("tr");
+
+            // Recorremos todas las filas de la tabla
+            for (var i = 1; i < filas.length; i++) { // Empezamos desde 1 para saltar el encabezado
+                var celda = filas[i].getElementsByTagName("td")[columna];
+                if (celda) {
+                    var textoCelda = celda.textContent || celda.innerText;
+                    if (textoCelda.toLowerCase().indexOf(filtro) > -1) {
+                        filas[i].style.display = "";
+                    } else {
+                        filas[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="main-container">
@@ -57,7 +81,7 @@
         <!-- Contenedor de la tabla de conductores disponibles -->
         <div class="table-container">
             <h3>Conductores</h3>
-            <table class="centered-table">
+            <table class="centered-table" id="tablaConductores">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -85,8 +109,19 @@
 
         <!-- Contenedor de la tabla de vehículos registrados -->
         <div class="table-container">
-            <h3>Vehículos Registrados</h3>
-            <table class="centered-table">
+        <div class="search-bar">
+            <input type="text" id="busqueda" placeholder="Buscar vehículos..." onkeyup="filtrarTabla()">
+            <select id="filtro" onchange="filtrarTabla()">
+                <option value="0">ID</option>
+                <option value="2">Marca</option>
+                <option value="3">Modelo</option>
+                <option value="4">Año</option>
+                <option value="5">Placas</option>
+                <option value="6">Color</option>
+            </select>
+        </div>    
+        <h3>Vehículos Registrados</h3>
+            <table class="centered-table" id="tablaVehiculos">
                 <thead>
                     <tr>
                         <th>Id vehículo</th>
