@@ -1,8 +1,8 @@
 <?php
+session_start();
+$idAlumno = $_SESSION['id_conductor'];
 include $_SERVER['DOCUMENT_ROOT'] . '/estancia/model/db.php';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $idAlumno = $_POST['idAlumno'];
     $nombre = $_POST['nombre'];
     $matricula = $_POST['matricula'];
     $telefono = $_POST['telefono'];
@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resultVerificar = $stmtVerificar->get_result();
 
     if ($resultVerificar->num_rows > 0) {
-        // Mostrar alerta y redirigir al formulario
         echo "<script>
             alert('La matrícula ingresada ya está asociada a otro usuario. Por favor, verifica los datos.');
             window.history.back();

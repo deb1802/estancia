@@ -1,20 +1,13 @@
 <?php
-// Incluir archivos necesarios
 include '../alumno/header_alumno.php';
 include '../../model/actualizar_perfil.php';
-
-// Verificar si el ID del alumno está disponible y obtener sus datos
 if (isset($_GET['idAlumno'])) {
     $idAlumno = $_GET['idAlumno'];
-
-    // Consulta para obtener los datos del usuario
     $query = "SELECT * FROM perfiles WHERE idAlumno = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param('i', $idAlumno);
     $stmt->execute();
     $result = $stmt->get_result();
-
-    // Verificar si se encontró al usuario
     if ($result->num_rows > 0) {
         $userData = $result->fetch_assoc();
     } else {
@@ -46,7 +39,6 @@ if (isset($_GET['idAlumno'])) {
 
                     <!-- Campo oculto para enviar el ID del alumno -->
                     <input type="hidden" name="idAlumno" value="<?php echo htmlspecialchars($idAlumno); ?>">
-
                     <!-- Foto de perfil -->
                     <div class="form-group text-center">
                         <img id="fotoPerfil" src="../<?php echo !empty($userData['imagen']) ? htmlspecialchars($userData['imagen']) : '../../public/img/perfil.svg'; ?>" alt="Foto de Perfil" class="img-thumbnail mb-3">

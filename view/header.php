@@ -31,9 +31,9 @@
                     <div class="icon-circle"><img src="../../estancia/public/img/cari.png" alt="Viaja"></div>
                     Viaja
                 </a>
-                <a href="#" class="nav-link d-flex align-items-center">
-                    <div class="icon-circle"><img src="../../estancia/public/img/condu.png" alt="Conduce"></div>
-                    Conduce
+                <a href="../../estancia/view/avisosGeneral.php" class="nav-link d-flex align-items-center">
+                    <div class="icon-circle"><img src="../../estancia/public/img/bell-ringing.svg" alt="Conduce"></div>
+                    Info
                 </a>
                 <a href="../../estancia/view/nosotros.php" class="nav-link d-flex align-items-center">
                     <div class="icon-circle"><img src="../../estancia/public/img/info.png" alt="Acerca de Nosotros"></div>

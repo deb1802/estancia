@@ -33,7 +33,7 @@ function cambiarEstadoSolicitud(idSolicitud, nuevoEstado) {
                     accionesDiv.innerHTML = '';
                 }
             } else {
-                console.log('Error al actualizar el estado.');
+                //console.log('Error al actualizar el estado.');
             }
         })
         .catch((error) => {
@@ -81,56 +81,56 @@ function mostrarDetallesTrayectoria(idTrayectoria) {
             console.error('Error al obtener los detalles:', error);
             alert('Hubo un problema al cargar los detalles de la trayectoria.');
         });
-        
 }
 
 // Función para cambiar el estado de la trayectoria
 function cambiarEstadoTrayectoria(idTrayectoria, nuevoEstado) {
     const data = new URLSearchParams();
-    data.append('idTrayectoria', idTrayectoria); 
-    data.append('nuevoEstado', nuevoEstado); 
+    data.append('idTrayectoria', idTrayectoria);
+    data.append('nuevoEstado', nuevoEstado);
 
     fetch('../../model/cambiar_estado_dt.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: data.toString(),
     })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data)
-            if (data.success) {
-                // Actualizar la clase del estado en la interfaz
-                // checar aquí----------------------------------------->
-                //const card = document.getElementById(`trayectoria-${idTrayectoria}`);
-                card.classList.remove('ninguno', 'iniciado', 'finalizado');
-                card.classList.add(nuevoEstado);
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        if (data.success) {
+            // Actualizar la clase del estado en la interfaz
+            const card = document.getElementById(`trayectoria-detalles`); // Asegurándonos de modificar solo la tarjeta de los detalles
+            card.classList.remove('ninguno', 'iniciado', 'finalizado');
+            card.classList.add(nuevoEstado);
 
-                // Actualizar el estado del viaje en la interfaz
-                const estadoElem = document.getElementById(`estado_viaje-${idTrayectoria}`);
+            // Verificar que estado_viaje esté relacionado con el idAlumno o idTrayectoria en detalleTrayectoria
+            // Acceder al elemento correcto donde debe actualizarse el estado de la trayectoria
+            const estadoElem = document.getElementById(`detalle-estado-viaje`);
+
+            if (estadoElem) {
                 estadoElem.innerText = nuevoEstado.charAt(0).toUpperCase() + nuevoEstado.slice(1);
-
-                const accionesDiv = document.getElementById(`acciones-${idTrayectoria}`);
-                
-                if (nuevoEstado === 'iniciado') {
-                    accionesDiv.innerHTML = ` 
-                        <button class="btn btn-success" onclick="finalizarViaje(${idTrayectoria})">
-                            Finalizar Viaje
-                        </button>`;
-
-                    // Mostrar alerta cuando el viaje se inicia
-                    alert('El viaje ha comenzado.');
-                } else if (nuevoEstado === 'finalizado') {
-                    accionesDiv.innerHTML = '';
-                    alert('El viaje ha finalizado.');
-                } else {
-                    accionesDiv.innerHTML = '';
-                }
             } else {
-                console.log('Error al actualizar el estado.');
+                console.error('Elemento de estado no encontrado.');
             }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-}
 
+            // Actualizar los botones de acciones según el nuevo estado
+            const accionesDiv = document.getElementById('acciones-' + idTrayectoria);
+
+            if (nuevoEstado === 'iniciado') {
+                accionesDiv.innerHTML = `
+                    <button class="btn btn-success" onclick="cambiarEstadoTrayectoria(${idTrayectoria}, 'finalizado')">
+                        Finalizar Viaje
+                    </button>`;
+                alert('El viaje ha comenzado.');
+            } else if (nuevoEstado === 'finalizado') {
+                accionesDiv.innerHTML = '';
+                alert('El viaje ha finalizado.');
+            }
+        } else {
+            console.log('Error al actualizar el estado.');
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}

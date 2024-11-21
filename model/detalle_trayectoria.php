@@ -16,7 +16,7 @@ if (isset($_GET['idTrayectoria'])) {
                 t.destino, 
                 dt.estado_viaje 
             FROM detalleTrayectoria dt
-            INNER JOIN trayectorias t ON dt.idTrayectoria = t.id
+            INNER JOIN trayectorias2 t ON dt.idTrayectoria = t.id
             WHERE dt.idTrayectoria = ?
         ";
         $stmtTrayectoria = $conn->prepare($queryTrayectoria);
