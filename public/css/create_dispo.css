@@ -13,11 +13,11 @@ body {
     justify-content: center;
     align-items: center;
     height: calc(100vh - 200px);
-    margin-top: 150px;
+    margin-top: 50px;
 }
 
 .login-box {
-    background: linear-gradient(90deg, #4CAF50, #509ea8);
+    background: linear-gradient(90deg, #8fc5c3, #63b495);
     border-radius: 10px;
     padding: 40px;
     width: 450px;

@@ -88,6 +88,7 @@ if ($result->num_rows > 0) {
 
                     <!-- Botón para guardar los cambios -->
                     <button id="guardar" type="submit" class="btn btn-primary">Guardar cambios</button>
+                    <a class="cancelar" href="../perfil/perfiles_a.php" class="cancelar">Cancelar</a>
                 </form>
             </div>
         </div>

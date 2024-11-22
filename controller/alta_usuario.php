@@ -10,10 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['correo'];
     $user = $_POST['usuario'];
     $pass = $_POST['contrasena'];
-
-    // Obtener la fecha y hora actuales
-    $fechaRegistro = date("Y-m-d H:i:s"); // Formato: Año-Mes-Día Hora:Minuto:Segundo
-
     // Llamar a la función insertarUsuario y obtener el resultado
     $resultado = insertarUsuario($conn, $nombre, $apellidos, $correo, $user, $pass);
 
@@ -30,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <ul>
                 <li><strong>Usuario:</strong> $user</li>
                 <li><strong>Contraseña:</strong> $pass</li>
-                <li><strong>Fecha y hora de registro:</strong> $fechaRegistro</li>
             </ul>
             <p>¡Esperamos que disfrutes de la experiencia!</p>
         ";

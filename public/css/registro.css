@@ -1,11 +1,10 @@
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Cambia a flex-start para evitar que el contenido quede centrado en el viewport */
-    height: 100vh;
+    align-items: flex-start;
+    min-height: 100vh;
     background-color: #f2f2f2;
 }
 
@@ -13,15 +12,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 200px);
-    margin-top: 250px; /* Añade margen superior para que el contenido se separe del header */
+    min-height: calc(100vh - 200px);
+    margin-top: 40px;
+    padding: 20px;
 }
 
 .login-box {
-    background: linear-gradient(90deg, #4CAF50, #509ea8);
+    background: linear-gradient(90deg, #8fc5c3, #63b495);
     border-radius: 10px;
     padding: 40px;
-    width: 450px;
+    width: 100%;
+    max-width: 600px;
     text-align: center;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -30,7 +31,6 @@ body {
     text-decoration: none;
 }
 
-/* Título y subtítulo */
 h2 {
     color: white;
     margin-bottom: 10px;
@@ -41,7 +41,6 @@ p {
     margin-bottom: 30px;
 }
 
-/* Estilos de los campos de entrada */
 .input {
     display: flex;
     align-items: center;
@@ -67,7 +66,6 @@ input {
     color: #333;
 }
 
-/* Estilos del botón de envío */
 button {
     width: 100%;
     padding: 15px;
@@ -83,7 +81,6 @@ button:hover {
     background-color: #0e8027;
 }
 
-/* Estilos para el campo "Tipo de usuario" */
 .input label {
     font-size: 0.9rem;
     color: #555;
@@ -118,7 +115,6 @@ button:hover {
     display: none; 
 }
 
-/* Estilo para mostrar errores en rojo */
 .error-message {
     color: red;
     background-color: #f8d7da;
@@ -127,6 +123,7 @@ button:hover {
     margin: 10px 0;
     border-radius: 5px;
 }
+
 .parrafo {
     color: black; 
     background-color: #6bd084;
@@ -135,4 +132,61 @@ button:hover {
     margin-top: 10px;
     margin-bottom: 10px;
     display: block;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .contenedor_login {
+        margin-top: 150px;
+        padding: 10px;
+    }
+
+    .login-box {
+        padding: 20px;
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedor_login {
+        margin-top: 100px;
+    }
+
+    .login-box {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    input {
+        font-size: 12px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 8px;
+    }
 }

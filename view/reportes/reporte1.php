@@ -1,3 +1,6 @@
+<?php
+include '../admin/header_admin.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +20,8 @@
                     </div>
                     <div class="card-body">
                         <form method="POST" action="../../controller/reporte1_t.php">
+                        <h5 class="text-center">Reporte de cantidad de viajes por alumno</h5>
+                        <p class="text-center">cantidad de viajes que viajes que ha hecho un alumno con estado finalizado por un rango de fechas, mostrado de forma descendente.</p>
                             <div class="mb-3">
                                 <label for="fecha_inicio" class="form-label">Fecha de inicio:</label>
                                 <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control">
@@ -29,6 +34,7 @@
                                 <button type="submit" name="generar_reporte" class="btn btn-success w-100">
                                     Generar Reporte en Excel
                                 </button>
+                                <a class="cancelar" href="../reportes/menureportes.php" class="cancelar">Cancelar</a>
                             </div>
                         </form>
                     </div>

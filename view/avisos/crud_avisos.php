@@ -10,7 +10,14 @@
     <title>Administración de Avisos</title>
     <link rel="stylesheet" href="../../public/css/crud_avisos.css">
     <script src="../../public/js/validacion_avisos.js" defer></script>
-    <script src="../../public/js/modalControl_a.js" defer></script>
+    <script>
+        // Función para mostrar un alert de confirmación antes de eliminar
+        function confirmDelete(url) {
+            if (confirm("¿Estás seguro de que deseas eliminar este aviso? Esta acción no se puede deshacer.")) {
+                window.location.href = url; // Redirigir si el usuario confirma
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="main-container">
@@ -61,7 +68,7 @@
                                 <a href="../../model/update_avisos.php?id=<?php echo $rows['id']; ?>" class="edit-btn">
                                     <img src="../../public/img/refresh.svg" alt="Editar" class="icon"> Editar
                                 </a>
-                                <a href="javascript:void(0);" onclick="openModala('../../controller/delete_aviso.php?id=<?php echo $rows['id']; ?>')" class="delete-btn">
+                                <a href="javascript:void(0);" onclick="confirmDelete('../../controller/delete_aviso.php?id=<?php echo $rows['id']; ?>')" class="delete-btn">
                                     <img src="../../public/img/trash.svg" alt="Eliminar" class="icon"> Eliminar
                                 </a>
                             </td>

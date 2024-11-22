@@ -7,6 +7,7 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    padding-top: 150px;
     box-sizing: border-box;
 }
 
@@ -16,19 +17,44 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px; /* Ajustar según el tamaño de tu header */
+    height: 80px; /* Altura suficiente para íconos y texto */
+    padding: 10px 20px;
     background-color: #333; /* Color de fondo del header */
     color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     z-index: 1000;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
+/* Título dentro del header */
 header h1 {
     margin: 0;
-    font-size: 18px;
+    font-size: 24px; /* Tamaño ajustado */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Íconos dentro del header */
+header .icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Tamaño del círculo */
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+header .icono img {
+    width: 100%;
+    height: auto;
 }
 
 /* Contenedor principal del formulario */
@@ -36,16 +62,15 @@ header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 400px; /* Incrementa este valor para bajar el formulario */
+    margin-top: 20px; /* Se redujo para respetar el diseño */
     width: 100%;
-    height: calc(100vh - 400px); /* Ajusta el cálculo para reflejar el nuevo margen */
     box-sizing: border-box;
+    flex-grow: 1; /* Para que el formulario ocupe el espacio restante */
 }
-
 
 /* Caja del formulario */
 .login-box {
-    background: linear-gradient(90deg, #64cc8a, #507ea8);
+    background: linear-gradient(90deg, #8fc5c3, #63b495);
     border-radius: 10px;
     padding: 40px;
     width: 480px;
@@ -74,9 +99,9 @@ p {
     padding: 10px;
 }
 
-.icono {
-    width: 40px;
-    height: 40px;
+.input .icono {
+    width: 30px; /* Tamaño reducido para íconos del login */
+    height: 30px;
     margin-right: 10px;
 }
 
@@ -114,25 +139,28 @@ button:hover {
     padding: 5px;
     margin: 5px 0;
     color: #d9534f;
-    display: none; 
+    display: none;
 }
 
-/* Mostrar contraseña */
+/* Botón de mostrar contraseña */
 .btn_mostrarContra {
-    background-color: #f2f2f2; 
-    border: none; 
-    cursor: pointer; 
-    padding: 0; 
+    background-color: #f2f2f2;
+    border: none;
+    cursor: pointer;
+    padding: 0;
     margin-left: 5px;
 }
 
 .btn_mostrarContra:hover {
-    text-decoration: none; 
     background-color: rgb(170, 206, 240);
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
+    header h1 {
+        font-size: 20px;
+    }
+
     .contenedor_login {
         padding: 10px;
     }
@@ -160,12 +188,16 @@ button:hover {
     }
 
     .icono {
-        width: 30px;
-        height: 30px;
+        width: 25px; /* Tamaño reducido para pantallas pequeñas */
+        height: 25px;
     }
 }
 
 @media (max-width: 480px) {
+    header h1 {
+        font-size: 18px;
+    }
+
     .login-box {
         padding: 15px;
     }
@@ -188,7 +220,7 @@ button:hover {
     }
 
     .icono {
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
     }
 }

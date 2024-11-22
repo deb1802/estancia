@@ -12,9 +12,15 @@
 /* Detalles de la trayectoria */
 .trayectoria-details {
     margin-right: 20px;
-    flex: 1; 
+    flex: 1;
+    color: #333 !important;  
+    font-size: 16px; 
 }
 
+.trayectoria-card h5,
+.trayectoria-card p {
+    color: #333 !important;
+}
 
 .map-container {
     width: 50%;
