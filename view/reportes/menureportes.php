@@ -32,11 +32,11 @@ if (isset($_SESSION['usuario'])) {
             </div>
             <div class="dashboard-option" onclick="navigateTo('disponibilidades')">
                 <img src="../../public/img/calendar-month.svg" alt="Disponibilidades">
-                <span>Disponibilidades</span>
+                <span>Reporte 2</span>
             </div>
             <div class="dashboard-option" onclick="navigateTo('trayectorias')">
                 <img src="../../public/img/map.png" alt="Trayectorias">
-                <span>Trayectorias</span>
+                <span>Reporte 3</span>
             </div>
             <div class="dashboard-option" onclick="navigateTo('avisos')">
                 <img src="../../public/img/avisos.png" alt="avisos">

@@ -241,31 +241,9 @@ END;
 //
 DELIMITER ;
 
-
-
-
-
 select * from solicitudes;
-select * from perfiles;
-select * from detalleTrayectoria;
-select * from avisos;
-select * from usuarios;
-select * from vehiculos;
-select * from vehiculos;
-select * from trayectorias2;
-select * from trayectorias2;
 
-select * from perfiles;
-select * from avisosGeneral;
-select * from solicitudes;
-update solicitudes set estado="aceptada" where id=1;
-UPDATE detalleTrayectoria SET estado_viaje = 'finalizado' WHERE idTrayectoria = 1;
-
-
-select * from detalleTrayectoria;
-
-select * from perfiles;
-select * from vehiculos;
+-- reportes
 
 -- cantidad de viajes que viajes que ha hecho un alumno con estado finalizado por un rango de fechas, mostrado de forma descendente 
 SELECT u.id AS "Id de del alumno", u.nombre as "Nombre del alumno", u.apellido, COUNT(dt.id) AS "Total de viajes"
@@ -281,7 +259,7 @@ ORDER BY "Total de viajes" DESC;
 
 -- Cantidad de trayectorias realizadas por cada vehículo, ordenadas de mayor a menor.
 SELECT 
-    v.id AS "ID del Vehículo", 
+    v.id AS "ID Vehículo", 
     CONCAT(v.marca, ' ', v.modelo, ' (', v.placas, ')') AS "Vehículo",
     u.nombre AS "Conductor",
     COUNT(t.id) AS "Trayectorias Realizadas"
@@ -320,7 +298,7 @@ FROM trayectorias2 t
 JOIN vehiculos v ON t.idVehiculo = v.id
 LEFT JOIN detalleTrayectoria dt ON t.id = dt.idTrayectoria
 GROUP BY t.id, t.origen, t.destino, v.marca, v.modelo, v.placas, t.capacidad
-ORDER BY "Espacios Disponibles" asc;
+ORDER BY "Espacios Disponibles" DESC;
 
 
 -- Cantidad de viajes realizados por cada día de la semana.
@@ -345,3 +323,4 @@ WHERE dt.estado_viaje = 'finalizado'
 GROUP BY v.id
 ORDER BY "Viajes Finalizados" DESC;
 
+select * from vehiculos;

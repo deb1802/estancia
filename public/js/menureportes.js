@@ -7,7 +7,7 @@ function navigateTo(page) {
             window.location.href = '../../../estancia/view/reportes/reporte2.php';
             break;
         case 'trayectorias':
-            window.location.href = '';
+            window.location.href = '../../../estancia/view/reportes/reporte3.php';
             break;
         case 'avisos':
             window.location.href = '';

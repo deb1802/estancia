@@ -56,14 +56,21 @@ function generar_reporte($fecha_inicio, $fecha_fin) {
     $sheet->getStyle('A4')->getFont()->setBold(true)->setSize(14);
     $sheet->getStyle('A4')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
+    // Fechas seleccionadas
+    $sheet->setCellValue('A5', 'Fecha de Inicio:');
+    $sheet->setCellValue('B5', $fecha_inicio);
+    $sheet->setCellValue('C5', 'Fecha de Fin:');
+    $sheet->setCellValue('D5', $fecha_fin);
+    $sheet->getStyle('A5:D5')->getFont()->setItalic(true);
+
     // Encabezados
-    $sheet->setCellValue('A6', 'Alumno_ID');
-    $sheet->setCellValue('B6', 'Nombre');
-    $sheet->setCellValue('C6', 'Apellido');
-    $sheet->setCellValue('D6', 'Total_Viajes');
+    $sheet->setCellValue('A7', 'Alumno_ID');
+    $sheet->setCellValue('B7', 'Nombre');
+    $sheet->setCellValue('C7', 'Apellido');
+    $sheet->setCellValue('D7', 'Total_Viajes');
 
     // Datos
-    $row = 7;
+    $row = 8;
     while ($data = $result->fetch_assoc()) {
         $sheet->setCellValue('A' . $row, $data['Alumno_ID']);
         $sheet->setCellValue('B' . $row, $data['Nombre']);
