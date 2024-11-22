@@ -1,21 +1,49 @@
-/* Estructura del contenedor principal */
+/* Estilo general del body */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
+/* Header fijo en la parte superior */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Ajustar según el tamaño de tu header */
+    background-color: #333; /* Color de fondo del header */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* Contenedor principal del formulario */
 .contenedor_login {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin-top: 400px; /* Incrementa este valor para bajar el formulario */
+    width: 100%;
+    height: calc(100vh - 400px); /* Ajusta el cálculo para reflejar el nuevo margen */
+    box-sizing: border-box;
 }
 
+
+/* Caja del formulario */
 .login-box {
     background: linear-gradient(90deg, #64cc8a, #507ea8);
     border-radius: 10px;
@@ -25,7 +53,7 @@ body {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Título y subtítulo */
+/* Títulos */
 h2 {
     color: white;
     margin-bottom: 10px;
@@ -36,8 +64,8 @@ p {
     margin-bottom: 30px;
 }
 
-/* Estilos de los campos de entrada */
-.input{
+/* Campos de entrada */
+.input {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -62,7 +90,7 @@ input {
     color: #333;
 }
 
-/* Estilos del botón de envío */
+/* Botón de envío */
 button {
     width: 100%;
     padding: 15px;
@@ -78,6 +106,7 @@ button:hover {
     background-color: #40e764;
 }
 
+/* Mensaje de alerta */
 .alert {
     font-size: 12px;
     font-family: Arial, Helvetica;
@@ -88,9 +117,9 @@ button:hover {
     display: none; 
 }
 
-/*Para lo de mostrar contra*/
+/* Mostrar contraseña */
 .btn_mostrarContra {
-    background-color:#f2f2f2; 
+    background-color: #f2f2f2; 
     border: none; 
     cursor: pointer; 
     padding: 0; 
@@ -100,4 +129,66 @@ button:hover {
 .btn_mostrarContra:hover {
     text-decoration: none; 
     background-color: rgb(170, 206, 240);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .contenedor_login {
+        padding: 10px;
+    }
+
+    .login-box {
+        width: 100%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .icono {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    input {
+        font-size: 12px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .icono {
+        width: 25px;
+        height: 25px;
+    }
 }
