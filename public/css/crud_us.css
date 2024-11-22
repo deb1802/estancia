@@ -221,3 +221,64 @@ button:hover {
         font-size: 14px;
     }
 }
+
+/* Estilo general para la barra de búsqueda */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto; /* Centrar con espacio superior/inferior */
+}
+
+/* Contenedor del campo de búsqueda con imagen de lupa */
+.search-input {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+/* Estilo para el campo de texto con imagen de lupa */
+#busqueda {
+    padding: 10px 10px 10px 40px; /* Espacio para la imagen */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    transition: border-color 0.3s;
+    background-image: url('../img/lupa.svg'); /* Ruta de la imagen de lupa */
+    background-size: 20px 20px; /* Tamaño de la lupa */
+    background-repeat: no-repeat;
+    background-position: 10px center; /* Posición de la lupa */
+}
+
+#busqueda:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+/* Estilo del menú desplegable */
+#filtro {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+#filtro:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+/* Separación respecto a la tabla */
+table {
+    margin-top: 20px;
+}
