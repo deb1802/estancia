@@ -11,7 +11,7 @@
 <body>
     <div class="container mt-4">
         <h2 class="text-center">Trayectorias de este conductor</h2>
-        <?php include '../../model/ver _traye_c.php'; ?>
+        <?php include '../../model/ver_traye_c.php'; ?>
         
         <div class="row">
     <?php foreach ($trayectorias as $trayectoria): ?>

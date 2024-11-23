@@ -45,3 +45,32 @@
         margin-right: 0;
     }
 }
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input,
+.search-bar select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    flex: 1;
+}
+
+.search-bar input:focus,
+.search-bar select:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+.perfil-item {
+    margin-bottom: 20px;
+}
