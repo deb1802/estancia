@@ -27,24 +27,24 @@ if (isset($_SESSION['usuario'])) {
 
         <main class="dashboard-content">
             <div class="dashboard-option" onclick="navigateTo('reporte1')">
-                <img src="../../public/img/users.png" alt="Usuarios">
-                <span>Reporte 1</span>
+                <img src="../../public/img/taxi.png" alt="reporte1">
+                <span>Total de viajes por alumno</span>
             </div>
-            <div class="dashboard-option" onclick="navigateTo('disponibilidades')">
-                <img src="../../public/img/calendar-month.svg" alt="Disponibilidades">
-                <span>Reporte 2</span>
+            <div class="dashboard-option" onclick="navigateTo('reporte2')">
+                <img src="../../public/img/capacidad.png" alt="reporte2">
+                <span>Ocupación de vehículos por capacidad</span>
             </div>
-            <div class="dashboard-option" onclick="navigateTo('trayectorias')">
-                <img src="../../public/img/map.png" alt="Trayectorias">
-                <span>Reporte 3</span>
+            <div class="dashboard-option" onclick="navigateTo('reporte3')">
+                <img src="../../public/img/car2.png" alt="reporte3">
+                <span>Uso de vehículos por conductor</span>
             </div>
-            <div class="dashboard-option" onclick="navigateTo('avisos')">
-                <img src="../../public/img/avisos.png" alt="avisos">
-                <span>Avisos</span>
+            <div class="dashboard-option" onclick="navigateTo('reporte4')">
+                <img src="../../public/img/query.png" alt="reporte4">
+                <span>Solicitudes aceptadas y rechazadas</span>
             </div>
-            <div class="dashboard-option" onclick="navigateTo('perfiles')">
-                <img src="../../public/img/perfiles.png" alt="perfiles">
-                <span>Perfiles</span>
+            <div class="dashboard-option" onclick="navigateTo('reporte5')">
+                <img src="../../public/img/tm.png" alt="reporte5">
+                <span>Vehículos más registrados</span>
             </div>
         </main>
     </div>
