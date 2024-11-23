@@ -72,7 +72,7 @@ include '../../../estancia/controller/mostrar_usuarios.php';
                     <!-- Campo de información adicional -->
                     <div class="form-group">
                         <label for="info">Información adicional:</label>
-                        <textarea id="info" name="informacion" class="form-control" rows="4" placeholder="Agrega tu ingo, no pongas malas palabras."></textarea>
+                        <textarea id="info" name="informacion" class="form-control" rows="4" placeholder="Agrega tu información, no pongas malas palabras"></textarea>
                     </div>
                     <p class="alert" id="errorInfo" style="display: none;">Este campo debe estar lleno. No pongas malas palabras.</p>
 
@@ -82,17 +82,6 @@ include '../../../estancia/controller/mostrar_usuarios.php';
             </div>
         </div>
     </div>
-    <!-- Apartado fuera del contenedor para ver otros perfiles -->
-    <div class="container mt-5">
-        <div class="other-profiles-container">
-            <h3><i class="fas fa-users"></i> ¡Visita todos los perfiles!</h3>
-            <p>Gestiona quien hace parte de Upemov.</p>
-            <a href="perfiles_a.php" class="btn btn-info">
-                Ver perfiles
-            </a>
-        </div>
-    </div>
-
     <!-- Scripts de JavaScript -->
     <script>
     // Función para actualizar la vista previa de la imagen

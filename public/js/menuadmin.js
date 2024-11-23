@@ -13,7 +13,7 @@ function navigateTo(page) {
             window.location.href = '../../view/avisos/crud_avisos.php';
             break;
         case 'perfiles':
-            window.location.href = '../../view/perfil/crear_perfil_a.php';
+            window.location.href = '../../view/perfil/menuperfiles.php';
             break;
         case 'vehiculos':
             window.location.href = '../../view/vehiculo/crud_vehiculo.php';

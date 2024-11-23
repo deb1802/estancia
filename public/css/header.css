@@ -10,14 +10,14 @@
     display: flex;
     justify-content: space-between; /* Para separar logo y menú */
     align-items: center;
-    padding: 10px 20px; /* Espaciado interno */
+    padding: 1px 15px; /* Espaciado interno */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
 }
 
 /* Asegura espacio debajo del header */
 body {
     margin: 0;
-    padding-top: 80px; /* Altura suficiente para evitar superposición */
+    padding-top: 90px; /* Altura suficiente para evitar superposición */
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
 }
