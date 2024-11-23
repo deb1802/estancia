@@ -81,6 +81,7 @@
                 </div>
 
                 <button type="submit" name="actualizar">Actualizar</button>
+                <a class="cancelar" href="../view/usuarios/crud_usuarios.php" class="cancelar">Cancelar</a>
             </form>
         </div>
     </div>

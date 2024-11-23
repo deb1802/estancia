@@ -1,3 +1,6 @@
+<?php
+include '../admin/header_admin.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +30,7 @@
                                 <button type="submit" name="generar_reporte" class="btn btn-success w-100">
                                     Generar Reporte
                                 </button>
+                                <a class="cancelar" href="../reportes/menureportes.php" class="cancelar">Cancelar</a>
                             </div>
                         </form>
                     </div>

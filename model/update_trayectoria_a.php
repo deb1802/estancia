@@ -126,6 +126,7 @@ if (isset($_POST['actualizar'])) {
             <!-- Botones -->
             <button type="button" onclick="mostrarEnMapa()">Mostrar en el Mapa</button>
             <button type="submit" name="actualizar">Actualizar Trayectoria</button>
+            <a class="cancelar" href="../view/trayectoria/ver_trayectoria_a.php" class="cancelar">Cancelar</a>
         </form>
 
         <!-- Mapa -->

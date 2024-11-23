@@ -23,11 +23,8 @@ function insertarUsuario($conn, $nombre, $apellidos, $correo, $user, $pass) {
     // Preparar la declaración
     $stmt = mysqli_prepare($conn, $sql);
 
-    // Encriptar la contraseña antes de insertarla
-    $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
-
     // Vincular los parámetros, incluyendo el tipo de usuario como entero ("i")
-    mysqli_stmt_bind_param($stmt, "sssssi", $nombre, $apellidos, $correo, $user, $hashedPass, $tipo_usuario);
+    mysqli_stmt_bind_param($stmt, "sssssi", $nombre, $apellidos, $correo, $user, $pass, $tipo_usuario);
 
     // Ejecutar la declaración
     $execute = mysqli_stmt_execute($stmt);
@@ -42,6 +39,4 @@ function insertarUsuario($conn, $nombre, $apellidos, $correo, $user, $pass) {
         return "Error al registrar el usuario: " . mysqli_error($conn);
     }
 }
-
-
 ?>

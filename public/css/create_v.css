@@ -12,12 +12,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 350px;
+    padding-top: 280px;
     height: calc(100vh - 100px); 
 }
 
 .login-box {
-    background: linear-gradient(90deg, #aef1c8, #507ea8);
+    background: linear-gradient(90deg, #8fc5c3, #63b495);
     border-radius: 10px;
     padding: 40px;
     width: 500px;

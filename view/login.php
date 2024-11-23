@@ -31,7 +31,7 @@
                 </p>
                 <div class="input">
                     <img src="../public/img/pass.png" alt="icono candado" class="icono">
-                    <input type="password" placeholder="Ingresa Contraseña" name="contrasena">
+                    <input type="password" placeholder="**********" name="contrasena">
                     <button type="button" id="togglePassword" class="btn_mostrarContra" onclick="visibilidadContrasena()">
                         <img src="../public/img/eye.svg" alt="Mostrar contraseña" style="width: 20px; height: 20px;"> <!-- Ajusta el tamaño según sea necesario -->
                     </button>
