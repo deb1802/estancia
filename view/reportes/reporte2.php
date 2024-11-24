@@ -21,7 +21,7 @@ include '../admin/header_admin.php';
                     <div class="card-body">
                         <!-- Título de la Consulta -->
                         <h5 class="text-center">Reporte de Ocupación de Vehículos por Capacidad</h5>
-                        <p class="text-center">Vehículos utilizados en trayectorias, mostrando su capacidad inicial y ocupación actual.</p>
+                        <p class="text-center" style="color: #000;">Vehículos utilizados en trayectorias, mostrando su capacidad inicial y ocupación actual.</p>
 
                         <!-- Formulario que envía la petición al controller -->
                         <form action="../../controller/reporte2_c.php" method="POST">

@@ -24,11 +24,12 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
+    margin-top: 250px
 }
 
 /* Dashboard Header */
 .dashboard-header {
-    background-color: #86c8ee;
+    background-color: #6be299;
     color: #ffffff;
     padding: 20px;
     display: flex;

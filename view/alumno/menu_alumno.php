@@ -16,7 +16,7 @@ $nombre = $_SESSION['nombre'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Conductor</title>
-    <link rel="stylesheet" href="../../public/css/menu_conductor.css">
+    <link rel="stylesheet" href="../../public/css/menu_alumno.css">
 </head>
 <body>
     <?php include "header_alumno.php"; ?>
@@ -38,7 +38,7 @@ $nombre = $_SESSION['nombre'];
                 <span>Trayectorias Disponibles</span>
             </div>
             <div class="dashboard-option" onclick="navigateTo('solicitudes')">
-                <img src="../../public/img/route-x.svg" alt="Mis Disponibilidades">
+                <img src="../../public/img/request.png" alt="Mis Disponibilidades">
                 <span>Solicitudes</span>
             </div>
         </main>
