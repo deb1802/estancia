@@ -77,7 +77,7 @@ include '../../../estancia/controller/mostrar_usuarios.php';
                     <p class="alert" id="errorInfo" style="display: none;">Este campo debe estar lleno. No pongas malas palabras.</p>
 
                     <!-- Botón de Guardar -->
-                    <button id="guardar" type="submit" class="btn btn-primary">Guardar información</button>
+                    <button id="guardar" type="submit" class="btn btn-primary">Crear perfil</button>
                 </form>
             </div>
         </div>

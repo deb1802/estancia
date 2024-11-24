@@ -77,7 +77,6 @@ include '../../controller/mostrar_vehiculos_a.php';
 
             <button type="button" onclick="mostrarEnMapa()">Mostrar en el Mapa</button>
             <button type="submit">Guardar Trayectoria</button>
-            <button type="button" onclick="window.location.href='../../view/trayectoria/ver_trayectoria_a.php'">Consultar Trayectorias</button>
         </form>
         <!-- Mapa -->
         <iframe
