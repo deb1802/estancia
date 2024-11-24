@@ -51,12 +51,7 @@ function validacionTrayectoria() {
         isValid = false;
     }
 
-    // Validación del campo referencias (opcional)
-    if (referencias && !expreTexto.test(referencias)) {
-        document.getElementById("errorReferencias").style.display = "block";
-        document.getElementById("errorPago").textContent = "Las referencias son opcionales pero ingresa un texto válido.";
-        isValid = false;
-    }
+    
 
     // Validación del método de pago
     if (pago === "") {

@@ -21,7 +21,7 @@ include '../admin/header_admin.php';
                     <div class="card-body">
                         <!-- Título de la Consulta -->
                         <h5 class="text-center">Reporte de Uso de Vehículos por Conductor</h5>
-                        <p class="text-center">Cantidad de trayectorias realizadas por cada vehículo, ordenadas de mayor a menor.</p>
+                        <p class="text-center" style="color: #000;">Cantidad de trayectorias realizadas por cada vehículo, ordenadas de mayor a menor.</p>
 
                         <!-- Formulario que envía la petición al controller -->
                         <form action="../../controller/reporte3_c.php" method="POST">
