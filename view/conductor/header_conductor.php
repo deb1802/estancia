@@ -43,7 +43,7 @@
                     <li class="nav-item">
                         <a class="nav-link d-flex align-items-center" href="../../view/perfil/verificar_perfil_c.php">
                             <div class="icon-circle"><img src="../../public/img/user.png" alt="Perfil"></div>
-                            Perfil
+                            Mi perfil
                         </a>
                     </li>
 

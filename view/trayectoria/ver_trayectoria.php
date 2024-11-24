@@ -11,12 +11,24 @@
 <body>
     <div class="container mt-4">
         <h2 class="text-center">Trayectorias de este conductor</h2>
-        <?php include '../../model/ver_traye_c.php'; ?>
-        
+        <?php include '../../model/ver _traye_c.php'; ?>
+        <!-- Barra de búsqueda y filtros -->
+        <div class="search-bar">
+            <input type="text" id="busqueda" placeholder="Buscar en mis trayectorias..." onkeyup="filtrarTrayectorias()">
+            <select id="filtro" onchange="filtrarTrayectorias()">
+                <option value="0">Origen</option>
+                <option value="1">Destino</option>
+                <option value="3">Vehículo</option>
+                <option value="4">Placas</option>
+                <option value="5">Color del vehículo</option>
+                <option value="6">Capacidad</option>
+                <option value="7">Forma de pago</option>
+            </select>
+        </div>
         <div class="row">
     <?php foreach ($trayectorias as $trayectoria): ?>
         <!-- Agregar un id único al contenedor principal -->
-        <div class="col-md-12" id="trayectoria-<?= htmlspecialchars($trayectoria['id'], ENT_QUOTES, 'UTF-8') ?>">
+        <div class="col-md-12 trayectoria-item" id="trayectoria-<?= htmlspecialchars($trayectoria['id'], ENT_QUOTES, 'UTF-8') ?>">
             <div class="trayectoria-card">
                 <!-- Detalles de la trayectoria -->
                 <div class="trayectoria-details">
@@ -78,6 +90,32 @@
             .catch(error => console.error('Error:', error));
         }
     }
+    // Función para filtrar trayectorias
+    function filtrarTrayectorias() {
+    const busqueda = document.getElementById('busqueda').value.toLowerCase();
+    const filtro = document.getElementById('filtro').value;
+    const trayectorias = document.querySelectorAll('.trayectoria-item'); // Cambiar la clase aquí
+
+    trayectorias.forEach(trayectoria => {
+        const datos = [
+            trayectoria.querySelector('h5:nth-of-type(1)').textContent.toLowerCase(), // Origen
+            trayectoria.querySelector('h5:nth-of-type(2)').textContent.toLowerCase(), // Destino
+            trayectoria.querySelector('p:nth-of-type(1)').textContent.toLowerCase(), // Conductor
+            trayectoria.querySelector('p:nth-of-type(2)').textContent.toLowerCase(), // Vehículo
+            trayectoria.querySelector('p:nth-of-type(3)').textContent.toLowerCase(), // Placas
+            trayectoria.querySelector('p:nth-of-type(4)').textContent.toLowerCase(), // Color
+            trayectoria.querySelector('p:nth-of-type(5)').textContent.toLowerCase(), // Capacidad
+            trayectoria.querySelector('p:nth-of-type(7)').textContent.toLowerCase()  // Forma de pago
+        ];
+
+        trayectoria.style.display = datos[filtro].includes(busqueda) ? '' : 'none';
+    });
+}
+
+
+        // Filtrar trayectorias cuando se escriba en la barra de búsqueda
+        document.getElementById('busqueda').addEventListener('keyup', filtrarTrayectorias);
+        document.getElementById('filtro').addEventListener('change', filtrarTrayectorias);
 </script>
 
 </body>

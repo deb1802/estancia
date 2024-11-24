@@ -54,3 +54,42 @@ body {
 .centered-table {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* Estilo para los botones de acción */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #4c84af; 
+}
+
+.delete-btn {
+    background-color: #f44336;
+}
+
+.edit-btn:hover {
+    background-color: #00bcc9;
+    text-decoration: none;
+}
+
+.delete-btn:hover {
+    background-color: #ff7979; 
+    text-decoration: none;
+}
+
+.icon {
+    vertical-align: middle;
+    margin-right: 5px;
+}

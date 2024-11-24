@@ -27,31 +27,35 @@
             <main class="dashboard-content">
                 <div class="dashboard-option" onclick="navigateTo('vehiculo')">
                     <img src="../../public/img/cari.png" alt="Vehículo">
-                    <span>Vehículo</span>
+                    <span>Registrar nuevo vehículo</span>
                 </div>
                 <div class="dashboard-option" onclick="navigateTo('mis-vehiculos')">
                     <img src="../../public/img/cars.png" alt="Mis Vehículos">
-                    <span>Mis Vehículos</span>
+                    <span>Mis vehículos</span>
                 </div>
                 <div class="dashboard-option" onclick="navigateTo('disponibilidad')">
                     <img src="../../public/img/calendar-month.svg" alt="Disponibilidad">
-                    <span>Disponibilidad</span>
+                    <span>Registrar disponibilidad</span>
                 </div>
                 <div class="dashboard-option" onclick="navigateTo('mis-disponibilidades')">
                     <img src="../../public/img/clock.png" alt="Mis Disponibilidades">
-                    <span>Mis Disponibilidades</span>
+                    <span>Mis disponibilidades</span>
                 </div>
                 <div class="dashboard-option" onclick="navigateTo('trayectoria')">
                     <img src="../../public/img/route-x.svg" alt="Trayectorias">
-                    <span>Trayectorias</span>
+                    <span>Registrar nueva trayectoria</span>
                 </div>
                 <div class="dashboard-option" onclick="navigateTo('mis-trayectorias')">
                     <img src="../../public/img/map.png" alt="Mis Trayectorias">
-                    <span>Mis Trayectorias</span>
+                    <span>Mis trayectorias</span>
                 </div>
                 <div class="dashboard-option" onclick="navigateTo('mis-solicitudes')">
                     <img src="../../public/img/request.png" alt="Mis Solicitudes">
                     <span>Ver mis solicitudes</span>
+                </div>
+                <div class="dashboard-option" onclick="navigateTo('perfiles')">
+                    <img src="../../public/img/perfiles.png" alt="perfiles">
+                    <span>Ver perfiles</span>
                 </div>
             </main>
         </div>

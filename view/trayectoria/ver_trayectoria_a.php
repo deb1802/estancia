@@ -21,7 +21,7 @@
                 <option value="2">Conductor</option>
                 <option value="3">Vehículo</option>
                 <option value="4">Placas</option>
-                <option value="5">Color</option>
+                <option value="5">Color del vehículo</option>
                 <option value="6">Capacidad</option>
                 <option value="7">Forma de pago</option>
             </select>

@@ -21,6 +21,9 @@ function navigateTo(page) {
         case 'mis-solicitudes':
             window.location.href = '../../view/solicitudes/ver_solicitudes_c.php';
         break;
+        case 'perfiles':
+            window.location.href = '../../view/perfil/perfiles_c.php';
+        break;
         default:
         
             console.error("Página desconocida");
