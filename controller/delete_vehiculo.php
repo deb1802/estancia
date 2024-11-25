@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
         die("Eliminación falló: " . mysqli_error($conn));
     }
 
-    header("Location: ../view/vehiculo/update_delete.php");
+    header("Location: ../view/vehiculo/read_v.php");
     exit;
 } else {
     echo "ID de vehículo no especificado.";

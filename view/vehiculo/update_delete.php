@@ -1,5 +1,5 @@
 <?php include "../../model/db.php"?>
-<?php include '../confirmacion_delete.php'; ?>
+<?php include '../vehiculo/confirmacion_delete.php'; ?>
 
 <!-- Vincular el archivo CSS -->
 <link rel="stylesheet" href="../../public/css/updel.css">
