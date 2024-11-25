@@ -22,26 +22,30 @@ include "../admin/header_admin.php";
             </div>
         </header>
         <main class="dashboard-content">
+            <!-- Opción para respaldar la base de datos -->
             <div class="dashboard-option" onclick="navigateTo('respaldar')">
                 <img src="../../public/img/backup.png" alt="respaldar">
                 <span>Respaldar</span>
             </div>
+            <!-- Opción para restaurar la base de datos -->
             <div class="dashboard-option">
                 <form id="restoreForm" action="../../controller/restore.php" method="POST" enctype="multipart/form-data">
+                    <!-- Formulario para restaurar desde un archivo .sql -->
                     <label for="restoreFile">
                         <img src="../../public/img/restore.png" alt="restaurar">
                         <span>Restaurar</span>
                     </label>
-                    <input type="file" id="restoreFile" name="restoreFile" accept=".sql" style="display: none;" onchange="submitRestoreForm()">
+                    <input type="file" id="restoreFile" name="restoreFile" accept=".sql" style="display: none;" onchange="submitRestoreForm()"> <!-- Input para archivo .sql -->
                 </form>
             </div>
         </main>
     </div>
     <script src="../../public/js/database.js"></script>
     <script>
+        // Función que envía el formulario de restauración al seleccionar el archivo
         function submitRestoreForm() {
             const form = document.getElementById('restoreForm');
-            form.submit();
+            form.submit(); // Enviar el formulario
         }
     </script>
 </body>
