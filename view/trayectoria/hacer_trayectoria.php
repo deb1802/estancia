@@ -68,9 +68,6 @@ include '../../controller/mostrar_vehiculo_trayectoria.php';
         </iframe>
     </div>
 
-    <!-- Incluir el archivo de validación -->
-    <script src="../../public/js/validacion.js"></script>
-
     <script>
         // Asociamos la función de validación al evento submit del formulario
         document.getElementById("trayectoriaForm").onsubmit = function(event) {

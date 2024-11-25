@@ -1,6 +1,6 @@
 function validacionTrayectoria() {
     var expreTexto = /^[a-zA-Z0-9À-ÿ\s]{1,100}$/; // Origen, destino y referencias (alphanumeric y acentos)
-    var expreCapacidad = /^[1-9][0-9]*$/; // Capacidad (número positivo mayor que 0)
+    var expreCapacidad = /^[1-9][0-9]*$/; // Capacidad (número positivo mayor que 0) 
     
     // Obtener los valores de los campos
     var idVehiculo = document.getElementById("idVehiculo").value.trim();
@@ -32,7 +32,7 @@ function validacionTrayectoria() {
         isValid = false;
     }
 
-    // Validación del campo origen
+    // Validación del campo origen 
     if (!origen || !expreTexto.test(origen)) {
         document.getElementById("errorOrigen").style.display = "block";
         isValid = false;

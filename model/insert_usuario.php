@@ -18,7 +18,7 @@ function insertarUsuario($conn, $nombre, $apellidos, $correo, $user, $pass) {
     $tipo_usuario = 1; // Asignar el tipo de usuario como 'alumno' por defecto
 
     $sql = "INSERT INTO usuarios(nombre, apellido, correo, usuario, contrasena, tipo) 
-            VALUES (?, ?, ?, ?, ?, ?)";
+            VALUES (?, ?, ?, ?, ?, ?)"; 
 
     // Preparar la declaración
     $stmt = mysqli_prepare($conn, $sql);
