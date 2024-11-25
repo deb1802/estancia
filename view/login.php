@@ -22,13 +22,6 @@
             <h2>Iniciar sesión</h2>
             <p>Inicia sesión para continuar</p>
 
-            <?php
-            // Mostrar mensaje de error si las credenciales son incorrectas
-            if (isset($_GET['error'])) {
-                echo '<p class="alert alert-danger">Credenciales incorrectas. Inténtalo de nuevo.</p>';
-            }
-            ?>
-
             <!-- Formulario de inicio de sesión -->
             <form name="frm" action="../controller/validacion_login.php" method="post" onsubmit="return validacionLogin();">
                 <!-- Campo de usuario -->

@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($execute) {
             echo "Disponibilidad registrada exitosamente.";
-            header("Location: ../view/disponibilidad/crud_disponibilidad.php"); 
+            header("Location: ../view/disponibilidad/crud_disponibilidad.php");
             exit(); 
         } else {
             echo "Error al registrar la disponibilidad.";
