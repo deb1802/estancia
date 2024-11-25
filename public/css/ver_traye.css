@@ -117,3 +117,16 @@
         margin-right: 0;
     }
 }
+
+.trayectoria-detalles-card {
+    color: black !important; /* Fuerza el color negro */
+}
+
+.trayectoria-detalles-card p,
+.trayectoria-detalles-card span,
+.trayectoria-detalles-card h4,
+.trayectoria-detalles-card h5,
+.trayectoria-detalles-card ul,
+.trayectoria-detalles-card li {
+    color: black !important; /* Asegura que todos los elementos sean negros */
+}
