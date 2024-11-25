@@ -20,3 +20,4 @@ function guardarPerfil($conn, $idAlumno, $nombre, $telefono, $informacion, $imag
     return false; // Si no se preparó el statement correctamente
 }
 ?>
+ 

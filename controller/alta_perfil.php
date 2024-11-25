@@ -11,7 +11,7 @@ if (!isset($_SESSION['idAlumno'])) {
     exit();
 }
 
-// Obtener los datos del formulario
+// Obtener los datos del formularioo
 $idAlumno = $_SESSION['idAlumno'];
 
 // Verificar si el formulario fue enviado
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if (move_uploaded_file($archivoImagen['tmp_name'], $nombreArchivo)) {
             $imagen = $nombreArchivo; // Guardar la ruta relativa de la imagen
-        }
+        } 
     }
 
     // Llamar a la función para guardar el perfil en la base de datos

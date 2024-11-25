@@ -13,4 +13,4 @@ if (isset($_POST['generar_reporte'])) {
         echo "Las fechas proporcionadas no tienen el formato correcto.";
     }
 }
-?>
+?> 

@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); 
 include $_SERVER['DOCUMENT_ROOT'] . '/estancia/model/db.php';
 if (!isset($_SESSION['id_conductor'])) {
     echo "No has iniciado sesión. Por favor, inicia sesión primero.";
@@ -21,7 +21,7 @@ $pago = $_POST['pago'];
 if (empty($idVehiculo) || empty($capacidad) || empty($origen) || empty($destino) || empty($pago)) {
     echo "Por favor, completa todos los campos obligatorios.";
     exit();
-}
+} 
 
 $sql = "INSERT INTO trayectorias2 (idConductor, idVehiculo, capacidad, origen, destino, referencias, pago) 
         VALUES (?, ?, ?, ?, ?, ?, ?)";

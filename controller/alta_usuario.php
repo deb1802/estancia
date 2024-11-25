@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Llamar a la función insertarUsuario y obtener el resultado
     $resultado = insertarUsuario($conn, $nombre, $apellidos, $correo, $user, $pass);
 
-    // Si el registro fue exitoso
+    // Si el registro fue exitoso 
     if ($resultado === true) {
         echo '<p class="parrafo">Registro exitoso. Serás redirigido al inicio de sesión en unos segundos.</p>';
 

@@ -16,4 +16,4 @@ function eliminarUsuario($conn, $id) {
 
     return $execute; // Devuelve true si la eliminación fue exitosa
 }
-?>
+?>  
