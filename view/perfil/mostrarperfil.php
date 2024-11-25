@@ -69,18 +69,7 @@ include '../alumno/header_alumno.php';
             </div>
         </div>
     </div>
-
-    <!-- Apartado fuera del contenedor para ver otros perfiles -->
-    <div class="container mt-5">
-        <div class="other-profiles-container">
-            <h3><i class="fas fa-users"></i> ¡Conoce más usuarios!</h3>
-            <p>Ven a descubrir quién más forma parte de Upemov.</p>
-            <a href="perfiles.php" class="btn btn-info">
-                Ver perfiles
-            </a>
-        </div>
-    </div>
-
+    
     <!-- Scripts de JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>

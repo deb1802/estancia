@@ -74,3 +74,46 @@
 .perfil-item {
     margin-bottom: 20px;
 }
+/* Estilo para las tarjetas de trayectoria */
+.trayectoria-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Detalles de la trayectoria */
+.trayectoria-details {
+    margin-right: 20px;
+    flex: 1; /* Ocupa el 50% del espacio disponible */
+}
+
+/* Contenedor del mapa */
+.map-container {
+    width: 50%;
+    height: 300px; /* Ajusta la altura del mapa */
+    border-radius: 8px;
+    border: 5px solid #4CAF50; /* Borde verde */
+    box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2); /* Sombra verde para el mapa */
+    padding: 5px; /* Espacio entre el borde y el mapa */
+}
+
+/* Ajustes en pantallas pequeñas */
+@media (max-width: 767px) {
+    .trayectoria-card {
+        flex-direction: column; /* En pantallas pequeñas se apilan */
+    }
+
+    .map-container {
+        height: 250px; /* Ajustar la altura del mapa en pantallas pequeñas */
+        margin-top: 15px;
+    }
+
+    .trayectoria-details {
+        margin-right: 0;
+    }
+}

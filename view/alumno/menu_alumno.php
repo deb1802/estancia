@@ -34,12 +34,16 @@ $nombre = $_SESSION['nombre'];
 
         <main class="dashboard-content">
             <div class="dashboard-option" onclick="navigateTo('trayectorias')">
-                <img src="../../public/img/route-x.svg" alt="Mis Disponibilidades">
-                <span>Trayectorias Disponibles</span>
+                <img src="../../public/img/route-x.svg" alt="trayectorias">
+                <span>Solicitar un viaje</span>
             </div>
             <div class="dashboard-option" onclick="navigateTo('solicitudes')">
-                <img src="../../public/img/request.png" alt="Mis Disponibilidades">
-                <span>Solicitudes</span>
+                <img src="../../public/img/request.png" alt="solicitudes">
+                <span>Mis solicitudes</span>
+            </div>
+            <div class="dashboard-option" onclick="navigateTo('perfiles')">
+                <img src="../../public/img/perfiles.png" alt="perfiles">
+                <span>Ver perfiles</span>
             </div>
         </main>
     </div>

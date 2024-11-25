@@ -16,17 +16,18 @@ include '../alumno/header_alumno.php';
 </head>
 <body>
     <div class="container mt-5">
-        <!-- Barra de búsqueda -->
-        <form method="GET" class="search-bar">
-            <div class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="Ingresa un nombre de user..." value="<?php echo htmlspecialchars(isset($_GET['search']) ? $_GET['search'] : ''); ?>">
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
-                </div>
-            </div>
-        </form>
+        <!-- Barra de búsqueda dinámica -->
+        <div class="search-bar">
+            <input type="text" id="busqueda" placeholder="Buscar perfiles..." onkeyup="filtrarPerfiles()">
+            <select id="filtro" onchange="filtrarPerfiles()">
+                <option value="0">Nombre de usuario</option>
+                <option value="1">Matrícula</option>
+                <option value="2">Teléfono</option>
+                <option value="3">Viajes</option>
+            </select>
+        </div>
 
-        <div class="row">
+        <div class="row" id="perfiles">
             <?php
             // Mostrar perfiles
             if (!empty($profiles)) {
@@ -34,16 +35,16 @@ include '../alumno/header_alumno.php';
                     $imagePath = !empty($profile['imagen']) ? '../' . htmlspecialchars($profile['imagen']) : '../../public/img/perfil.svg';
 
                     echo '
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-4 col-sm-6 perfil-item">
                         <div class="card profile-card">
                             <div class="card-header">
-                                <h4>@' . htmlspecialchars($profile['nombreUser']) . '</h4>
+                                <h4 class="nombreUser">@' . htmlspecialchars($profile['nombreUser']) . '</h4>
                             </div>
                             <div class="card-body">
                                 <img src="' . $imagePath . '" alt="Foto de perfil">
-                                <p class="profile-info">Matrícula: ' . htmlspecialchars($profile['matricula']) . '</p>
-                                <p class="profile-info">Teléfono: ' . htmlspecialchars($profile['telefono']) . '</p>
-                                <p class="profile-info">Información: ' . htmlspecialchars($profile['informacion']) . '</p>
+                                <p class="profile-info matricula">Matrícula: ' . htmlspecialchars($profile['matricula']) . '</p>
+                                <p class="profile-info telefono">Teléfono: ' . htmlspecialchars($profile['telefono']) . '</p>
+                                <p class="profile-info informacion">Información: ' . htmlspecialchars($profile['informacion']) . '</p>
                                 <p class="viajes"><i class="fas fa-car"></i> Viajes realizados: ' . htmlspecialchars($profile['viajes']) . '</p>
                                 <i class="fas fa-heart like-btn" id="like_' . $profile['id'] . '"></i>
                             </div>
@@ -61,8 +62,24 @@ include '../alumno/header_alumno.php';
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <script>
+        function filtrarPerfiles() {
+            const busqueda = document.getElementById('busqueda').value.toLowerCase();
+            const filtro = document.getElementById('filtro').value;
+            const perfiles = document.querySelectorAll('.perfil-item');
+
+            perfiles.forEach(perfil => {
+                const datos = [
+                    perfil.querySelector('.nombreUser').textContent.toLowerCase(),
+                    perfil.querySelector('.matricula').textContent.toLowerCase(),
+                    perfil.querySelector('.telefono').textContent.toLowerCase(),
+                    perfil.querySelector('.viajes').textContent.toLowerCase()
+                ];
+
+                perfil.style.display = datos[filtro].includes(busqueda) ? '' : 'none';
+            });
+        }
+
         // Manejar el clic en el corazón (like)
         $(document).ready(function() {
             $('.like-btn').click(function() {
@@ -70,5 +87,6 @@ include '../alumno/header_alumno.php';
             });
         });
     </script>
+
 </body>
 </html>

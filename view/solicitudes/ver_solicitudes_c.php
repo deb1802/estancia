@@ -61,15 +61,18 @@
     <h5>Alumnos en la Trayectoria:</h5>
     <ul id="lista-alumnos"></ul>
 
-    <div>
-        <!-- Botones para Iniciar y Finalizar Viaje -->
-        <button class="btn btn-info" id="btn-iniciar-viaje" onclick="cambiarEstadoTrayectoria(<?= $solicitud['idTrayectoria'] ?>, 'iniciado')">
-            Iniciar Viaje
-        </button>
-        <button class="btn btn-info" id="btn-finalizar-viaje" onclick="cambiarEstadoTrayectoria(<?= $solicitud['idTrayectoria'] ?>, 'finalizado')">
-            Finalizar Viaje
-        </button>
-    </div>
+    <div class="d-flex justify-content-center gap-3 mt-3">
+    <!-- Botón para Iniciar Viaje -->
+    <button class="btn btn-success btn-lg" id="btn-iniciar-viaje" onclick="cambiarEstadoTrayectoria(<?= $solicitud['idTrayectoria'] ?>, 'iniciado')">
+        Iniciar Viaje
+    </button>
+    
+    <!-- Botón para Finalizar Viaje -->
+    <button class="btn btn-danger btn-lg" id="btn-finalizar-viaje" onclick="cambiarEstadoTrayectoria(<?= $solicitud['idTrayectoria'] ?>, 'finalizado')">
+        Finalizar Viaje
+    </button>
+</div>
+
 </div>
 
     </div>

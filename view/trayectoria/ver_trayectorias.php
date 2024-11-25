@@ -7,75 +7,45 @@
     <title>Trayectorias</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../public/css/ver_traye.css">
-    <style>
-        /* Estilo para las tarjetas de trayectoria */
-        .trayectoria-card {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-
-        /* Detalles de la trayectoria */
-        .trayectoria-details {
-            margin-right: 20px;
-            flex: 1; /* Ocupa el 50% del espacio disponible */
-        }
-
-        /* Contenedor del mapa */
-        .map-container {
-            width: 50%;
-            height: 300px; /* Ajusta la altura del mapa */
-            border-radius: 8px;
-            border: 5px solid #4CAF50; /* Borde verde */
-            box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2); /* Sombra verde para el mapa */
-            padding: 5px; /* Espacio entre el borde y el mapa */
-        }
-
-        /* Ajustes en pantallas pequeñas */
-        @media (max-width: 767px) {
-            .trayectoria-card {
-                flex-direction: column; /* En pantallas pequeñas se apilan */
-            }
-
-            .map-container {
-                height: 250px; /* Ajustar la altura del mapa en pantallas pequeñas */
-                margin-top: 15px;
-            }
-
-            .trayectoria-details {
-                margin-right: 0;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="container mt-4">
         <h2 class="text-center">Trayectorias Disponibles</h2>
+        <!-- Barra de búsqueda y filtros -->
+        <div class="search-bar">
+            <input type="text" id="busqueda" placeholder="Buscar trayectorias..." onkeyup="filtrarTrayectorias()">
+            <select id="filtro" onchange="filtrarTrayectorias()">
+                <option value="0">Origen</option>
+                <option value="1">Destino</option>
+                <option value="2">Conductor</option>
+                <option value="3">Vehículo</option>
+                <option value="4">Placas</option>
+                <option value="5">Color del vehículo</option>
+                <option value="6">Capacidad</option>
+                <option value="7">Forma de pago</option>
+            </select>
+        </div>
 
         <?php include '../../model/ver_traye.php'; ?>
 
         <div class="row">
-            <?php foreach ($trayectorias as $trayectoria): ?>
-                <div class="col-md-12">
-                    <div class="trayectoria-card">
-                        <!-- Detalles de la trayectoria -->
-                        <div class="trayectoria-details">
-                            <h5><strong>Origen:</strong> <?= $trayectoria['origen'] ?></h5>
-                            <h5><strong>Destino:</strong> <?= $trayectoria['destino'] ?></h5>
-                            <p><strong>Conductor:</strong> <?= $trayectoria['conductor'] ?></p>
-                            <p><strong>Vehículo:</strong> <?= $trayectoria['marca'] ?> <?= $trayectoria['modelo'] ?> (<?= $trayectoria['anio'] ?>)</p>
-                            <p><strong>Placas:</strong> <?= $trayectoria['placas'] ?></p>
-                            <p><strong>Color:</strong> <?= $trayectoria['color'] ?></p>
-                            <p><strong>Capacidad:</strong> <?= $trayectoria['capacidad'] ?> personas</p>
-                            <p><strong>Referencias:</strong> <?= $trayectoria['referencias'] ?></p>
-
-                            <!-- Disponibilidad -->
-                            <p><strong>Esta trayectoria está disponible en los siguientes días y horarios:</strong></p>
+        <?php foreach ($trayectorias as $trayectoria): ?>
+        <!-- Agregar un id único al contenedor principal -->
+        <div class="col-md-12 trayectoria-item" id="trayectoria-<?= htmlspecialchars($trayectoria['id'], ENT_QUOTES, 'UTF-8') ?>">
+            <div class="trayectoria-card">
+                <!-- Detalles de la trayectoria -->
+                <div class="trayectoria-details">
+                    <h5><strong>Origen:</strong> <?= $trayectoria['origen'] ?></h5>
+                    <h5><strong>Destino:</strong> <?= $trayectoria['destino'] ?></h5>
+                    <p><strong>Conductor:</strong> <?= $trayectoria['conductor'] ?></p>
+                    <p><strong>Vehículo:</strong> <?= $trayectoria['marca'] ?> <?= $trayectoria['modelo'] ?> (<?= $trayectoria['anio'] ?>)</p>
+                    <p><strong>Placas:</strong> <?= $trayectoria['placas'] ?></p>
+                    <p><strong>Color:</strong> <?= $trayectoria['color'] ?></p>
+                    <p><strong>Capacidad:</strong> <?= $trayectoria['capacidad'] ?> personas</p>
+                    <p><strong>Referencias:</strong> <?= $trayectoria['referencias'] ?></p>
+                    <p><strong>Forma de pago:</strong> <?= $trayectoria['pago'] ?></p>
+                    <!-- Disponibilidad -->
+                    <p><strong>Esta trayectoria está disponible en los siguientes días y horarios:</strong></p>
                             <ul>
                                 <?php foreach ($trayectoria['disponibilidad'] as $dispo): ?>
                                     <li><strong><?= $dispo['dia'] ?>:</strong> <?= $dispo['horaInicio'] ?> - <?= $dispo['horaFin'] ?></li>
@@ -88,7 +58,7 @@
                         <!-- Contenedor para el mapa -->
                         <div id="map-<?php echo htmlspecialchars($trayectoria['id'], ENT_QUOTES, 'UTF-8'); ?>" class="map-container"></div>
                     </div>
-                </div>
+                    </div>
 
                 <!-- Mensaje de éxito al enviar solicitud -->
                 <div id="mensaje-solicitud" class="alert alert-success" role="alert" style="display: none;">
@@ -114,6 +84,31 @@
         <?php foreach ($trayectorias as $trayectoria): ?>
             mostrarMapa(<?= htmlspecialchars($trayectoria['id'], ENT_QUOTES, 'UTF-8') ?>, "<?= htmlspecialchars($trayectoria['origen'], ENT_QUOTES, 'UTF-8') ?>", "<?= htmlspecialchars($trayectoria['destino'], ENT_QUOTES, 'UTF-8') ?>");
         <?php endforeach; ?>
+
+        // Función para filtrar trayectorias
+        function filtrarTrayectorias() {
+    const busqueda = document.getElementById('busqueda').value.toLowerCase();
+    const filtro = document.getElementById('filtro').value;
+    const trayectorias = document.querySelectorAll('.trayectoria-item'); // Cambiar la clase aquí
+
+    trayectorias.forEach(trayectoria => {
+        const datos = [
+            trayectoria.querySelector('h5:nth-of-type(1)').textContent.toLowerCase(), // Origen
+            trayectoria.querySelector('h5:nth-of-type(2)').textContent.toLowerCase(), // Destino
+            trayectoria.querySelector('p:nth-of-type(1)').textContent.toLowerCase(), // Conductor
+            trayectoria.querySelector('p:nth-of-type(2)').textContent.toLowerCase(), // Vehículo
+            trayectoria.querySelector('p:nth-of-type(3)').textContent.toLowerCase(), // Placas
+            trayectoria.querySelector('p:nth-of-type(4)').textContent.toLowerCase(), // Color
+            trayectoria.querySelector('p:nth-of-type(5)').textContent.toLowerCase(), // Capacidad
+            trayectoria.querySelector('p:nth-of-type(7)').textContent.toLowerCase()  // Forma de pago
+        ];
+
+        trayectoria.style.display = datos[filtro].includes(busqueda) ? '' : 'none';
+    });
+}
+// Filtrar trayectorias cuando se escriba en la barra de búsqueda
+document.getElementById('busqueda').addEventListener('keyup', filtrarTrayectorias);
+        document.getElementById('filtro').addEventListener('change', filtrarTrayectorias);
     </script>
 
     <script src="../../public/js/solicitar_trayectoria.js"></script>
