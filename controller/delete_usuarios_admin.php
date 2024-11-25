@@ -1,5 +1,5 @@
 <?php
-include "../model/db.php"; // Asegúrate de incluir la conexión a la base de datos
+include "../model/db.php"; 
 include "../model/delete_usuario.php"; // Incluir el modelo para la eliminación de usuarios
 
 if (isset($_GET['id'])) {

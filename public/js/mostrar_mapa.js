@@ -25,3 +25,4 @@ document.getElementById('mapFrame').style.display = "block";
             const mapFrame = document.getElementById('mapFrame');
             mapFrame.src = mapUrl;
         }
+        

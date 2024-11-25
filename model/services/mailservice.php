@@ -11,7 +11,7 @@ class MailService {
         // Carga las variables de entorno desde model/config/.env
         $dotenv = Dotenv::createImmutable(__DIR__ . '/../config');
         $dotenv->load();
-        $mail = new PHPMailer(true);
+        $mail = new PHPMailer(true); 
         try {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
